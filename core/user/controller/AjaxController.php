@@ -39,7 +39,7 @@ class AjaxController extends BaseUser
 
 					break;
 
-					// Выпуск №105 php | js | поиск по административной панели
+					// php | js | поиск по каталогу
 				case 'search':
 					return $this->search();
 					break;

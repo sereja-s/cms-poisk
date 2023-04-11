@@ -520,9 +520,9 @@ class Model extends \core\base\model\BaseModel
 	}
 
 	/** 
-	 * Метод для формирования инструкций WHERE и ORDER для системы поиска (Выпуск №109)	 
+	 * Метод для формирования инструкций WHERE и ORDER для системы поиска	 
 	 * (на вход: 1- массив полей в которых будем искать, 2- массив того, что мы ищем, 3- массив по которому сортируем, 
-	 * 4 -переменная (таблица)) 
+	 * 4- таблица в которой ищем) 
 	 */
 	protected function createWhereOrder($searchRows, $searchArr, $orderRows, $table)
 	{

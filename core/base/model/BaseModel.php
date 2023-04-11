@@ -622,10 +622,10 @@ abstract class BaseModel extends BaseModelMethods
 
 
 
-		//if (method_exists($this, 'createPagination')) {
+		if (method_exists($this, 'createPagination')) {
 
-		//	$this->createPagination($set, $table, "($query)", $limit);
-		//}
+			$this->createPagination($set, $table, "($query)", $limit);
+		}
 
 
 
