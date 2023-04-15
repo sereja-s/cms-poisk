@@ -8,25 +8,25 @@
 			<div class="footer__info">
 				<!-- logo -->
 				<a href="#" class="footer__logo-link">
-					<img class="footer__logo-img" src="assets/img/logo-header-center.png" alt="ELECITY">
+					<img class="footer__logo-img" src="<?= PATH . TEMPLATE ?>assets/img/строй_контакт.png" alt="СТРОЙ КОНТАКТ">
 				</a>
 
 				<!-- footer phone -->
 				<div class="footer__phone">
-					<a href="tel:+3809715095655">+38(097)150-956-55</a>
+					<a href="tel:+3809715095655">+7(949)123-456-78</a>
 				</div>
 
 				<!-- social link -->
 				<div class="footer__social">
-					<a class="footer__social-link" href="#" target="_blank"><img src="assets/img/icons/footer-tg.svg" alt="telegram"></a>
-					<a class="footer__social-link" href="#" target="_blank"><img src="assets/img/icons/footer-vk.svg" alt="vkontakte"></a>
-					<a class="footer__social-link" href="#" target="_blank"><img src="assets/img/icons/footer-vb.svg" alt="vaiber"></a>
-					<a class="footer__social-link" href="#" target="_blank"><img src="assets/img/icons/footer-odn.svg" alt="odnoklasniki"></a>
+					<a class="footer__social-link" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-tg.svg" alt="telegram"></a>
+					<a class="footer__social-link" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-vk.svg" alt="vkontakte"></a>
+					<a class="footer__social-link" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-vb.svg" alt="vaiber"></a>
+					<a class="footer__social-link" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-odn.svg" alt="odnoklasniki"></a>
 				</div>
 
 				<!-- footer props -->
 				<div class="footer__props">
-					ООО "БТ МАРКЕТ", ИНН77284830607 Киев, пл. Хрещатик д. 22, ком. 1
+					СТРОЙ КОНТАКТ г. Донецк
 				</div>
 			</div>
 			<!-- left col end -->
@@ -74,9 +74,9 @@
 			<p class="footer__copyright-text">Обращаем Ваше внимание на&nbsp;то, что данный интернет-сайт носит
 				исключительно информационный характер и&nbsp;ни&nbsp;при каких условиях информационные материалы
 				и&nbsp;цены,
-				размещенные на&nbsp;сайте, не&nbsp;являются публичной офертой, определяемой положениями Статьи 437
-				Гражданского кодекса&nbsp;UK.
-				<br>elecity.ua &copy;&nbsp;2011-2022
+				размещенные на&nbsp;сайте, не&nbsp;являются публичной офертой, определяемой положениями
+				Гражданского кодекса&nbsp;
+				<br>строй контакт &copy;&nbsp;2023
 			</p>
 		</div>
 	</div>
@@ -228,7 +228,7 @@
 			<div class="search-popup__product-left">
 				<div class="search-popup__product-image">
 					<a href="#">
-						<img class="search-popup__product-img" src="assets/img/hol-1.png" alt="">
+						<img class="search-popup__product-img" src="<?= PATH . TEMPLATE ?>assets/img/hol-1.png" alt="">
 					</a>
 				</div>
 
@@ -237,11 +237,11 @@
 
 					<div class="search-popup__product-social">
 						<div class="short-item__item-rating">
-							<img src="assets/img/icons/star-activ.jpg" alt="1">
-							<img src="assets/img/icons/star-activ.jpg" alt="2">
-							<img src="assets/img/icons/star-activ.jpg" alt="3">
-							<img src="assets/img/icons/star-activ.jpg" alt="4">
-							<img src="assets/img/icons/star-pasiv.svg" alt="5">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 						</div>
 
 						<div class="short-item__item-comment">
@@ -275,7 +275,7 @@
 			<div class="search-popup__product-left">
 				<div class="search-popup__product-image">
 					<a href="#">
-						<img class="search-popup__product-img" src="assets/img/hol-1.png" alt="">
+						<img class="search-popup__product-img" src="<?= PATH . TEMPLATE ?>assets/img/hol-1.png" alt="">
 					</a>
 				</div>
 
@@ -284,11 +284,11 @@
 
 					<div class="search-popup__product-social">
 						<div class="short-item__item-rating">
-							<img src="assets/img/icons/star-activ.jpg" alt="1">
-							<img src="assets/img/icons/star-activ.jpg" alt="2">
-							<img src="assets/img/icons/star-activ.jpg" alt="3">
-							<img src="assets/img/icons/star-activ.jpg" alt="4">
-							<img src="assets/img/icons/star-pasiv.svg" alt="5">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 						</div>
 
 						<div class="short-item__item-comment">
@@ -322,7 +322,7 @@
 			<div class="search-popup__product-left">
 				<div class="search-popup__product-image">
 					<a href="#">
-						<img class="search-popup__product-img" src="assets/img/hol-1.png" alt="">
+						<img class="search-popup__product-img" src="<?= PATH . TEMPLATE ?>assets/img/hol-1.png" alt="">
 					</a>
 				</div>
 
@@ -331,11 +331,11 @@
 
 					<div class="search-popup__product-social">
 						<div class="short-item__item-rating">
-							<img src="assets/img/icons/star-activ.jpg" alt="1">
-							<img src="assets/img/icons/star-activ.jpg" alt="2">
-							<img src="assets/img/icons/star-activ.jpg" alt="3">
-							<img src="assets/img/icons/star-activ.jpg" alt="4">
-							<img src="assets/img/icons/star-pasiv.svg" alt="5">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 						</div>
 
 						<div class="short-item__item-comment">

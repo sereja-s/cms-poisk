@@ -75,6 +75,7 @@ abstract class BaseUser extends \core\base\controller\BaseController
 		// укажежем, что если что то пришло в свойство: $this->set, то сохраним в нём только нулевой элемент массива, который пришёл (первый по очереди)
 		$this->set && $this->set = $this->set[0];
 
+
 		// Выпуск №142
 		// получим данные для корзины (+Выпуск №147)
 		if (!$this->isAjax()/*  && !$this->isPost() */) {

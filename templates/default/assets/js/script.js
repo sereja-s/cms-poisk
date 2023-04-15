@@ -3,7 +3,7 @@
 // sctroll to top
 var arrowTop = document.getElementById("arrowTop");
 
-console.log(arrowTop)
+//console.log(arrowTop)
 
 arrowTop.onclick = function () {
 	window.scrollTo(pageXOffset, 0);
@@ -133,8 +133,6 @@ $(function () {
 		}, 700)
 		return false
 	}) */
-
-
 
 	// ============== cheange style (line to block) category items ==============
 	$('#line-view-style-button').click(function () {
@@ -306,7 +304,7 @@ $(function () {
 	let categoryMenuTimer;
 
 	// при наведении запускается таймер на 300мс, и через 300мс выполняется функция $('.navi-category__list-content').hide()
-	// и отображает ИД ссылкы на которую навеен курсор мыши
+	// и отображает ИД ссылкы на которую наведён курсор мыши
 	// если мышку убрали раньше таймера  то таймер останавливается  clearTimeout(categoryMenuTimer);
 	// и если перевели курсор на другую ссылку то таймер тоже останавливается с предедущей функции
 	// когда нажимаем пос ссылки происходит перещёт ширины екрана и если ширина меньше 768 то стандартное событые по клике отменяется

@@ -44,14 +44,21 @@ class IndexTestController extends BaseUser
 		$a = 1; */
 
 		// Выпуск №121
-		//$alias = '';
-		//$res = $this->alias('catalog//auto', '?page=2');
-		//$res = $this->alias(['catalog' => 'auto', 'girl' => 'Maria'], ['page' => 1, 'order' => 'desc']);
-		//$a = 1;
+		$alias = '';
+		$res = $this->alias();
+		$res2 = $this->alias('catalog');
+		$res3 = $this->alias('catalog', '?page=2');
+		// допустили ошибку в адресе
+		$res4 = $this->alias('catalog//auto', '?page=2');
+		$res5 = $this->alias(['catalog' => 'auto'], '?page=2');
+		$res5 = $this->alias(['catalog' => 'auto', 'girl' => 'Maria'], '?page=2');
+		$res6 = $this->alias(['catalog' => 'auto', 'girl' => 'Maria'], 'page=2');
+		$res7 = $this->alias(['catalog' => 'auto', 'girl' => 'Maria'], ['page' => 1, 'order' => 'desc']);
+
 
 		// Выпуск №121
-		/* $res = $this->img(false, true);
-		$a = 1; */
+		// $res = $this->img(false, true);
+
 
 		echo $this->getController();
 		exit;

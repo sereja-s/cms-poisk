@@ -61,7 +61,6 @@ class Settings
 			'outputMethod' => 'outputData'
 		]
 
-		//'p' => [1, 2, 3]
 	];
 
 	// свойство: расширение (путь к папке где хранятся расширения) 
@@ -72,7 +71,7 @@ class Settings
 	private $messages = 'core/base/messages/';
 
 	// свойство с таблицей по умолчанию
-	private $defaultTable = 'sales';
+	private $defaultTable = 'settings';
 
 	// свойство в котором хранится путь к шаблонам админки
 	private $formTemplates = PATH . 'core/admin/view/include/form_templates/';
@@ -93,7 +92,7 @@ class Settings
 	// свойство: массив шаблонов
 	private $templateArr = [
 		// массив вида: 'название шаблона' => массив с полями для которых должен быть подключен соответствующий шаблон
-		'text' => ['name', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password'],
+		'text' => ['name', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password', 'working_time'],
 		'textarea' => ['content', 'keywords', 'address', 'description', 'short_content'],
 		'radio' => ['visible', 'show_top_menu', 'hit', 'sale', 'new', 'hot'],
 		'checkboxlist' => ['filters', 'filters_test'], // указали, что хотим подключить фильтры к связанной таблице: 
@@ -114,6 +113,7 @@ class Settings
 		'content' => ['Описание', '(Текстовая часть, фотографии, картинки к описанию)'],
 		'description' => ['SEO описание'],
 		'phone' => ['Телефон'],
+		'working_time' => ['График работы'],
 		'email' => ['Электронная почта'],
 		'address' => ['Адрес'],
 		'alias' => ['Ссылка ЧПУ'],
@@ -153,7 +153,7 @@ class Settings
 	// св-во, в котором будет храниться информация о корневых таблицах
 	private $rootItems = [
 		'name' => 'Корневая',
-		'tables' => ['catalog', 'filters', 'teachers']
+		'tables' => ['catalog', 'filters']
 	];
 
 	// свойство для автоматизации связей многие ко многим

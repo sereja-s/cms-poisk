@@ -6,7 +6,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Строй Контакт</title>
+	<title><?= $this->set['name'] ?></title>
 
 	<?php $this->getStyles() ?>
 
@@ -27,11 +27,11 @@
 
 					<!-- location -->
 					<div class="header__location">
-						<a class="header__location-link popup-open-modal" href="#change-city-popup">Город</a>
+						<a class="header__location-link popup-open-modal" href="#change-city-popup">Донецк</a>
 					</div>
 
 					<a class="header__all-category-link3" href="#">
-						<span class="header__all-category-icon3">Все категории</span>
+						<span class="header__all-category-icon3">КАТАЛОГ</span>
 					</a>
 					<!-- menu -->
 					<div class="header__topNav">
@@ -79,14 +79,14 @@
 
 						<!-- social link 2-->
 						<div class="header__social2">
-							<a class="header__social-item2" href="#" target="_blank"><img src="assets/img/icons/viber.svg" alt="Viber"></a>
-							<a class="header__social-item2" href="#" target="_blank"><img src="assets/img/icons/telegram.svg" alt="Telegram"></a>
+							<a class="header__social-item2" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/viber.svg" alt="Viber"></a>
+							<a class="header__social-item2" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/telegram.svg" alt="Telegram"></a>
 						</div>
 						<!-- contacts 2 -->
 						<div class="header__contacts2">
 							<div class="header__contacts-phone2">
-								<a href="tel:+380971509555">+38(097)150-956-55</a>
-								<span class="header__contacts-time2">9:00 - 22:00 без выходных</span>
+								<a href="tel:<?= preg_replace('/[^+\d]/', '', $this->set['phone']) ?>"><?= $this->set['phone'] ?></a>
+								<span class="header__contacts-time2"><?= $this->set['working_time'] ?></span>
 							</div>
 						</div>
 
@@ -118,14 +118,14 @@
 					<div class="header__center-left">
 						<!-- logo -->
 						<div class="header__logo">
-							<a class="header__logo-img" href="/">
-								<img src="assets/img/logo-header-center.png" alt="ELECITY">
+							<a class="header__logo-img" href="<?= $this->alias() ?>">
+								<img src="<?= $this->img($this->set['img']) ?>" alt="<?= $this->set['name'] ?>">
 							</a>
 						</div>
 						<!-- all category -->
 						<div class="header__bottom-all">
-							<a class="header__all-category-link" href="#"><span class="header__all-category-icon"></span>Все
-								категории</a>
+							<a class="header__all-category-link" href="#"><span class="header__all-category-icon">
+								</span>КАТАЛОГ</a>
 						</div>
 
 						<!-- menu -->
@@ -151,14 +151,14 @@
 					<div class="header__center-right">
 						<!-- social link -->
 						<div class="header__social">
-							<a class="header__social-item" href="#" target="_blank"><img src="assets/img/icons/viber.svg" alt="Viber"></a>
-							<a class="header__social-item" href="#" target="_blank"><img src="assets/img/icons/telegram.svg" alt="Telegram"></a>
+							<a class="header__social-item" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/viber.svg" alt="Viber"></a>
+							<a class="header__social-item" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/telegram.svg" alt="Telegram"></a>
 						</div>
 						<!-- contacts -->
 						<div class="header__contacts">
 							<div class="header__contacts-phone">
-								<a href="tel:+380971509555">+38(097)150-956-55</a>
-								<span class="header__contacts-time">9:00 - 22:00 без выходных</span>
+								<a href="tel:<?= preg_replace('/[^+\d]/', '', $this->set['phone']) ?>"><?= $this->set['phone'] ?></a>
+								<span class="header__contacts-time"><?= $this->set['working_time'] ?></span>
 							</div>
 						</div>
 
@@ -174,7 +174,7 @@
 								<div class="header__cart__item">
 									<div class="header__cart__image">
 										<a href="#">
-											<img class="header__cart__img" src="assets/img/hol-1.png" alt="">
+											<img class="header__cart__img" src="<?= PATH . TEMPLATE ?>assets/img/hol-1.png" alt="">
 										</a>
 									</div>
 
@@ -192,7 +192,7 @@
 								<div class="header__cart__item">
 									<div class="header__cart__image">
 										<a href="#">
-											<img class="header__cart__img" src="assets/img/hol-1.png" alt="">
+											<img class="header__cart__img" src="<?= PATH . TEMPLATE ?>assets/img/hol-1.png" alt="">
 										</a>
 									</div>
 
@@ -210,7 +210,7 @@
 								<div class="header__cart__item">
 									<div class="header__cart__image">
 										<a href="#">
-											<img class="header__cart__img" src="assets/img/hol-1.png" alt="">
+											<img class="header__cart__img" src="<?= PATH . TEMPLATE ?>assets/img/hol-1.png" alt="">
 										</a>
 									</div>
 
@@ -476,7 +476,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -641,7 +641,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -806,7 +806,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -971,7 +971,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -1136,7 +1136,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -1301,7 +1301,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -1466,7 +1466,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -1631,7 +1631,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -1796,7 +1796,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -1961,7 +1961,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -2126,7 +2126,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -2291,7 +2291,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -2456,7 +2456,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -2621,7 +2621,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -2786,7 +2786,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -2951,7 +2951,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -3116,7 +3116,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">
@@ -3281,7 +3281,7 @@
 												<div class="navi-category__sb-text">Забери со скидкой до 11.02.21</div>
 
 												<div class="navi-category__sb-image">
-													<img class="navi-category__sb-img" src="assets/img/iphone.jpg" alt="iphone">
+													<img class="navi-category__sb-img" src="<?= PATH . TEMPLATE ?>assets/img/iphone.jpg" alt="iphone">
 												</div>
 
 												<div class="navi-category__sb-buy">

@@ -13,7 +13,7 @@
 						</div>
 
 						<div class="index-slider__item-picture">
-							<img class="index-slider__item-img" src="assets/img/index-slider.png" alt="Большой выбор стиральных машин">
+							<img class="index-slider__item-img" src="<?= PATH . TEMPLATE ?>assets/img/index-slider.png" alt="Большой выбор стиральных машин">
 						</div>
 					</div>
 				</div>
@@ -29,7 +29,7 @@
 						</div>
 
 						<div class="index-slider__item-picture">
-							<img class="index-slider__item-img" src="assets/img/index-slider.png" alt="Большой выбор стиральных машин">
+							<img class="index-slider__item-img" src="<?= PATH . TEMPLATE ?>assets/img/index-slider.png" alt="Большой выбор стиральных машин">
 						</div>
 					</div>
 				</div>
@@ -45,7 +45,7 @@
 						</div>
 
 						<div class="index-slider__item-picture">
-							<img class="index-slider__item-img" src="assets/img/index-slider.png" alt="Большой выбор стиральных машин">
+							<img class="index-slider__item-img" src="<?= PATH . TEMPLATE ?>assets/img/index-slider.png" alt="Большой выбор стиральных машин">
 						</div>
 					</div>
 				</div>
@@ -80,7 +80,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-1.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-1.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -101,11 +101,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -140,7 +140,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-2.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-2.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -161,11 +161,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -200,7 +200,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-3.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-3.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -221,11 +221,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -260,7 +260,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-4.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-4.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -281,11 +281,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -320,7 +320,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-1.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-1.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -341,11 +341,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -380,7 +380,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-2.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-2.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -401,11 +401,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -440,7 +440,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-3.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-3.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -461,11 +461,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -500,7 +500,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-4.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-4.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -521,11 +521,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -556,7 +556,7 @@
 
 				<!-- image -->
 				<div class="index-catalog__banner-img">
-					<img src="assets/img/baner-img.png" alt="AirPods Pro">
+					<img src="<?= PATH . TEMPLATE ?>assets/img/baner-img.png" alt="AirPods Pro">
 				</div>
 
 			</a>
@@ -584,7 +584,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-1.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-1.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -605,11 +605,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -644,7 +644,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-2.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-2.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -665,11 +665,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -704,7 +704,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-3.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-3.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -725,11 +725,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -764,7 +764,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-4.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-4.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -785,11 +785,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -824,7 +824,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-1.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-1.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -845,11 +845,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -884,7 +884,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-2.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-2.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -905,11 +905,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -944,7 +944,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-3.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-3.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -965,11 +965,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -1004,7 +1004,7 @@
 					</div>
 
 					<a href="#">
-						<img src="assets/img/catalog-img-4.png" alt="" class="short-item__img">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/catalog-img-4.png" alt="" class="short-item__img">
 					</a>
 				</div>
 				<!-- catalog img end -->
@@ -1025,11 +1025,11 @@
 				<!-- catalog item info start -->
 				<div class="short-item__item-info">
 					<div class="short-item__item-rating">
-						<img src="assets/img/icons/star-activ.jpg" alt="1">
-						<img src="assets/img/icons/star-activ.jpg" alt="2">
-						<img src="assets/img/icons/star-activ.jpg" alt="3">
-						<img src="assets/img/icons/star-activ.jpg" alt="4">
-						<img src="assets/img/icons/star-pasiv.svg" alt="5">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="1">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="2">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
+						<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5">
 					</div>
 
 					<div class="short-item__item-comment">
@@ -1231,14 +1231,14 @@
 							<span class="index-news__extra-title">Эффективная уборка без лишних проводов</span>
 							<span class="index-news__mini-title">Обзор на Робот-пылесос Xiaomi Mi Robot Vacuum
 								Cleaner</span>
-							<img class="index-news__img" src="assets/img/news-1.png" alt="Эффективная уборка без лишних проводов">
+							<img class="index-news__img" src="<?= PATH . TEMPLATE ?>assets/img/news-1.png" alt="Эффективная уборка без лишних проводов">
 						</div>
 					</a>
 				</div>
 
 				<div class="index-news__item">
 					<a class="index-news__link" href="#">
-						<img class="index-news__img" src="assets/img/news-2.jpg" alt="Как выбрать снегоуборщик">
+						<img class="index-news__img" src="<?= PATH . TEMPLATE ?>assets/img/news-2.jpg" alt="Как выбрать снегоуборщик">
 						<div class="index-news__item-bg">
 							<span class="index-news__title">Как выбрать снегоуборщик</span>
 						</div>
@@ -1247,7 +1247,7 @@
 
 				<div class="index-news__item">
 					<a class="index-news__link" href="#">
-						<img class="index-news__img" src="assets/img/news-3.jpg" alt="Как выбрать стиральную машину">
+						<img class="index-news__img" src="<?= PATH . TEMPLATE ?>assets/img/news-3.jpg" alt="Как выбрать стиральную машину">
 						<div class="index-news__item-bg">
 							<span class="index-news__title">Как выбрать стиральную машину</span>
 						</div>
@@ -1256,7 +1256,7 @@
 
 				<div class="index-news__item">
 					<a class="index-news__link" href="#">
-						<img class="index-news__img" src="assets/img/news-4.jpg" alt="Самая дорогая видеоигра в мире Cyberpunk 2077 для TV Samsung 4K QLED">
+						<img class="index-news__img" src="<?= PATH . TEMPLATE ?>assets/img/news-4.jpg" alt="Самая дорогая видеоигра в мире Cyberpunk 2077 для TV Samsung 4K QLED">
 						<div class="index-news__item-bg">
 							<span class="index-news__title">Самая дорогая видеоигра в мире Cyberpunk 2077 для TV Samsung
 								4K
@@ -1267,7 +1267,7 @@
 
 				<div class="index-news__item">
 					<a class="index-news__link" href="#">
-						<img class="index-news__img" src="assets/img/news-5.jpg" alt="PlayStation 5: захватывающее обновление, на которое мы надеялись">
+						<img class="index-news__img" src="<?= PATH . TEMPLATE ?>assets/img/news-5.jpg" alt="PlayStation 5: захватывающее обновление, на которое мы надеялись">
 						<div class="index-news__item-bg">
 							<span class="index-news__title">PlayStation 5: захватывающее обновление, на которое мы
 								надеялись</span>
@@ -1277,7 +1277,7 @@
 
 				<div class="index-news__item">
 					<a class="index-news__link" href="#">
-						<img class="index-news__img" src="assets/img/news-6.jpg" alt="Путеводитель по покупкам: стоит ли покупать ноутбук или настольный компьютер?">
+						<img class="index-news__img" src="<?= PATH . TEMPLATE ?>assets/img/news-6.jpg" alt="Путеводитель по покупкам: стоит ли покупать ноутбук или настольный компьютер?">
 						<div class="index-news__item-bg">
 							<span class="index-news__title">Путеводитель по покупкам: стоит липокупать ноутбук или
 								настольный
@@ -1365,35 +1365,35 @@
 			<!-- icons item start-->
 			<div class="footer-icons__item">
 				<div class="footer-icons__img">
-					<img src="assets/img/icons/footer-icon-1.svg" alt="11 лет опыт">
+					<img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-icon-1.svg" alt="11 лет опыт">
 				</div>
 				<div class="footer-icons__title">11 лет опыт</div>
 			</div>
 
 			<div class="footer-icons__item">
 				<div class="footer-icons__img">
-					<img src="assets/img/icons/footer-icon-2.svg" alt="Возврат и обмен">
+					<img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-icon-2.svg" alt="Возврат и обмен">
 				</div>
 				<div class="footer-icons__title">Возврат и обмен</div>
 			</div>
 
 			<div class="footer-icons__item">
 				<div class="footer-icons__img">
-					<img src="assets/img/icons/footer-icon-3.svg" alt="Установка">
+					<img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-icon-3.svg" alt="Установка">
 				</div>
 				<div class="footer-icons__title">Установка</div>
 			</div>
 
 			<div class="footer-icons__item">
 				<div class="footer-icons__img">
-					<img src="assets/img/icons/footer-icon-4.svg" alt="Высокое качество">
+					<img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-icon-4.svg" alt="Высокое качество">
 				</div>
 				<div class="footer-icons__title">Высокое качество</div>
 			</div>
 
 			<div class="footer-icons__item">
 				<div class="footer-icons__img">
-					<img src="assets/img/icons/footer-icon-5.svg" alt="Гарантия на все">
+					<img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-icon-5.svg" alt="Гарантия на все">
 				</div>
 				<div class="footer-icons__title">Гарантия на все</div>
 			</div>
