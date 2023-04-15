@@ -160,7 +160,7 @@ abstract class BaseUser extends \core\base\controller\BaseController
 				return $path;
 			}
 
-			// если в параметрах передали: $tag = true, то вернём:
+			// если в параметрах передали: $tag = true, то покажем изображение т.е. вернём:
 			echo '<img src="' . $path . '" alt="image" title="image">';
 		}
 
@@ -697,8 +697,4 @@ abstract class BaseUser extends \core\base\controller\BaseController
 			return $_COOKIE['cart'];
 		}
 	}
-
-	//------------------------------------------------------------------------------------------------------------------//
-
-
 }
