@@ -119,6 +119,9 @@ abstract class BaseModel extends BaseModelMethods
 		}
 	}
 
+
+	// Выпуск №22 метод создания инструкции JOIN
+
 	/**
 	 * @param $table // пременная (таблица)
 	 * @param array $set // переменная (массив данных (настроек)) Далее пример массива $set:
@@ -126,7 +129,7 @@ abstract class BaseModel extends BaseModelMethods
 	 * 			 'no_concat' => false/true (Если true не присоединяем имя таблицы к полям и where)- Выпуск №42
 	 *           'where' =>  ['fio'=>'Smirnova', 'name'=>'Masha', 'surname'=>'Sergeevna'],
 	 *           'operand' =>['=', '<>'],
-	 *           'condition'=>['ADN'],
+	 *           'condition'=>['AND'],
 	 *           'order'=>['fio','name','surname'],
 	 *           'order_direction'=>['ASC','DESC'],
 	 *           'limit'=>'1'
@@ -138,7 +141,7 @@ abstract class BaseModel extends BaseModelMethods
 	 *           		'where'=>['name'=>'Sasha'],
 	 *           		'operand' =>['='],
 	 *           		'condition'=>['OR'],
-	 *           		'on'=>['id', 'parent_id']
+	 *           		'on'=> ['id', 'parent_id']
 	 *           		'group_condition' => 'AND',
 	 *           	],
 	 *             'join_table2'=>[
