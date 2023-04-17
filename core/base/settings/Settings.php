@@ -79,6 +79,7 @@ class Settings
 	// свойство с таблицами, названия которых будут показаны в боковом меню админки
 	private $projectTables = [
 		'sales' => ['name' => 'Акции'],
+		'category' => ['name' => 'Категории'],
 		'catalog' => ['name' => 'Каталог (меню)'],
 		'filters' => ['name' => 'Фильтры'],
 		'goods' => ['name' => 'Товары'],
@@ -153,7 +154,7 @@ class Settings
 	// св-во, в котором будет храниться информация о корневых таблицах
 	private $rootItems = [
 		'name' => 'Корневая',
-		'tables' => ['catalog', 'filters']
+		'tables' => ['catalog', 'filters', 'category']
 	];
 
 	// свойство для автоматизации связей многие ко многим
