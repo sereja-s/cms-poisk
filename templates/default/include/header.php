@@ -29,7 +29,7 @@
 					</div>
 
 					<a class="header__all-category-link3" href="#">
-						<span class="header__all-category-icon3">КАТАЛОГ</span>
+						<span class="header__all-category-icon3">Все категории товаров</span>
 					</a>
 					<!-- menu -->
 					<div class="header__topNav">
@@ -45,32 +45,47 @@
 							<li class="header__topNav-item"><a class="header__topNav-link" href="<?= $this->alias('catalog') ?>">Все товары</a></li>
 
 
-							<li class="header__topNav-item"><a class="header__topNav-link" href="#">Подключение техники</a>
-							</li>
-							<li class="header__topNav-item"><a class="header__topNav-link" href="#">Доп. сервис</a></li>
-							<li class="header__topNav-item"><a class="header__topNav-link" href="#">Наши гарантии</a></li>
-							<li class="header__topNav-item"><a class="header__topNav-link" href="#">Почему мы?</a></li>
-							<li class="header__topNav-item"><a class="header__topNav-link" href="#">Контакты</a></li>
-							<li class="header__topNav-item"><a class="header__topNav-link" href="#">Оставить обращение</a></li>
+							<?php if (!empty($this->menu['information'])) : ?>
+
+								<?php foreach ($this->menu['information'] as $item) : ?>
+
+									<li class="header__topNav-item"><a class="header__topNav-link" href="<?= $this->alias(['information' => $item['alias']]) ?>"><?= $item['name'] ?></a>
+									</li>
+
+								<?php endforeach; ?>
+
+							<?php endif; ?>
+
+							<li class="header__topNav-item"><a class="header__topNav-link" href="<?= $this->alias('news') ?>">Новости</a></li>
+							<li class="header__topNav-item"><a class="header__topNav-link" href="<?= $this->alias('contacts') ?>">Контакты</a></li>
+
 						</ul>
 
 						<div class="header__more-menu">
 
 							<a href="#" class="header__more-menu-link">Еще</a>
 							<ul class="header__topNav-menu2">
-								<li class="header__topNav-item2"><a class="header__topNav-link2 popup-open-modal" href="#popup-lk">Отзывы</a></li>
+								<!-- <li class="header__topNav-item2"><a class="header__topNav-link2 popup-open-modal" href="#popup-lk">Отзывы</a></li>
 								<li class="header__topNav-item2"><a class="header__topNav-link2 popup-open-modal" href="#popup-sms">О
 										нас</a></li>
-								<li class="header__topNav-item2"><a class="header__topNav-link2 popup-open-modal" href="#popup-buy-one-click">Доставка</a></li>
-								<li class="header__topNav-item2"><a class="header__topNav-link2" href="#">Оплата</a></li>
-								<li class="header__topNav-item2"><a class="header__topNav-link2" href="#">Подключение
-										техники</a></li>
-								<li class="header__topNav-item2"><a class="header__topNav-link2" href="#">Доп. сервис</a></li>
-								<li class="header__topNav-item2"><a class="header__topNav-link2" href="#">Наши гарантии</a></li>
-								<li class="header__topNav-item2"><a class="header__topNav-link2" href="#">Почему мы?</a></li>
-								<li class="header__topNav-item2"><a class="header__topNav-link2" href="#">Контакты</a></li>
-								<li class="header__topNav-item2"><a class="header__topNav-link2" href="#">Оставить обращение</a>
-								</li>
+								<li class="header__topNav-item2"><a class="header__topNav-link2 popup-open-modal" href="#popup-buy-one-click">Доставка</a></li> -->
+
+
+								<li class="header__topNav-item2"><a class="header__topNav-link2" href="<?= $this->alias('catalog') ?>">Все товары</a></li>
+
+								<?php if (!empty($this->menu['information'])) : ?>
+
+									<?php foreach ($this->menu['information'] as $item) : ?>
+
+										<li class="header__topNav-item2"><a class="header__topNav-link2" href="<?= $this->alias(['information' => $item['alias']]) ?>"><?= $item['name'] ?></a></li>
+
+									<?php endforeach; ?>
+
+								<?php endif; ?>
+
+								<li class="header__topNav-item2"><a class="header__topNav-link2" href="<?= $this->alias('news') ?>">Новости</a></li>
+								<li class="header__topNav-item2"><a class="header__topNav-link2" href="<?= $this->alias('contacts') ?>">Контакты</a></li>
+
 							</ul>
 						</div>
 					</div>
@@ -125,7 +140,7 @@
 						<!-- all category -->
 						<div class="header__bottom-all">
 							<a class="header__all-category-link" href="#"><span class="header__all-category-icon">
-								</span>КАТАЛОГ</a>
+								</span>Все категории товаров</a>
 						</div>
 
 						<!-- menu -->
@@ -265,7 +280,7 @@
 										<?php foreach ($this->arrCategory as $item) : ?>
 
 											<li class="navi-category__list-item">
-												<a data-attribute="<?= $item['id'] ?>" href="<?= $this->alias(['catalog' => $item['alias']]) ?>" class="navi-category__list-link"><?= $item['name'] ?></a>
+												<a data-attribute="<?= $item['id'] ?>" href="#" class="navi-category__list-link"><?= $item['name'] ?></a>
 											</li>
 
 										<?php endforeach; ?>
@@ -298,7 +313,7 @@
 
 																<li class="navi-category__category-item">
 
-																	<a href="#" class="navi-category__category-title"><?= $sub['name'] ?></a>
+																	<a href="<?= $this->alias(['catalog' => $sub['alias']]) ?>" class="navi-category__category-title"><?= $sub['name'] ?></a>
 
 																	<?php if (!empty($sub['sub'])) : ?>
 
@@ -307,7 +322,7 @@
 																			<?php foreach ($sub['sub'] as $subsub) : ?>
 
 																				<li class="navi-category-subcategory-item">
-																					<a class="navi-category-subcategory__link" href="#"><?= $subsub['name'] ?></a> (2)
+																					<a class="navi-category-subcategory__link" href="<?= $this->alias(['catalog' => $subsub['alias']]) ?>"><?= $subsub['name'] ?></a> (2)
 																				</li>
 
 																			<?php endforeach; ?>
@@ -319,10 +334,6 @@
 																</li>
 
 															<?php endforeach; ?>
-
-
-
-
 
 														</ul>
 
