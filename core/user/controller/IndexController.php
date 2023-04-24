@@ -59,7 +59,7 @@ class IndexController extends BaseUser
 
 		];
 
-		$goods = [];
+		/* $goods = [];
 
 		foreach ($arrHits as $type => $item) {
 
@@ -67,10 +67,11 @@ class IndexController extends BaseUser
 				'where' => [$type => 1, 'visible' => 1], // +Выпуск №127
 				'limit' => 7 // выводим не более 7 товаров у которых включены соответствующие предложения
 			]);
-		}
+		} */
 
 		// Выпуск №125
-		//$goods = $this->model->getGoods();
+		$goods = $this->model->getGoods();
+		//$goods = $this->model->getGoods(['where' => ['parent_id' => 1]]);
 
 		// собираем переменные в массив и возвращаем в шаблон, что бы они стали доступными при выводе
 		return compact('sales', 'arrHits', 'goods', 'advantages', 'news');

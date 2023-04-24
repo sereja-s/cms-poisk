@@ -82,6 +82,7 @@ class Settings
 		'category' => ['name' => 'Категории'],
 		'catalog' => ['name' => 'Каталог (меню)'],
 		'filters' => ['name' => 'Фильтры'],
+		'goodsnew' => ['name' => 'Товары по категориям'],
 		'goods' => ['name' => 'Товары'],
 		'news' => ['name' => 'Новости'],
 		'information' => ['name' => 'Информация (меню)'],
@@ -96,11 +97,12 @@ class Settings
 		'text' => ['name', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password', 'working_time'],
 		'textarea' => ['content', 'keywords', 'address', 'description', 'short_content'],
 		'radio' => ['visible', 'show_top_menu', 'hit', 'sale', 'new', 'hot'],
-		'checkboxlist' => ['filters', 'filters_test'], // указали, что хотим подключить фильтры к связанной таблице: 
-		// товары (они прописаны в массиве: в свойстве: private $manyToMany)
 		'select' => ['menu_position', 'parent_id'],
-		'img' => ['img', 'main_img', 'img_years', 'promo_img'],
-		'gallery_img' => ['gallery_img', 'new_gallery_img']
+		'img' => ['img', 'img_years', 'promo_img'],
+		'gallery_img' => ['gallery_img'],
+
+		'checkboxlist' => ['filters', 'category'], // указали, что хотим подключить фильтры и т.д. к их связанной таблице: 
+		// товары и т.д. (они прописаны в массиве: в свойстве: private $manyToMany)		
 	];
 
 	// св-во, в котором будет храниться массив шаблонов в которых выводятся файлы
@@ -160,6 +162,8 @@ class Settings
 	// свойство для автоматизации связей многие ко многим
 	private $manyToMany = [
 		// массив содержит название таблиц, которые связаны в БД
+		'goodsnew_category' => ['goodsnew', 'category'],
+		'goodsnew_filters' => ['goodsnew', 'filters'],
 		'goods_filters' => ['goods', 'filters'/* , 'type' => 'root' */], // 'type' => 'child' || 'root' - необязательный 
 		// 3-ий элемент массива: показывает (здесь- в товарах) только дочерние элементы или только родительские категории. 
 		// Без него (по умолчанию) будет показано всё (т.е и название фильтра и его значения)
@@ -169,7 +173,7 @@ class Settings
 	// (по умолчанию содержимое разделов адмики занимает левый блок: vg-rows) 
 	private $blockNeedle = [
 		'vg-rows' => [],
-		'vg-img' => ['img', 'main_img', 'gallery_img', 'img_years', 'number_of_years', 'promo_img'],
+		'vg-img' => ['img', 'gallery_img', 'img_years', 'number_of_years', 'promo_img', 'category', 'filters'],
 		'vg-content' => ['content']
 	];
 

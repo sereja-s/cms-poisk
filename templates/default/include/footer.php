@@ -16,13 +16,22 @@
 					<a href="tel:+3809715095655">+7(949)123-456-78</a>
 				</div>
 
-				<!-- social link -->
-				<div class="footer__social">
-					<a class="footer__social-link" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-tg.svg" alt="telegram"></a>
-					<a class="footer__social-link" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-vk.svg" alt="vkontakte"></a>
-					<a class="footer__social-link" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-vb.svg" alt="vaiber"></a>
-					<a class="footer__social-link" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/footer-odn.svg" alt="odnoklasniki"></a>
-				</div>
+				<?php if (!empty($this->socials)) : ?>
+
+					<div class="footer__social">
+
+						<?php foreach ($this->socials as $item) : ?>
+
+							<!-- social link -->
+
+							<a class="footer__social-link" href="<?= $this->alias($item['external_alias']) ?>"><img src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>"></a>
+
+
+						<?php endforeach; ?>
+
+					</div>
+
+				<?php endif; ?>
 
 				<!-- footer props -->
 				<div class="footer__props">

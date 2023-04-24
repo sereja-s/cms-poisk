@@ -92,11 +92,20 @@
 
 					<div class="header__button-icons">
 
-						<!-- social link 2-->
-						<div class="header__social2">
-							<a class="header__social-item2" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/viber.svg" alt="Viber"></a>
-							<a class="header__social-item2" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/telegram.svg" alt="Telegram"></a>
-						</div>
+						<?php if (!empty($this->socials)) : ?>
+
+							<div class="header__social2">
+
+								<?php foreach ($this->socials as $item) : ?>
+
+									<a class="header__social-item2" href="<?= $this->alias($item['external_alias']) ?>"><img src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>"></a>
+
+								<?php endforeach; ?>
+
+							</div>
+
+						<?php endif; ?>
+
 						<!-- contacts 2 -->
 						<div class="header__contacts2">
 							<div class="header__contacts-phone2">
@@ -143,17 +152,6 @@
 								</span>Все категории товаров</a>
 						</div>
 
-						<!-- menu -->
-						<!-- <div class="header__centerNav">
-							<ul class="header__centerNav-menu">
-								<li class="header__centerNav-item active"><a class="active header__centerNav-link"
-										href="category.html">Техника</a>
-								</li>
-								<li class="header__centerNav-item"><a class="header__centerNav-link" href="#">Мебель</a></li>
-								<li class="header__centerNav-item"><a class="header__centerNav-link" href="#">Инструменты</a>
-								</li>
-							</ul>
-						</div> -->
 
 						<!-- search input -->
 						<a href="#popup-search" class="header__search popup-search-modal">
@@ -164,11 +162,21 @@
 
 					<!-- header center right -->
 					<div class="header__center-right">
-						<!-- social link -->
-						<div class="header__social">
-							<a class="header__social-item" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/viber.svg" alt="Viber"></a>
-							<a class="header__social-item" href="#" target="_blank"><img src="<?= PATH . TEMPLATE ?>assets/img/icons/telegram.svg" alt="Telegram"></a>
-						</div>
+
+						<?php if (!empty($this->socials)) : ?>
+
+							<div class="header__social">
+
+								<?php foreach ($this->socials as $item) : ?>
+
+									<a class="header__social-item" href="<?= $this->alias($item['external_alias']) ?>"><img src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>"></a>
+
+								<?php endforeach; ?>
+
+							</div>
+
+						<?php endif; ?>
+
 						<!-- contacts -->
 						<div class="header__contacts">
 							<div class="header__contacts-phone">
@@ -290,7 +298,7 @@
 								<?php endif; ?>
 
 
-								<!-- через data-атрибуты соединяем эти 2 меню -->
+								<!-- через data-атрибуты соединяем эти 2-а меню -->
 
 								<?php if (!empty($this->arrCategory)) : ?>
 
@@ -303,9 +311,10 @@
 
 
 											<div class="navi-category__submenu">
-												<div class="navi-category__category-list">
 
-													<?php if (!empty($item['sub'])) : ?>
+												<?php if (!empty($item['sub'])) : ?>
+
+													<div class="navi-category__category-list">
 
 														<ul class="navi-category__category-menu">
 
@@ -337,9 +346,9 @@
 
 														</ul>
 
-													<?php endif; ?>
+													</div>
 
-												</div>
+												<?php endif; ?>
 
 												<div class="navi-category__submenu-banner">
 													<a class="navi-category__sb-link" style="background-color:#F3F8FF;" href="#">

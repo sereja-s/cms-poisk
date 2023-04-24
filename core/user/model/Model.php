@@ -36,7 +36,8 @@ class Model extends \core\base\model\BaseModel
 			$set['where'] = [];
 		}
 
-		// соберём сортировку по умолчанию
+
+		// соберём сортировку товаров по умолчанию
 		if (empty($set['order'])) {
 
 			$set['order'] = [];
@@ -55,8 +56,10 @@ class Model extends \core\base\model\BaseModel
 			}
 		}
 
-		// получим товары получить при этом подаём уже обработанный $set
+
+		// получим товары (при этом подаём уже обработанный $set)
 		$goods = $this->get('goods', $set);
+		$goodsnew = $this->get('goodsnew', $set);
 
 		//$a = 1;
 
@@ -71,6 +74,7 @@ class Model extends \core\base\model\BaseModel
 				}
 			}
 
+			// разрегистрируем ячейки:
 			unset($set['join'], $set['join_structure'], $set['pagination']);
 
 
@@ -97,28 +101,36 @@ class Model extends \core\base\model\BaseModel
 
 			if ($catalogFilters !== false && in_array('filters', $this->showTables())) {
 
+				// родительские названия фильтров
 				$parentFiltersFields = [];
 
+				// блок условий
 				$filtersWhere = [];
 
+				// блок сортировки
 				$filtersOrder = [];
 
+				// получим все данные родителя(название фильтра) и ребёнка(значения фильтра) в распределённом виде
 				foreach ($this->showColumns('filters') as $name => $item) {
 
 					if (!empty($item) && is_array($item)) {
 
-						$parentFiltersFields[] = $name . ' as f_' . $name; // что бы отличать родителя от значения
+						$parentFiltersFields[] = $name . ' as f_' . $name; // что бы отличать родителя от значения, укажем им псевдоним
 					}
 				}
 
 
+				// если есть соответствующая ячейка: visible
 				if (!empty($this->showColumns('filters')['visible'])) {
 
+					// в блоке условий установим начение:
 					$filtersWhere['visible'] = 1;
 				}
 
+				// если есть соответствующая ячейка: menu_position
 				if (!empty($this->showColumns('filters')['menu_position'])) {
 
+					// в блок сортировки запишем:
 					$filtersOrder[] = 'menu_position';
 				}
 

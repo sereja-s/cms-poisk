@@ -22,7 +22,7 @@ $(function () {
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: true,
-		dots: true
+		/* dots: true */
 	});
 
 	// ============== slider full page ==============
@@ -315,8 +315,8 @@ $(function () {
 				categoryMenuTimer = setTimeout(function () {
 					categoryNum = $(el).attr('data-attribute')
 					$('.navi-category__list-content').hide()
-					$('.navi-category__nc-' + categoryNum).show('fade', 300);
-				}, 300)
+					$('.navi-category__nc-' + categoryNum).show('fade', 500);
+				}, 500)
 			},
 			mouseleave: function () {
 				clearTimeout(categoryMenuTimer);

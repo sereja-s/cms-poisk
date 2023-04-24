@@ -1,63 +1,39 @@
-<section class="index-slider">
-	<div class="container">
-		<div class="index-slider__wrapper">
-			<!-- wrapper bg slider-wrapper -->
-			<div class="index-slider__wrapper-bg" style='background: url("<?= PATH . TEMPLATE ?>assets/img/Строй_Контакт_фон.jpg") center center/cover no-repeat fixed;'>
-				<!-- sldier item -->
-				<div class="index-slider__item">
-					<div class="index-slider__item-wrapper">
-						<div class="index-slider__item__content">
-							<h3 class="index-slider__item-title">Большой выбор стиральных машин</h3>
-							<p class="index-slider__item-text">Успей купить по суперцене</p>
-							<a class="index-slider__item-link" href="#">Подробнее</a>
+<?php if (!empty($sales)) : ?>
+
+	<section class="index-slider">
+		<div class="container">
+			<div class="index-slider__wrapper">
+				<!-- wrapper bg slider-wrapper -->
+				<div class="index-slider__wrapper-bg" style='background: url("<?= PATH . TEMPLATE ?>assets/img/Строй_Контакт_фон.jpg") center center/cover no-repeat fixed;'>
+
+					<?php foreach ($sales as $item) : ?>
+
+						<div class="index-slider__item">
+							<div class="index-slider__item-wrapper">
+								<div class="index-slider__item__content">
+									<h3 class="index-slider__item-title"><?= $item['name'] ?></h3>
+									<p class="index-slider__item-text"><?= $item['sub_title'] ?></p>
+									<a class="index-slider__item-link" href="<?= $this->alias($item['external_alias']) ?>">Подробнее</a>
+								</div>
+
+								<div class="index-slider__item-picture">
+									<img class="index-slider__item-img" src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>">
+								</div>
+							</div>
 						</div>
 
-						<div class="index-slider__item-picture">
-							<img class="index-slider__item-img" src="<?= PATH . TEMPLATE ?>assets/img/index-slider.png" alt="Большой выбор стиральных машин">
-						</div>
-					</div>
+					<?php endforeach; ?>
+
 				</div>
-				<!-- sldier item off-->
-
-				<!-- sldier item -->
-				<div class="index-slider__item">
-					<div class="index-slider__item-wrapper">
-						<div class="index-slider__item__content">
-							<h3 class="index-slider__item-title">Большой выбор стиральных машин</h3>
-							<p class="index-slider__item-text">Успей купить по суперцене</p>
-							<a class="index-slider__item-link" href="#">Подробнее</a>
-						</div>
-
-						<div class="index-slider__item-picture">
-							<img class="index-slider__item-img" src="<?= PATH . TEMPLATE ?>assets/img/index-slider.png" alt="Большой выбор стиральных машин">
-						</div>
-					</div>
-				</div>
-				<!-- sldier item off-->
-
-				<!-- sldier item -->
-				<div class="index-slider__item">
-					<div class="index-slider__item-wrapper">
-						<div class="index-slider__item__content">
-							<h3 class="index-slider__item-title">Большой выбор стиральных машин</h3>
-							<p class="index-slider__item-text">Успей купить по суперцене</p>
-							<a class="index-slider__item-link" href="#">Подробнее</a>
-						</div>
-
-						<div class="index-slider__item-picture">
-							<img class="index-slider__item-img" src="<?= PATH . TEMPLATE ?>assets/img/index-slider.png" alt="Большой выбор стиральных машин">
-						</div>
-					</div>
-				</div>
-				<!-- sldier item off-->
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+
+<?php endif; ?>
 
 <section class="index-catalog">
 	<div class="container">
-		<h3 class="h3-title index-catalog__main-title">Популярное</h3>
+		<h3 class="h3-title index-catalog__main-title">Новинки</h3>
 
 		<div class="index-catalog__wrapper">
 			<!-- 1 catalog item start -->
@@ -563,6 +539,8 @@
 		</div>
 		<!-- baner end -->
 
+		<h3 class="h3-title index-catalog__main-title">Популярное</h3>
+
 		<div class="index-catalog__wrapper">
 			<!-- 1 catalog item start -->
 			<div class="short-item__item">
@@ -1052,169 +1030,36 @@
 		<h3 class="h3-title catalog-list__main-title">Каталог</h3>
 
 		<div class="catalog__list-wrapper">
-			<!-- catalog list item start -->
-			<div class="catalog-list__item">
-				<h4 class="catalog-list__category-title">Крупная бытовая техника</h4>
-				<ul class="catalog-list__category-nav">
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Холодильники
-							(135)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Морозильные
-							камеры
-							(74)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Стиральные
-							машины
-							(213)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Посудомоечные
-							машины (98)</a></li>
-				</ul>
-				<a href="#" class="catalog-list__category-all">Все товары</a>
-			</div>
-			<!-- catalog list item end -->
 
-			<!-- catalog list item start -->
-			<div class="catalog-list__item">
-				<h4 class="catalog-list__category-title">Товары для дома</h4>
-				<ul class="catalog-list__category-nav">
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Холодильники
-							(135)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Морозильные
-							камеры
-							(74)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Стиральные
-							машины
-							(213)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Посудомоечные
-							машины (98)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Морозильные
-							камеры
-							(74)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Стиральные
-							машины
-							(213)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Посудомоечные
-							машины (98)</a></li>
-				</ul>
-				<a href="#" class="catalog-list__category-all">Все товары</a>
-			</div>
-			<!-- catalog list item end -->
+			<?php if (!empty($this->arrCategory)) : ?>
 
-			<!-- catalog list item start -->
-			<div class="catalog-list__item">
-				<h4 class="catalog-list__category-title">Мелкая бытовая техника</h4>
-				<ul class="catalog-list__category-nav">
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Крепления и
-							кронштейны для мелкой кухонной техники (135)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#"></a>Морозильные
-						камеры (74)</li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#"></a>Стиральные
-						машины (213)</li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Посудомоечные
-							машины (98)</a></li>
-				</ul>
-				<a href="#" class="catalog-list__category-all">Все товары</a>
-			</div>
-			<!-- catalog list item end -->
+				<?php foreach ($this->arrCategory as $item) : ?>
 
-			<!-- catalog list item start -->
-			<div class="catalog-list__item">
-				<h4 class="catalog-list__category-title">Крупная бытовая техника</h4>
-				<ul class="catalog-list__category-nav">
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Холодильники
-							(135)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Морозильные
-							камеры
-							(74)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Стиральные
-							машины
-							(213)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Посудомоечные
-							машины (98)</a></li>
-				</ul>
-				<a href="#" class="catalog-list__category-all">Все товары</a>
-			</div>
-			<!-- catalog list item end -->
+					<div class="catalog-list__item">
 
-			<!-- catalog list item start -->
-			<div class="catalog-list__item">
-				<h4 class="catalog-list__category-title">Крупная бытовая техника</h4>
-				<ul class="catalog-list__category-nav">
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Холодильники
-							(135)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Морозильные
-							камеры
-							(74)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Стиральные
-							машины
-							(213)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Посудомоечные
-							машины (98)</a></li>
-				</ul>
-				<a href="#" class="catalog-list__category-all">Все товары</a>
-			</div>
-			<!-- catalog list item end -->
+						<h4 class="catalog-list__category-title"><?= $item['name'] ?></h4>
 
-			<!-- catalog list item start -->
-			<div class="catalog-list__item">
-				<h4 class="catalog-list__category-title">Товары для дома</h4>
-				<ul class="catalog-list__category-nav">
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Холодильники
-							(135)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Морозильные
-							камеры
-							(74)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Стиральные
-							машины
-							(213)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Посудомоечные
-							машины (98)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Морозильные
-							камеры
-							(74)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Стиральные
-							машины
-							(213)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Посудомоечные
-							машины (98)</a></li>
-				</ul>
-				<a href="#" class="catalog-list__category-all">Все товары</a>
-			</div>
-			<!-- catalog list item end -->
+						<?php if (!empty($item['sub'])) : ?>
 
-			<!-- catalog list item start -->
-			<div class="catalog-list__item">
-				<h4 class="catalog-list__category-title">Мелкая бытовая техника</h4>
-				<ul class="catalog-list__category-nav">
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Крепления и
-							кронштейны для мелкой кухонной техники (135)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#"></a>Морозильные
-						камеры (74)</li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#"></a>Стиральные
-						машины (213)</li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Посудомоечные
-							машины (98)</a></li>
-				</ul>
-				<a href="#" class="catalog-list__category-all">Все товары</a>
-			</div>
-			<!-- catalog list item end -->
+							<ul class="catalog-list__category-nav">
 
-			<!-- catalog list item start -->
-			<div class="catalog-list__item">
-				<h4 class="catalog-list__category-title">Крупная бытовая техника</h4>
-				<ul class="catalog-list__category-nav">
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Холодильники
-							(135)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Морозильные
-							камеры
-							(74)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Стиральные
-							машины
-							(213)</a></li>
-					<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="#">Посудомоечные
-							машины (98)</a></li>
-				</ul>
-				<a href="#" class="catalog-list__category-all">Все товары</a>
-			</div>
-			<!-- catalog list item end -->
+								<?php foreach ($item['sub'] as $sub) : ?>
+
+									<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="<?= $this->alias(['catalog' => $sub['alias']]) ?>"><?= $sub['name'] ?>
+											(135)</a></li>
+
+								<?php endforeach; ?>
+
+							</ul>
+
+						<?php endif; ?>
+						<!-- <a href="#" class="catalog-list__category-all">Все товары</a> -->
+					</div>
+
+				<?php endforeach; ?>
+
+			<?php endif; ?>
+
 		</div>
 	</div>
 </section>
