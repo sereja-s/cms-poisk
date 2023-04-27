@@ -70,8 +70,11 @@ class IndexController extends BaseUser
 		} */
 
 		// Выпуск №125
-		$goods = $this->model->getGoods();
+		//$goods = $this->model->getGoods();
+		$goodsnew = $this->model->getGoods();
+
 		//$goods = $this->model->getGoods(['where' => ['parent_id' => 1]]);
+		//$goodsnew = $this->model->getGoods(['where' => ['parent_id' => 1]]);
 
 		// собираем переменные в массив и возвращаем в шаблон, что бы они стали доступными при выводе
 		return compact('sales', 'arrHits', 'goods', 'advantages', 'news');

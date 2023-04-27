@@ -58,19 +58,19 @@ class Model extends \core\base\model\BaseModel
 
 
 		// получим товары (при этом подаём уже обработанный $set)
-		$goods = $this->get('goods', $set);
+		//$goods = $this->get('goods', $set);
 		$goodsnew = $this->get('goodsnew', $set);
 
 		//$a = 1;
 
 		// все дальнейшие действия выполняем если пришли товары
-		if ($goods) {
+		if ($goodsnew) {
 
-			if (!empty($this->showColumns('goods')['discount'])) {
+			if (!empty($this->showColumns('goodsnew')['discount'])) {
 
-				foreach ($goods as $key => $item) {
+				foreach ($goodsnew as $key => $item) {
 
-					$this->applyDiscount($goods[$key], $item['discount']);
+					$this->applyDiscount($goodsnew[$key], $item['discount']);
 				}
 			}
 
@@ -80,21 +80,21 @@ class Model extends \core\base\model\BaseModel
 
 			// Получим цены:
 
-			if ($catalogPrices !== false && !empty($this->showColumns('goods')['price'])) {
+			if ($catalogPrices !== false && !empty($this->showColumns('goodsnew')['price'])) {
 
 				// MIN() и MAX()- функции SQL
 				$set['fields'] = ['MIN(price) as min_price', 'MAX(price) as max_price'];
 
 				// получим в переменную: массив с min_price(мин.цена) и max_price(макс.цена) товара из таблицы БД: goods
-				$catalogPrices = $this->get('goods', $set);
-
-				//$a = 1;
+				$catalogPrices = $this->get('goodsnew', $set);
 
 				if (!empty($catalogPrices[0])) {
 
 					$catalogPrices = $catalogPrices[0];
 				}
 			}
+
+			//$a = 1;
 
 
 			// Получим фильтры:
@@ -113,8 +113,10 @@ class Model extends \core\base\model\BaseModel
 				// получим все данные родителя(название фильтра) и ребёнка(значения фильтра) в распределённом виде
 				foreach ($this->showColumns('filters') as $name => $item) {
 
+					// по условию забираем названия полей только те, которые являются массивом
 					if (!empty($item) && is_array($item)) {
 
+						// в поля собираем названия
 						$parentFiltersFields[] = $name . ' as f_' . $name; // что бы отличать родителя от значения, укажем им псевдоним
 					}
 				}
@@ -147,8 +149,8 @@ class Model extends \core\base\model\BaseModel
 							// укажем признак (из предыдущей таблицы- поле: parent_id смотрит на текущую- поле: id)
 							'on' => ['parent_id', 'id']
 						],
-						// нам нужен джоин (связь) с таблицей связей
-						'goods_filters' => [
+						// нам нужен джоин(связь) с таблицей связей
+						'goodsnew_filters' => [
 							// применим расширенный режим (с указанием ключа: 'on') т.к. смотрим не на предыдущую таблицу (здесь- filters f_name), а на другую
 							'on' => [
 								'table' => 'filters',
@@ -156,9 +158,11 @@ class Model extends \core\base\model\BaseModel
 								'fields' => ['id', 'filters_id']
 							],
 							'where' => [
-								// строим подзапрос (вложенный запрос), так блок с фильтрами нужно получить для всех товаров в разделе
-								'goods_id' => $this->get('goods', [
-									'fields' => [$this->showColumns('goods')['id_row']],
+								// строим подзапрос (вложенный запрос), так блок с фильтрами нужно получить для всех товаров в 
+								// разделе Буем искать: goods_id (т.е. полуим идентификаторы всех товаров (т.к. блок с фмльтрами 
+								// нам надо получить для всех товаров), имеющихся в разделе, согласно условию: where)
+								'goodsnew_id' => $this->get('goodsnew', [
+									'fields' => [$this->showColumns('goodsnew')['id_row']],
 									'where' => $set['where'] ?? null,
 									// Выпуск №132
 									'operand' => $set['operand'] ?? null,
@@ -182,6 +186,7 @@ class Model extends \core\base\model\BaseModel
 					}
 				} */
 
+
 				// Сделаем подсчёт количества товаров в конкретном фильтре (относительно категории в которой находимся) отдельным запросом:
 
 				if ($filters) {
@@ -195,9 +200,9 @@ class Model extends \core\base\model\BaseModel
 
 					$filtersIds = implode(',', array_unique(array_column($filters, 'id')));
 
-					$goodsIds = implode(',', array_unique(array_column($filters, 'goods_id')));
+					$goodsIds = implode(',', array_unique(array_column($filters, 'goodsnew_id')));
 
-					$query = "SELECT `filters_id` as id, COUNT(goods_id) as count FROM goods_filters WHERE filters_id IN ($filtersIds) AND goods_id IN ($goodsIds) GROUP BY filters_id";
+					$query = "SELECT `filters_id` as id, COUNT(goodsnew_id) as count FROM goodsnew_filters WHERE filters_id IN ($filtersIds) AND goodsnew_id IN ($goodsIds) GROUP BY filters_id";
 
 					// количество товаров в конкретных фильтрах (относительно категории в которой находимся) отдельным запросом (придёт: id для каждого фильтра и кол-во товаров, для которых он применён):
 					$goodsCountDb = $this->query($query);
@@ -215,9 +220,11 @@ class Model extends \core\base\model\BaseModel
 						}
 					}
 
+
 					// формируем фильтр каталога
 					$catalogFilters = [];
 
+					// пересоберём данные в переменой: $filters
 					foreach ($filters as $item) {
 
 						$parent = [];
@@ -256,25 +263,202 @@ class Model extends \core\base\model\BaseModel
 							$catalogFilters[$parent['id']]['values'] = [];
 						}
 
+
 						// сформируем фильтры
 						$catalogFilters[$parent['id']]['values'][$child['id']] = $child;
 
-						if (isset($goods[$item['goods_id']])) {
+						if (isset($goodsnew[$item['goodsnew_id']])) {
 
-							if (empty($goods[$item['goods_id']]['filters'][$parent['id']])) {
+							if (empty($goodsnew[$item['goodsnew_id']]['filters'][$parent['id']])) {
 
-								$goods[$item['goods_id']]['filters'][$parent['id']] = $parent;
-								$goods[$item['goods_id']]['filters'][$parent['id']]['values'] = [];
+								$goodsnew[$item['goodsnew_id']]['filters'][$parent['id']] = $parent;
+								$goodsnew[$item['goodsnew_id']]['filters'][$parent['id']]['values'] = [];
 							}
 
-							$goods[$item['goods_id']]['filters'][$parent['id']]['values'][$item['id']] = $child;
+							$goodsnew[$item['goodsnew_id']]['filters'][$parent['id']]['values'][$item['id']] = $child;
+						}
+					}
+				}
+			}
+
+
+
+			// сформируем категории(с вложенностями)
+
+			if (/* $catalogFilters !== false &&  */in_array('category', $this->showTables())) {
+
+				// родительские названия фильтров
+				$parentCategoryFields = [];
+
+				// блок условий
+				$categoryWhere = [];
+
+				// блок сортировки
+				$categoryOrder = [];
+
+				// получим все данные родителя(название фильтра) и ребёнка(значения фильтра) в распределённом виде
+				foreach ($this->showColumns('category') as $name => $item) {
+
+					// по условию забираем названия полей только те, которые являются массивом
+					if (!empty($item) && is_array($item)) {
+
+						// в поля собираем названия
+						$parentCategoryFields[] = $name . ' as cat_' . $name; // что бы отличать родителя от значения, укажем им псевдоним
+					}
+				}
+
+
+				// если есть соответствующая ячейка: visible
+				if (!empty($this->showColumns('category')['visible'])) {
+
+					// в блоке условий установим начение:
+					$categoryWhere['visible'] = 1;
+				}
+
+				// если есть соответствующая ячейка: menu_position
+				if (!empty($this->showColumns('category')['menu_position'])) {
+
+					// в блок сортировки запишем:
+					$categoryOrder[] = 'menu_position';
+				}
+
+
+				// получаем подкатегории товаров с привязкой к категориям
+				$category = $this->get('category', [
+					'where' => $categoryWhere,
+					'join' => [
+						// соединяем таблицу с самой собой
+						'category cat_name' => [
+							'type' => 'INNER',  // т.к. нам не нужно чтобы приходило значение если нет родителя
+							'fields' => $parentCategoryFields,
+							'where' => $categoryWhere,
+							// укажем признак (из предыдущей таблицы- поле: parent_id смотрит на текущую- поле: id)
+							'on' => ['parent_id', 'id']
+						],
+						// нам нужен джоин(связь) с таблицей связей
+						'goodsnew_category' => [
+							// применим расширенный режим (с указанием ключа: 'on') т.к. смотрим не на предыдущую таблицу (здесь- filters f_name), а на другую
+							'on' => [
+								'table' => 'category',
+								// поле из предыдущей таблицы (id) должно смотреть на поле текущей (filters_id)
+								'fields' => ['id', 'category_id']
+							],
+							'where' => [
+								// строим подзапрос (вложенный запрос), так блок с фильтрами нужно получить для всех товаров в 
+								// разделе Буем искать: goods_id (т.е. полуим идентификаторы всех товаров (т.к. блок с фмльтрами 
+								// нам надо получить для всех товаров), имеющихся в разделе, согласно условию: where)
+								'goodsnew_id' => $this->get('goodsnew', [
+									'fields' => [$this->showColumns('goodsnew')['id_row']],
+									'where' => $set['where'] ?? null,
+									// Выпуск №132
+									'operand' => $set['operand'] ?? null,
+									'return_query' => true
+								])
+							],
+
+							'operand' => ['IN'],
+						]
+					],
+
+					// 'return_query' => true
+				]);
+
+				// Сделаем подсчёт количества товаров в конкретной категории (в которой находимся) отдельным запросом:
+
+				if ($category) {
+
+					// implode() — объединение элементов массива со строкой
+					// (Возвращает строку, содержащую строковое представление всех элементов массива в одном порядке со 
+					// строкой-разделителем (здесь- запятая) между каждым элементом)
+					// array_column() — возвращает значения из одного столбца во входном массиве
+
+					// Получим все уникальные id для катеорий и товаров из массива в переменной: $category
+
+					$categoryIds = implode(',', array_unique(array_column($category, 'id')));
+
+					$goodsIdscat = implode(',', array_unique(array_column($category, 'goodsnew_id')));
+
+					$query = "SELECT `category_id` as id, COUNT(goodsnew_id) as count FROM goodsnew_category WHERE category_id IN ($categoryIds) AND goodsnew_id IN ($goodsIdscat) GROUP BY category_id";
+
+					// количество товаров в конкретных категориях (относительно категории в которой находимся) отдельным запросом (придёт: id категории и кол-во товаров в этой категории):
+					$goodsCountCatDb = $this->query($query);
+
+					// $a = 1;
+
+					$goodsCountCat = [];
+
+					if ($goodsCountCatDb) {
+
+						foreach ($goodsCountCatDb as $item) {
+
+							// в ячейку с ключём: id (для каждого фильтра) положим значение (массив): его id и кол-во товаров, для которых он применён
+							$goodsCountCat[$item['id']] = $item;
+						}
+					}
+
+
+					// формируем категории каталога
+					$catalogCat = [];
+
+					// пересоберём данные в переменой: $filters
+					foreach ($category as $item) {
+
+						$parent = [];
+
+						$child = [];
+
+						foreach ($item as $row => $rowValue) {
+
+							// определим родительскую категорию (в массиве: её данные с префиксом: f_): фильтр
+							if (strpos($row, 'cat_') === 0) {
+
+								$name = preg_replace('/^cat_/', '', $row);
+
+								// в ячейку с именем родителя положим его значение
+								$parent[$name] = $rowValue;
+
+								// иначе это данные дочерней категории: значения категории
+							} else {
+
+								// в ячейку с именем дочерней категории положим соответственно её значение
+								$child[$row] = $rowValue;
+							}
+						}
+
+
+						if (isset($goodsCountCat[$child['id']]['count'])) {
+
+							$child['count'] = $goodsCountCat[$child['id']]['count'];
+						}
+
+						if (empty($catalogCat[$parent['id']])) {
+
+							$catalogCat[$parent['id']] = $parent;
+
+							// создадим элемент для сбора значений категорий
+							$catalogCat[$parent['id']]['values'] = [];
+						}
+
+
+						// сформируем категории
+						$catalogCat[$parent['id']]['values'][$child['id']] = $child;
+
+						if (isset($goodsnew[$item['goodsnew_id']])) {
+
+							if (empty($goodsnew[$item['goodsnew_id']]['category'][$parent['id']])) {
+
+								$goodsnew[$item['goodsnew_id']]['category'][$parent['id']] = $parent;
+								$goodsnew[$item['goodsnew_id']]['category'][$parent['id']]['values'] = [];
+							}
+
+							$goodsnew[$item['goodsnew_id']]['category'][$parent['id']]['values'][$item['id']] = $child;
 						}
 					}
 				}
 			}
 		}
 
-		return $goods ?? null;
+		return $goodsnew ?? null;
 	}
 
 	/** 
