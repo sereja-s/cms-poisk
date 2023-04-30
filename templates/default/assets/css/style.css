@@ -8973,4 +8973,10 @@ screen and (max-height: 300px) {
 	cursor: pointer;
 }
 
+.fade.slick-initialized .slick-slide {
+	display: flex;
+}
+
+
+
 /*# sourceMappingURL=style.min.css.map */

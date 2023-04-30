@@ -42,39 +42,38 @@ class IndexController extends BaseUser
 
 			'hit' => [
 				'name' => 'Хиты продаж',
-				'icon' => '<svg><use xlink:href="' . PATH . TEMPLATE . 'assets/img/icons.svg#hit"</use></svg>'
+				'icon' => '<span class="short-item__present">Хит</span>'
 			],
-			'hot' => [
+			/* 'hot' => [
 				'name' => 'Горячие предложения',
 				'icon' => '<svg><use xlink:href="' . PATH . TEMPLATE . 'assets/img/icons.svg#hot"</use></svg>'
-			],
-			'sale' => [
+			], */
+			/* 'sale' => [
 				'name' => 'Распродажа',
 				'icon' => '%'
-			],
+			], */
 			'new' => [
 				'name' => 'Новинки',
-				'icon' => 'н'
+				'icon' => '<span class="short-item__new">Новинка</span>'
 			],
 
 		];
 
-		/* $goods = [];
+		$goods = [];
 
+		// получим товары (с учётом их типа)
 		foreach ($arrHits as $type => $item) {
 
 			$goods[$type] = $this->model->getGoods([
 				'where' => [$type => 1, 'visible' => 1], // +Выпуск №127
-				'limit' => 7 // выводим не более 7 товаров у которых включены соответствующие предложения
+				'limit' => 8 // выводим не более 8 товаров у которых включены соответствующие предложения
 			]);
-		} */
+		}
 
 		// Выпуск №125
-		//$goods = $this->model->getGoods();
-		$goodsnew = $this->model->getGoods();
+		//$goods = $this->model->getGoods();		
 
-		//$goods = $this->model->getGoods(['where' => ['parent_id' => 1]]);
-		//$goodsnew = $this->model->getGoods(['where' => ['parent_id' => 1]]);
+		//$goods = $this->model->getGoods(['where' => ['parent_id' => 1]]);		
 
 		// собираем переменные в массив и возвращаем в шаблон, что бы они стали доступными при выводе
 		return compact('sales', 'arrHits', 'goods', 'advantages', 'news');

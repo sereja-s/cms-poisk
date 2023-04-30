@@ -22,6 +22,9 @@ $(function () {
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: true,
+		autoplay: true,
+		autoplaySpeed: 9000,
+		speed: 5000,
 		/* dots: true */
 	});
 
@@ -383,6 +386,9 @@ $(function () {
 		arrows: false,
 		infinite: false,
 		variableWidth: true,
+		autoplay: true,
+		autoplaySpeed: 10000,
+		speed: 5000,
 		responsive: [{
 			breakpoint: 768,
 			settings: {
@@ -401,6 +407,19 @@ $(function () {
 		},
 		]
 	});
+
+	//--------------------------------------- баннер --------------------------------------------------------//
+
+	$('.fade').slick({
+		arrows: false,
+		infinite: false,
+		fade: true,
+		cssEase: 'linear',
+		autoplay: true,
+		autoplaySpeed: 8000,
+		speed: 5000,
+	});
+
 
 	// =================== Появления меню хедера ==========================
 	$('.header__more-menu-link').on('click', function (event) {
