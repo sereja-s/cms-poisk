@@ -54,8 +54,6 @@
 
 						</div>
 
-
-
 					<?php endif; ?>
 
 				<?php endif; ?>
@@ -65,43 +63,53 @@
 		<?php endif; ?>
 
 		<!-- baner start -->
-		<div class="index-catalog__banner fade">
-			<a class="index-catalog__banner-link" href="#">
-				<!-- baner content start-->
-				<div class="index-catalog__banner-content">
-					<h4 class="index-catalog__banner-title">AirPods Pro</h4>
 
-					<div class="index-catalog__banner-text">
-						<p>Успей приобрести всего за <b>2700 грн</b></p>
-					</div>
-				</div>
-				<!-- baner content end-->
+		<?php if (!empty($goods) && !empty($arrHits)) : ?>
 
-				<!-- image -->
-				<div class="index-catalog__banner-img">
-					<img src="<?= PATH . TEMPLATE ?>assets/img/baner-img.png" alt="AirPods Pro">
-				</div>
+			<?php foreach ($arrHits as $key => $value) : ?>
 
-			</a>
-			<a class="index-catalog__banner-link" href="#">
-				<!-- baner content start-->
-				<div class="index-catalog__banner-content">
-					<h4 class="index-catalog__banner-title">AirPods Pro</h4>
+				<?php if ($key === 'hot') : ?>
 
-					<div class="index-catalog__banner-text">
-						<p>Успей приобрести всего за <b>1800 грн</b></p>
-					</div>
-				</div>
-				<!-- baner content end-->
+					<?php if (!empty($goods[$key])) : ?>
 
-				<!-- image -->
-				<div class="index-catalog__banner-img">
-					<img src="" alt="AirPods Pro">
-				</div>
+						<div class="index-catalog__banner fade">
 
-			</a>
-		</div>
-		<!-- baner end -->
+							<?php foreach ($goods[$key] as $item) : ?>
+
+								<a class="index-catalog__banner-link" href="#">
+
+									<!-- baner content start-->
+									<div class="index-catalog__banner-content">
+										<h4 class="index-catalog__banner-title"><?= $item['name'] ?></h4>
+
+										<div class="index-catalog__banner-text" style="padding-bottom: 10px;">
+											<p>Успей приобрести всего за
+												<?= !empty($item['price']) ? '<b>' . $item['price'] . 'руб.' . '</b>' : '<b>' . $item['old_price'] . 'руб.' . '</b>' ?>
+											</p>
+										</div>
+									</div>
+									<!-- baner content end-->
+
+									<!-- image -->
+									<div class="index-catalog__banner-img">
+										<img src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>">
+									</div>
+
+								</a>
+
+							<?php endforeach; ?>
+
+						</div>
+
+					<?php endif; ?>
+
+				<?php endif; ?>
+
+			<?php endforeach; ?>
+
+		<?php endif; ?>
+
+
 
 		<?php if (!empty($goods) && !empty($arrHits)) : ?>
 

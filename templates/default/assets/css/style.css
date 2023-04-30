@@ -7287,7 +7287,7 @@ screen and (max-height: 300px) {
 .index-catalog__banner-link {
 	display: flex;
 	align-items: center;
-	background-color: #142840;
+	background-color: #f77f00;
 	border-radius: 5px;
 	justify-content: space-between;
 	min-height: 294px;
@@ -7324,13 +7324,12 @@ screen and (max-height: 300px) {
 
 .index-catalog__banner-title {
 	font-weight: 500;
-	font-size: 60px;
-	line-height: 35px;
+	font-size: 40px;
+	line-height: 55px;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1024px) {
 	.index-catalog__banner-title {
-		font-size: 40px;
 		line-height: 45px;
 	}
 }
@@ -7371,7 +7370,7 @@ screen and (max-height: 300px) {
 }
 
 .index-catalog__banner-img img {
-	width: 100%;
+	max-width: 320px;
 }
 
 .catalog-list {
@@ -7394,7 +7393,7 @@ screen and (max-height: 300px) {
 	}
 }
 
-@media (max-width: 768px) {
+@media (max-width: 320px) {
 	.catalog__list-wrapper {
 		grid-template-columns: repeat(1, 1fr);
 	}
@@ -8976,7 +8975,3 @@ screen and (max-height: 300px) {
 .fade.slick-initialized .slick-slide {
 	display: flex;
 }
-
-
-
-/*# sourceMappingURL=style.min.css.map */

@@ -44,10 +44,10 @@ class IndexController extends BaseUser
 				'name' => 'Хиты продаж',
 				'icon' => '<span class="short-item__present">Хит</span>'
 			],
-			/* 'hot' => [
+			'hot' => [
 				'name' => 'Горячие предложения',
-				'icon' => '<svg><use xlink:href="' . PATH . TEMPLATE . 'assets/img/icons.svg#hot"</use></svg>'
-			], */
+				'icon' => ''
+			],
 			/* 'sale' => [
 				'name' => 'Распродажа',
 				'icon' => '%'

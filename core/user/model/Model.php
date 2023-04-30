@@ -484,6 +484,9 @@ class Model extends \core\base\model\BaseModel
 			$data['discount'] = $discount;
 
 			$data['price'] = $data['old_price'] - ($data['old_price'] / 100 * $discount);
+
+			// округлим цену до целого значения
+			$data['price'] = round($data['price']);
 		}
 	}
 

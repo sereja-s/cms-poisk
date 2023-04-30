@@ -420,7 +420,6 @@ $(function () {
 		speed: 5000,
 	});
 
-
 	// =================== Появления меню хедера ==========================
 	$('.header__more-menu-link').on('click', function (event) {
 		event.preventDefault();

@@ -94,11 +94,11 @@ class Settings
 	// свойство: массив шаблонов
 	private $templateArr = [
 		// массив вида: 'название шаблона' => массив с полями для которых должен быть подключен соответствующий шаблон
-		'text' => ['name', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password', 'working_time'],
+		'text' => ['name', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password', 'sb_text', 'sb_title', 'sb_alias'],
 		'textarea' => ['content', 'keywords', 'address', 'description', 'short_content'],
 		'radio' => ['visible', 'show_top_menu', 'hit', 'sale', 'new', 'hot'],
 		'select' => ['menu_position', 'parent_id'],
-		'img' => ['img', 'img_years', 'promo_img'],
+		'img' => ['img', 'sb_img', 'promo_img'],
 		'gallery_img' => ['gallery_img'],
 
 		'checkboxlist' => ['filters', 'category'], // указали, что хотим подключить фильтры и т.д. к их связанной таблице: 
