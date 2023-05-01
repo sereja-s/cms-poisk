@@ -7598,7 +7598,8 @@ screen and (max-height: 300px) {
 .index-news__item.index-news__first-item .index-news__img {
 	max-width: 300px;
 	height: auto;
-	transform: translateX(-31px);
+	transform: translateX(-3px);
+	padding-bottom: 10px;
 }
 
 .index-news__link {
@@ -7663,7 +7664,7 @@ screen and (max-height: 300px) {
 
 .footer-icons__wrapper {
 	display: flex;
-	align-items: center;
+	/* align-items: center; */
 	justify-content: center;
 	flex-wrap: wrap;
 }
@@ -7686,15 +7687,15 @@ screen and (max-height: 300px) {
 
 .footer-icons__img img {
 	position: absolute;
-	left: 5px;
-	bottom: 5px;
+	left: 12px;
+	bottom: 12px;
 	z-index: 1;
 }
 
 .footer-icons__title {
 	text-align: center;
 	font-weight: 500;
-	line-height: 35px;
+	line-height: 25px;
 	color: #1e1e1e;
 }
 

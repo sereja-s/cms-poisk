@@ -33,7 +33,7 @@ class IndexController extends BaseUser
 			'where' => ['visible' => 1],
 			'order' => ['date'],
 			'order_direction' => ['DESC'],
-			'limit' => 3
+			'limit' => 5
 		]);
 
 		// Выпуск №126
