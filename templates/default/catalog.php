@@ -24,58 +24,75 @@
 
 
 		<div class="category-page__wrapper">
+
 			<!-- filter -->
 			<div class="category-page__filter">
 
 				<a href="" class="category-filter__close-link">Фильтр</a>
-				<div class="category-filter category-filter__small-height">
-					<h4 class="category-filter__title category-filter__title-open">Производитель (245)</h4>
+
+				<div class="category-filter category-filter__small-height _spollers">
+
+					<h4 class="category-filter__title category-filter__title" style="padding-bottom: 50px;">Цена</h4>
+					<div class="section-filter__body" style="padding-bottom: 35px;">
+						<!-- <div class="price-filter">
+							<div class="price-filter__slider"></div>
+							<div class="price-filter__values values-price-filter">
+								<div class="values-price-filter__column">
+									<div class="values-price-filter__label">от</div>
+									<div class="values-price-filter__input">
+										<input id="price-start" autocomplete="off" type="text" name="form[]" class="input">
+									</div>
+								</div>
+								<div class="values-price-filter__column">
+									<div class="values-price-filter__label">до</div>
+									<div class="values-price-filter__input">
+										<input id="price-end" autocomplete="off" type="text" name="form[]" class="input">
+									</div>
+								</div>
+							</div>
+						</div> -->
+						<!-- <h3 class="filters-price__title">Цена</h3> -->
+						<div class="filters-price__slider" id="range-slider" style="margin-left: 5px;"></div>
+						<div class="filters-price__inputs">
+							<label class="filters-price__label">
+								<span class="filters-price__text">от</span>
+								<input autocomplete="off" type="text" name="form[]" class="filters-price__input" id="input-0">
+								<span class="filters-price__text">₽</span>
+							</label>
+							<label class="filters-price__label">
+								<span class="filters-price__text">до</span>
+								<input autocomplete="off" type="text" name="form[]" class="filters-price__input" id="input-1">
+								<span class="filters-price__text">₽</span>
+							</label>
+						</div>
+					</div>
+
+					<h4 class="category-filter__title category-filter__title-open _spoller _active">Производитель (245)</h4>
 					<div class="category-filter__block">
 						<input type="checkbox"> Atlant (33)<br>
-						Samsung (57)<br>
-						LG (4)<br>
-						Bosh (7)<br>
-						Liebherr (13)<br>
-						<a href="#" class="category-filter__all-filter-position">Все 123 варианта</a>
+						<input type="checkbox"> Samsung (57)<br>
+						<input type="checkbox"> LG (4)<br>
+						<input type="checkbox"> Bosh (7)<br>
+						<input type="checkbox"> Liebherr (13)<br>
+
+						<!-- <a href="#" class="category-filter__all-filter-position">Все 123 варианта</a> -->
 					</div>
 
-					<h4 class="category-filter__title category-filter__title-open">Цена</h4>
+					<h4 class="category-filter__title category-filter__title-open _spoller _active">Вид холодильника (245)</h4>
 					<div class="category-filter__block">
-						<div class="category-filter__range">
-							<div class="category-filter__line"></div>
-							<div class="category-filter__active-line"></div>
-							<div class="category-filter__min-num"></div>
-							<div class="category-filter__max-num"></div>
-						</div>
-						от
-						<input type="text" value="5680">
-						до
-						<input type="text" value="150 000">
+						<input type="checkbox"> С морозильной камерой (45)<br>
+						<input type="checkbox"> Без морозильной камеры (56)<br>
 					</div>
 
-					<h4 class="category-filter__title category-filter__title-open">Вид холодильника (245)</h4>
+					<h4 class="category-filter__title category-filter__title-open _spoller _active">Морозильная камера (245)</h4>
 					<div class="category-filter__block">
-						С морозильной камерой (45)<br>
-						Без морозильной камеры (56)
+						<input type="checkbox"> Сбоку (7)<br>
+						<input type="checkbox"> Снизу (34)<br>
+						<input type="checkbox"> Сверху (87)<br>
+						<input type="checkbox"> Отсутствует (14)<br>
 					</div>
 
-					<h4 class="category-filter__title category-filter__title-open">Морозильная камера </h4>
-					<div class="category-filter__block">
-						Сбоку (7)<br>
-						Снизу (34)<br>
-						Сверху (87)<br>
-						Отсутствует (14)<br>
-					</div>
-
-					<h4 class="category-filter__title category-filter__title-open">Общий объем, л</h4>
-					<div class="category-filter__range">
-						<div class="category-filter__line"></div>
-						<div class="category-filter__active-line"></div>
-						<div class="category-filter__min-num"></div>
-						<div class="category-filter__max-num"></div>
-					</div>
-
-					<h4 class="category-filter__title category-filter__title-open">Высота, см</h4>
+					<!-- <h4 class="category-filter__title category-filter__title-open _spoller">Общий объем, л</h4>
 					<div class="category-filter__range">
 						<div class="category-filter__line"></div>
 						<div class="category-filter__active-line"></div>
@@ -89,17 +106,19 @@
 						<input type="text" value="765">
 					</div>
 
-					<h4 class="category-filter__title category-filter__title-open">Высота, см</h4>
+					<h4 class="category-filter__title category-filter__title-open _spoller">Высота, см</h4>
+					<div class="category-filter__range">
+						<div class="category-filter__line"></div>
+						<div class="category-filter__active-line"></div>
+						<div class="category-filter__min-num"></div>
+						<div class="category-filter__max-num"></div>
+					</div>
 					<div class="category-filter__block">
 						от
 						<input type="text" value="30">
 						до
 						<input type="text" value="765">
-					</div>
-
-
-					<h4 class="category-filter__title category-filter__title-open">Морозильная камера (154)</h4>
-
+					</div> -->
 
 					<div class="category-filter__result">
 						<div class="category-filter__result-name">Найдено 23 товара</div>
@@ -108,7 +127,7 @@
 				</div>
 
 				<div class="category-filter__more">
-					<a href="#" class="category-filter__more-link">Больше параметров</a>
+					<!-- <a href="#" class="category-filter__more-link">Больше параметров</a> -->
 
 					<div class="category-filter__find">
 						<button class="category-filter__find-button" type="submit">Применить</button>
@@ -116,19 +135,20 @@
 				</div>
 			</div>
 
-
 			<!-- content-->
 			<div class="category-page__content">
+
 				<!-- catalog products -->
 				<div class="category-items">
 
 					<!-- settings start-->
 					<div class="category-items__settings">
+
 						<!-- брeнды-->
 						<div class="category-items__fast-filter">
 							<a class="category-items__ff-link" href="#">Samsung<span class="category-items__ff-close"></span></a>
-							<a class="category-items__ff-link" href="#">Samsung<span class="category-items__ff-close"></span></a>
-							<a class="category-items__ff-link" href="#">Samsung<span class="category-items__ff-close"></span></a>
+							<!-- <a class="category-items__ff-link" href="#">Samsung<span class="category-items__ff-close"></span></a>
+							<a class="category-items__ff-link" href="#">Samsung<span class="category-items__ff-close"></span></a> -->
 						</div>
 
 						<!-- настройки вида -->

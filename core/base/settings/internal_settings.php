@@ -71,6 +71,7 @@ const USER_CSS_JS = [
 	// + в файле header.php вместо стилей указать:
 	// <?php $this->getStyles() ?
 	'styles' => [
+		'assets/css/nouislider.min.css',
 		'assets/css/style.css',
 		'assets/css/category-filter-views.min.css',
 	],
@@ -82,6 +83,9 @@ const USER_CSS_JS = [
 		'assets/js/jquery.ui.js',
 		'assets/js/jquery.magnific-popup.min.js',
 		'assets/js/jquery.mask.min.js',
+		'assets/js/nouislider.min.js',
+		'assets/js/functions.js',
+		//'assets/js/nouislider.js',
 		'assets/js/script.js',
 	]
 ];
