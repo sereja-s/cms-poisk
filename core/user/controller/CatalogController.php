@@ -24,14 +24,14 @@ class CatalogController extends BaseUser
 
 		// +Выпуск №134
 		// количество товаров для отображения на странице каталога
-		$quantities = [3, 6, 12];
+		$quantities = [10, 20, 30];
 
 		// Сформируем название для страницы каталог, взависимости от того в какой категории находимся
 		$data = [];
 
 		if (!empty($this->parameters['alias'])) {
 
-			$data = $this->model->get('catalog', [
+			$data = $this->model->get('category', [
 				'where' => ['alias' => $this->parameters['alias'], 'visible' => 1],
 				'limit' => 1
 			]);
@@ -51,14 +51,14 @@ class CatalogController extends BaseUser
 		if ($data) {
 
 			// Выпуск №144
-			$where['parent_id'] = $data['id'];
+			$where['parent_id'] = $data['parent_id'];
 		} else {
 
 			$data['name'] = 'Каталог';
 		}
 
 		// +Выпуск №131
-		$catalogFilters = $catalogPrices = $orderDb = null;
+		$catalogFilters = $catalogPrices = $catalogCat = $orderDb = null;
 
 		// Выпуск №131
 		$order = $this->createCatalogOrder($orderDb);
@@ -68,7 +68,6 @@ class CatalogController extends BaseUser
 
 
 		// Получим товары (с их фильтрами и ценами):
-
 		$goods = $this->model->getGoods([
 			'where' => $where,
 			// Выпуск №132
@@ -77,19 +76,19 @@ class CatalogController extends BaseUser
 			'order' => $orderDb['order'],
 			'order_direction' => $orderDb['order_direction'],
 			// Выпуск №135
-			'pagination' => [
+			/* 'pagination' => [
 				'qty' => $_SESSION['quantities'] ?? QTY,
 
 				'page' => $this->clearNum($_GET['page'] ?? 1) ?: 1
-			]
-		], $catalogFilters, $catalogPrices);
+			] */
+		], $catalogFilters, $catalogPrices, $catalogCat);
 
 		//$a = 1;
 
 		// Выпуск №136
 		$pages = $this->model->getPagination();
 
-		return compact('data', 'catalogFilters', 'catalogPrices', 'goods', 'order', 'quantities', 'pages');
+		return compact('data', 'catalogFilters', 'catalogPrices', 'catalogCat', 'goods', 'order', 'quantities', 'pages');
 	}
 
 

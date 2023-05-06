@@ -264,6 +264,10 @@ $(function () {
 		event.preventDefault()
 		$(this).children('.category-filter-list').slideToggle('fast');
 	})
+	$('.category-filter__num-list').click(function (event) {
+		event.preventDefault()
+		$(this).children('.category-num-list').slideToggle('fast');
+	})
 
 	// ===================== modal poput HEADER USER ==================
 	$('.header__profile-link').click(function (event) {

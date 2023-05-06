@@ -20,7 +20,7 @@ class Model extends \core\base\model\BaseModel
 	 * 1-ый параметр (настройки): $set = [] (принимает), 
 	 * 2-ой (фильтры каталога) и 3-ий (цены каталога): &$catalogFilters = null и &$catalogPrices = null (возвращает по ссылке)
 	 */
-	public function getGoods($set = [], &$catalogFilters = null, &$catalogPrices = null)
+	public function getGoods($set = [], &$catalogFilters = null, &$catalogPrices = null, &$catalogCat = null)
 	{
 		// получим товары с id (для этого используется метод: protected function joinStructure() из BaseModelMethods, 
 		// который запускается если есть ячейка: ['join_structure'] при этом вернётся массив вида: id товара => данные 
@@ -285,7 +285,7 @@ class Model extends \core\base\model\BaseModel
 
 			// сформируем категории с вложенностями (подкатегориями)
 
-			if (/* $catalogFilters !== false &&  */in_array('category', $this->showTables())) {
+			if ($catalogCat !== false && in_array('category', $this->showTables())) {
 
 				// родительские названия фильтров
 				$parentCategoryFields = [];

@@ -85,7 +85,6 @@ const USER_CSS_JS = [
 		'assets/js/jquery.mask.min.js',
 		'assets/js/nouislider.min.js',
 		'assets/js/functions.js',
-		//'assets/js/nouislider.js',
 		'assets/js/script.js',
 	]
 ];
