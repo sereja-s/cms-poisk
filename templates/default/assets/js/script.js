@@ -261,11 +261,11 @@ $(function () {
 
 	// ===================== modal poput CATEGORY FILTER ==================
 	$('.category-filter__sort-list').click(function (event) {
-		event.preventDefault()
+		/* event.preventDefault() */
 		$(this).children('.category-filter-list').slideToggle('fast');
 	})
 	$('.category-filter__num-list').click(function (event) {
-		event.preventDefault()
+		/* event.preventDefault() */
 		$(this).children('.category-num-list').slideToggle('fast');
 	})
 

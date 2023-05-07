@@ -60,7 +60,7 @@ class CatalogController extends BaseUser
 		// +Выпуск №131
 		$catalogFilters = $catalogPrices = $catalogCat = $orderDb = null;
 
-		// Выпуск №131
+		// Выпуск №131 (сортировка в каталоге(здесь- по цене, по названию))
 		$order = $this->createCatalogOrder($orderDb);
 
 		// Выпуск №132
@@ -93,11 +93,12 @@ class CatalogController extends BaseUser
 
 
 	/** 
-	 * Метод сортировки каталога товаров (В каталоге реализуем- сортировать по:) (Выпуск №131)
+	 * Метод сортировки каталога товаров для пользовательского шаблона (В каталоге реализуем- сортировать по:) (Выпуск №131)
 	 */
 	protected function createCatalogOrder(&$orderDb)
 	{
 
+		// для сортировки в пользовательском шаблоне
 		$order = [
 
 			'цене' => 'price_asc',
@@ -106,7 +107,7 @@ class CatalogController extends BaseUser
 
 		];
 
-		// изначально инициализируем массив
+		// изначально инициализируем массив и сохраним в переменной: $orderDb(для дальнейшей сортировки в БД)
 		$orderDb = ['order' => null, 'order_direction' => null];
 
 		// если в сортировщик что то пришло
@@ -114,7 +115,7 @@ class CatalogController extends BaseUser
 
 			$orderArr = preg_split('/_+/', $_GET['order'], 0, PREG_SPLIT_NO_EMPTY);
 
-			if (!empty($this->model->showColumns('goods')[$orderArr[0]])) {
+			if (!empty($this->model->showColumns('goodsnew')[$orderArr[0]])) {
 
 				$orderDb['order'] = $orderArr[0];
 
@@ -279,7 +280,7 @@ class CatalogController extends BaseUser
 					$queryStr .= ' filters_id IN(' . implode(',', $item) . ')' . (isset($resArr[$key + 1]) ? ' OR ' : '');
 				}
 
-				return 'SELECT goods_id FROM goods_filters WHERE ' . $queryStr . ' GROUP BY goods_id HAVING COUNT(goods_id) >= '  . $filtersCount;
+				return 'SELECT goodsnew_id FROM goodsnew_filters WHERE ' . $queryStr . ' GROUP BY goodsnew_id HAVING COUNT(goodsnew_id) >= '  . $filtersCount;
 			}
 		}
 

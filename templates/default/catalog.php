@@ -6,13 +6,6 @@
 		<div class="container">
 			<h1 class="category-page__title"><?= $data['name'] ?></h1>
 
-			<!-- <div class="category-page__mini-filter">
-				<a href="#">Инверторные</a>
-				<a href="#">Инверторные с дисплеем</a>
-				<a href="#">Недорогие</a>
-				<a href="#">Ширина 50 см</a>
-			</div> -->
-
 
 			<div class="category-page__wrapper">
 
@@ -23,7 +16,7 @@
 				<?php else : ?>
 
 					<!-- filter -->
-					<div class="category-page__filter">
+					<form action="<?= $this->alias('catalog' . (!empty($this->parameters['alias']) ? '/' . 					$this->parameters['alias'] : '')) ?>" class="category-page__filter">
 
 						<?php if (!empty($catalogFilters) || !empty($catalogPrices)) : ?>
 
@@ -40,12 +33,12 @@
 										<div class="filters-price__inputs">
 											<label class="filters-price__label">
 												<span class="filters-price__text">от</span>
-												<input autocomplete="off" type="text" value="<?= $catalogPrices['min_price'] ?>" name="form[]" class="filters-price__input" id="input-0">
+												<input type="text" name="min_price" value="<?= $catalogPrices['min_price'] ?>" class="filters-price__input" id="input-0">
 												<span class="filters-price__text">₽</span>
 											</label>
 											<label class="filters-price__label">
 												<span class="filters-price__text">до</span>
-												<input autocomplete="off" type="text" value="<?= $catalogPrices['max_price'] ?>" name="form[]" class="filters-price__input" id="input-1">
+												<input type="text" name="max_price" value="<?= $catalogPrices['max_price'] ?>" class="filters-price__input" id="input-1">
 												<span class="filters-price__text">₽</span>
 											</label>
 										</div>
@@ -63,7 +56,7 @@
 
 											<?php foreach ($item['values'] as $value) : ?>
 
-												<input type="checkbox" name="filters[]" value="<?= $value['id'] ?>"> <?= $value['name'] ?> (<?= $value['count'] ?? 0 ?>)<br>
+												<input type="checkbox" name="filters[]" value="<?= $value['id'] ?>" <?= !empty($_GET['filters']) && in_array($value['id'], $_GET['filters']) ? 'checked' : '' ?>> <?= $value['name'] ?> (<?= $value['count'] ?? 0 ?>)<br>
 
 											<?php endforeach; ?>
 
@@ -73,38 +66,25 @@
 
 								<?php endif; ?>
 
-								<!-- <h4 class="category-filter__title category-filter__title-open _spoller _active">Вид холодильника (245)</h4>
-								<div class="category-filter__block">
-									<input type="checkbox"> С морозильной камерой (45)<br>
-									<input type="checkbox"> Без морозильной камеры (56)<br>
+								<div class="category-filter__more">
+									<div class="category-filter__find">
+										<button class="category-filter__find-button">Применить</button>
+									</div>
 								</div>
 
-								<h4 class="category-filter__title category-filter__title-open _spoller _active">Морозильная камера (245)</h4>
-								<div class="category-filter__block">
-									<input type="checkbox"> Сбоку (7)<br>
-									<input type="checkbox"> Снизу (34)<br>
-									<input type="checkbox"> Сверху (87)<br>
-									<input type="checkbox"> Отсутствует (14)<br>
-								</div> -->
-
-
-
 								<div class="category-filter__result">
-									<div class="category-filter__result-name">Очистить фильтр</div>
+									<div class="category-filter__result-name" onclick="location.href = location.pathname">Очистить фильтр</div>
 									<div class="category-filter__result-clear"></div>
 								</div>
 							</div>
 
-							<div class="category-filter__more">
 
-								<div class="category-filter__find">
-									<button class="category-filter__find-button" type="submit">Применить</button>
-								</div>
-							</div>
 
 						<?php endif; ?>
 
-					</div>
+					</form>
+
+
 
 					<!-- content-->
 					<div class="category-page__content">
@@ -117,20 +97,37 @@
 
 								<!-- настройки вида -->
 								<div class="category-items__view-settings">
-									<div class="category-filter__sort-list">
-										<a class="category-items__view-popular" href="#">Сортировать по</a>
 
-										<div class="category-filter-list">
-											<a class="category-filter__item" href="#">цене</a>
-											<a class="category-filter__item" href="#">названию</a>
-											<!-- <a class="category-filter__item" href="#">Сначала дорогие</a>
-											<a class="category-filter__item" href="#">Сначала с высоким рейтингом</a> -->
-										</div>
+									<div class="category-filter__sort-list">
+
+										<?php if (!empty($order)) : ?>
+
+											<div class="category-items__view-popular" href="#">Сортировать по</div>
+
+											<div class="category-filter-list">
+
+												<?php
+
+												$GET = $_GET ?? [];
+
+												?>
+
+												<?php foreach ($order as $name => $item) : ?>
+
+													<a href="<?= $this->alias('catalog/' .  ($this->parameters['alias'] ?? ''), array_merge($GET, ['order' => $item])) ?>" class="category-filter__item">
+														<?= $name ?>
+													</a>
+
+												<?php endforeach; ?>
+
+											</div>
+
+										<?php endif; ?>
+
 									</div>
 
-
 									<div class="category-filter__num-list">
-										<a class="category-items__view-num" href="#">Показывать: <b>10</b></a>
+										<div class="category-items__view-num" href="#">Показывать: <b>10</b></div>
 
 										<div class="category-num-list">
 											<a class="category-num__item" href="#">10</a>
@@ -178,16 +175,5 @@
 			</div>
 		</div>
 	</section>
-
-	<!-- <div class="compare-info">
-	<div class="container">
-		<div class="compare-info__wrapper">
-			<div class="compare-info__link">
-				<a href="#" class="compare-info__compare-fixed-name">3 товара в сравнении</a>
-				<div class="compare-info__compare-fixed-clear"></div>
-			</div>
-		</div>
-	</div>
-</div> -->
 
 <?php endif; ?>
