@@ -2402,6 +2402,7 @@ screen and (max-height: 300px) {
 	.category-items__view-settings {
 		width: 100%;
 		justify-content: center;
+		flex-wrap: wrap;
 	}
 }
 
@@ -2472,7 +2473,8 @@ screen and (max-height: 300px) {
 
 @media (max-width: 768px) {
 	.category-items__view-num {
-		display: none;
+		font-size: 14px;
+		/* display: none; */
 	}
 }
 
@@ -2594,7 +2596,7 @@ screen and (max-height: 300px) {
 	line-height: 35px;
 	color: #6e6e6e;
 	text-align: center;
-	min-width: 100px;
+	min-width: 70px;
 	width: 100px;
 	height: 35px;
 }

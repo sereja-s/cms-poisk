@@ -27,37 +27,53 @@
 
 						<?php if (!empty($catalogFilters) || !empty($catalogPrices)) : ?>
 
+							<!-- КНОПКА НА МАЛЫХ ЭКРАНАХ -->
 							<a href="" class="category-filter__close-link">Фильтр</a>
 
 							<div class="category-filter category-filter__small-height _spollers">
 
-								<h4 class="category-filter__title category-filter__title" style="padding-bottom: 50px;">Цена</h4>
-								<div class="section-filter__body" style="padding-bottom: 35px;">
-									<div class="filters-price__slider" id="range-slider" style="margin-left: 5px;"></div>
-									<div class="filters-price__inputs">
-										<label class="filters-price__label">
-											<span class="filters-price__text">от</span>
-											<input autocomplete="off" type="text" name="form[]" class="filters-price__input" id="input-0">
-											<span class="filters-price__text">₽</span>
-										</label>
-										<label class="filters-price__label">
-											<span class="filters-price__text">до</span>
-											<input autocomplete="off" type="text" name="form[]" class="filters-price__input" id="input-1">
-											<span class="filters-price__text">₽</span>
-										</label>
+								<?php if (!empty($catalogPrices)) : ?>
+
+									<h4 class="category-filter__title category-filter__title" style="padding-bottom: 50px;">Цена</h4>
+									<div class="section-filter__body" style="padding-bottom: 35px;">
+										<div class="filters-price__slider" id="range-slider" style="margin-left: 5px;"></div>
+										<div class="filters-price__inputs">
+											<label class="filters-price__label">
+												<span class="filters-price__text">от</span>
+												<input autocomplete="off" type="text" value="<?= $catalogPrices['min_price'] ?>" name="form[]" class="filters-price__input" id="input-0">
+												<span class="filters-price__text">₽</span>
+											</label>
+											<label class="filters-price__label">
+												<span class="filters-price__text">до</span>
+												<input autocomplete="off" type="text" value="<?= $catalogPrices['max_price'] ?>" name="form[]" class="filters-price__input" id="input-1">
+												<span class="filters-price__text">₽</span>
+											</label>
+										</div>
 									</div>
-								</div>
 
-								<h4 class="category-filter__title category-filter__title-open _spoller _active">Производитель (245)</h4>
-								<div class="category-filter__block">
-									<input type="checkbox"> Atlant (33)<br>
-									<input type="checkbox"> Samsung (57)<br>
-									<input type="checkbox"> LG (4)<br>
-									<input type="checkbox"> Bosh (7)<br>
-									<input type="checkbox"> Liebherr (13)<br>
-								</div>
+								<?php endif; ?>
 
-								<h4 class="category-filter__title category-filter__title-open _spoller _active">Вид холодильника (245)</h4>
+								<?php if (!empty($catalogFilters)) : ?>
+
+									<?php foreach ($catalogFilters as $item) : ?>
+
+										<h4 class="category-filter__title category-filter__title-open _spoller _active"><?= $item['name'] ?></h4>
+
+										<div class="category-filter__block">
+
+											<?php foreach ($item['values'] as $value) : ?>
+
+												<input type="checkbox" name="filters[]" value="<?= $value['id'] ?>"> <?= $value['name'] ?> (<?= $value['count'] ?? 0 ?>)<br>
+
+											<?php endforeach; ?>
+
+										</div>
+
+									<?php endforeach; ?>
+
+								<?php endif; ?>
+
+								<!-- <h4 class="category-filter__title category-filter__title-open _spoller _active">Вид холодильника (245)</h4>
 								<div class="category-filter__block">
 									<input type="checkbox"> С морозильной камерой (45)<br>
 									<input type="checkbox"> Без морозильной камеры (56)<br>
@@ -69,7 +85,7 @@
 									<input type="checkbox"> Снизу (34)<br>
 									<input type="checkbox"> Сверху (87)<br>
 									<input type="checkbox"> Отсутствует (14)<br>
-								</div>
+								</div> -->
 
 
 
@@ -102,19 +118,19 @@
 								<!-- настройки вида -->
 								<div class="category-items__view-settings">
 									<div class="category-filter__sort-list">
-										<a class="category-items__view-popular" href="#">Сначала популярные</a>
+										<a class="category-items__view-popular" href="#">Сортировать по</a>
 
 										<div class="category-filter-list">
-											<a class="category-filter__item" href="#">Сначала популярные</a>
-											<a class="category-filter__item" href="#">Сначала дешевые</a>
-											<a class="category-filter__item" href="#">Сначала дорогие</a>
-											<a class="category-filter__item" href="#">Сначала с высоким рейтингом</a>
+											<a class="category-filter__item" href="#">цене</a>
+											<a class="category-filter__item" href="#">названию</a>
+											<!-- <a class="category-filter__item" href="#">Сначала дорогие</a>
+											<a class="category-filter__item" href="#">Сначала с высоким рейтингом</a> -->
 										</div>
 									</div>
 
 
 									<div class="category-filter__num-list">
-										<a class="category-items__view-num" href="#">На странице: <b>10</b></a>
+										<a class="category-items__view-num" href="#">Показывать: <b>10</b></a>
 
 										<div class="category-num-list">
 											<a class="category-num__item" href="#">10</a>
