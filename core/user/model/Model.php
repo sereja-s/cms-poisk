@@ -43,14 +43,14 @@ class Model extends \core\base\model\BaseModel
 			$set['order'] = [];
 
 			// если не пусто в таблице: goods в ячейке: parent_id
-			if (!empty($this->showColumns('goods')['parent_id'])) {
+			if (!empty($this->showColumns('goodsnew')['parent_id'])) {
 
 				// то в начале будем сортировать по ней
 				$set['order'][] = 'parent_id';
 			}
 
 			// аналогично делаем для ячейки: price
-			if (!empty($this->showColumns('goods')['price'])) {
+			if (!empty($this->showColumns('goodsnew')['price'])) {
 
 				$set['order'][] = 'price';
 			}
@@ -345,9 +345,8 @@ class Model extends \core\base\model\BaseModel
 								'fields' => ['id', 'category_id']
 							],
 							'where' => [
-								// строим подзапрос (вложенный запрос), так блок с фильтрами нужно получить для всех товаров в 
-								// разделе Буем искать: goods_id (т.е. полуим идентификаторы всех товаров (т.к. блок с фмльтрами 
-								// нам надо получить для всех товаров), имеющихся в разделе, согласно условию: where)
+								// строим подзапрос (вложенный запрос) Будем искать: goodsnew_id (т.е. полуим идентификаторы 
+								// всех товаров (т.к. блок с категориями нам надо получить для всех товаров), имеющихся в разделе, согласно условию: where)
 								'goodsnew_id' => $this->get('goodsnew', [
 									'fields' => [$this->showColumns('goodsnew')['id_row']],
 									'where' => $set['where'] ?? null,

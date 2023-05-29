@@ -113,6 +113,7 @@ abstract class BaseUser extends \core\base\controller\BaseController
 			// все родители, потом последовательно пришли все потомки(подкатегории) и затем подкатегории подкатегорий) 
 			'order' => ['id', 'parent_id']
 		]);
+		$this->category = $category;
 
 		// на вход 2-ой параметр подавать не обязательно, т.к. по умолчанию он зависан равным null
 		$this->arrCategory = $this->recurse($category);

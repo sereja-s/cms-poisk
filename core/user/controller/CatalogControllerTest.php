@@ -33,42 +33,28 @@ class CatalogController extends BaseUser
 
 			$data = $this->model->get('category', [
 				'where' => ['alias' => $this->parameters['alias'], 'visible' => 1],
-				//'limit' => 1,
-				'join' => [
-					'goodsnew_category' => [
-						'fields' => ['goodsnew_id'],
-						'on' => ['id', 'category_id']
-					]
-				]
+				'limit' => 1
 			]);
 
 			if (!$data) {
 
 				throw new RouteException('Не найдены записи в таблице catalog по ссылке ', $this->parameters['alias']);
 			}
-		}
-
-		if (!empty($data) && is_array($data)) {
-
-			foreach ($data as $item) {
-				$idItems[] = $item['goodsnew_id'];
-				$categoryIds = implode(',', array_unique($idItems));
-				$where['id'] = $categoryIds;
-			}
-		} else {
 
 			$data = $data[0];
-			$where['id'] = $data['goodsnew_id'];
 		}
 
-		// сформируем дополнительную инструкцию для товаров
-		$where['visible'] = 1;
+
+		// сформируем инструкцию для товаров
+		$where = ['visible' => 1];
 
 		if ($data) {
-			$data['name'] = $data[0]['name'];
+
+			// Выпуск №144
+			$where['parent_id'] = $data['parent_id'];
 		} else {
+
 			$data['name'] = 'Каталог';
-			unset($where['id']);
 		}
 
 		// +Выпуск №131
@@ -77,10 +63,8 @@ class CatalogController extends BaseUser
 		// Выпуск №131 (сортировка в каталоге(здесь- по цене, по названию))
 		$order = $this->createCatalogOrder($orderDb);
 
-		// Выпуск №132		
+		// Выпуск №132
 		$operand = $this->checkFilters($where);
-
-
 
 
 		// Получим товары (с их фильтрами и ценами):
@@ -97,14 +81,14 @@ class CatalogController extends BaseUser
 
 				'page' => $this->clearNum($_GET['page'] ?? 1) ?: 1
 			] */
-		], $catalogFilters, $catalogPrices);
+		], $catalogFilters, $catalogPrices, $catalogCat);
 
 		//$a = 1;
 
 		// Выпуск №136
 		$pages = $this->model->getPagination();
 
-		return compact('data', 'catalogFilters', 'catalogPrices', 'goods', 'order', 'quantities', 'pages');
+		return compact('data', 'catalogFilters', 'catalogPrices', 'catalogCat', 'goods', 'order', 'quantities', 'pages');
 	}
 
 
@@ -207,14 +191,7 @@ class CatalogController extends BaseUser
 
 		$where = array_merge($dbWhere, $where);
 
-		if (!empty($_GET['filters']) && is_array($_GET['filters'])) {
-
-			$dbOperand[] = '=';
-		} else {
-
-			$dbOperand[] = 'IN';
-			$dbOperand[] = '=';
-		}
+		$dbOperand[] = '=';
 
 		return $dbOperand;
 	}

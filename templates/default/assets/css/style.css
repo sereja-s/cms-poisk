@@ -2415,6 +2415,7 @@ screen and (max-height: 300px) {
 	margin-right: 0px;
 	position: relative;
 	padding: 0 20px 0 0;
+	cursor: pointer;
 }
 
 @media (max-width: 768px) {
@@ -2450,6 +2451,7 @@ screen and (max-height: 300px) {
 	margin-right: 0px;
 	position: relative;
 	padding: 0 20px 0 0;
+	cursor: pointer;
 }
 
 .category-items__view-num::after {

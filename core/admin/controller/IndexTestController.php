@@ -48,7 +48,7 @@ class IndexTestController extends BaseController
 		$res5 = $model->get('teachers', [
 			// по условию:
 			'where' => ['id' => '1,2'],
-			// с уазанием операнда:
+			// с указанием операнда:
 			'operand' => ['IN'],
 
 			// и узнать всех учеников у которых они ведут
