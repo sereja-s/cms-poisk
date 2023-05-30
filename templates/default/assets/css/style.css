@@ -2742,6 +2742,7 @@ screen and (max-height: 300px) {
 	color: #404040;
 	flex: 1 1 auto;
 	text-align: center;
+	cursor: pointer;
 }
 
 .category-filter__result-clear {

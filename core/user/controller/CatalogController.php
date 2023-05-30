@@ -48,27 +48,32 @@ class CatalogController extends BaseUser
 			}
 		}
 
+		$where['visible'] = 1;
+		$visibleOperand = '=';
+
 		if (!empty($data) && is_array($data)) {
 
-			foreach ($data as $item) {
-				$idItems[] = $item['goodsnew_id'];
-				$categoryIds = implode(',', array_unique($idItems));
-				$where['id'] = $categoryIds;
-			}
-		} else {
+			if (count(($data)) >= 2) {
 
-			$data = $data[0];
-			$where['id'] = $data['goodsnew_id'];
+				foreach ($data as $item) {
+
+					$where['id'][] = $this->clearNum($item['goodsnew_id']);
+				}
+				$data['name'] = $data[0]['name'];
+				$where['id'] = implode(',', $where['id']);
+				$goodsOperand = 'IN';
+			} else {
+
+				$data = $data[0];
+				$data['name'] = $data['name'];
+				$where['id'] = $data['goodsnew_id'];
+				$goodsOperand = '=';
+			}
 		}
 
-		// сформируем дополнительную инструкцию для товаров
-		$where['visible'] = 1;
-
-		if ($data) {
-			$data['name'] = $data[0]['name'];
-		} else {
+		if (!$data) {
 			$data['name'] = 'Каталог';
-			unset($where['id']);
+			/* unset($where['id']); */
 		}
 
 		// +Выпуск №131
@@ -80,8 +85,13 @@ class CatalogController extends BaseUser
 		// Выпуск №132		
 		$operand = $this->checkFilters($where);
 
+		if (!empty($data['name']) && $data['name'] === 'Каталог') {
 
+			array_push($operand, $visibleOperand);
+		} else {
 
+			array_push($operand, $visibleOperand, $goodsOperand);
+		}
 
 		// Получим товары (с их фильтрами и ценами):
 		$goods = $this->model->getGoods([
@@ -190,31 +200,13 @@ class CatalogController extends BaseUser
 
 			if ($subFiltersQuery) {
 
-				$dbWhere['id'] = $subFiltersQuery;
+				$dbWhere[' id'] = $subFiltersQuery;
 
 				$dbOperand[] = 'IN';
 			}
-
-
-			// -Выпуск №133
-			/* $dbWhere['id'] = $this->model->get('goods_filters', [
-				'fields' => ['goods_id'],
-				'where' => ['filters_id' => implode(',', $_GET['filters'])],
-				'operand' => ['IN'],
-				'return_query' => true // что бы вернулся запрос
-			]); */
 		}
 
 		$where = array_merge($dbWhere, $where);
-
-		if (!empty($_GET['filters']) && is_array($_GET['filters'])) {
-
-			$dbOperand[] = '=';
-		} else {
-
-			$dbOperand[] = 'IN';
-			$dbOperand[] = '=';
-		}
 
 		return $dbOperand;
 	}
