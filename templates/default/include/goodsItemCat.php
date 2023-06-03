@@ -32,7 +32,7 @@
 				<span class="short-item__add-compare"></span>
 			</div>
 
-			<a href="full-item.html">
+			<a href="<?= $this->alias(['product' => $data['alias']]) ?>">
 				<img class="short-item__img" src="<?= $this->img($data['img']) ?>" alt="<?= $data['name'] ?>">
 			</a>
 		</div>
@@ -43,7 +43,7 @@
 		</div>
 
 		<div class="short-item__item-title">
-			<a class="short-item__item-link" href="#"><?= $data['name'] ?></a>
+			<a class="short-item__item-link" href="<?= $this->alias(['product' => $data['alias']]) ?>"><?= $data['name'] ?></a>
 		</div>
 
 		<a class="short-item__add-cart" href="#">В корзину</a>

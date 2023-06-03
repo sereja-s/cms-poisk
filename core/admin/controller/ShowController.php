@@ -12,6 +12,9 @@ use core\base\settings\ShopSettings;
  */
 class ShowController extends BaseAdmin
 {
+
+	protected $pages;
+
 	protected function inputData()
 	{
 		if (!$this->userId) {
@@ -44,6 +47,9 @@ class ShowController extends BaseAdmin
 		$fields = [];
 		$order = [];
 		$order_direction = [];
+
+		// постраничная навигация:
+		$this->quantities = [3, 6, 15, 25, 35];
 
 		// если поля columns с ячейкой id_row не пришли из БД
 		if (!$this->columns['id_row']) {
@@ -175,9 +181,14 @@ class ShowController extends BaseAdmin
 		$this->data = $this->model->get($this->table, [
 			'fields' => $fields,
 			'order' => $order,
-			'order_direction' => $order_direction
+			'order_direction' => $order_direction,
+			'pagination' => [
+				'qty' => $_SESSION['quantitiesAdmmin'] ?? QTY,
+
+				'page' => $this->clearNum($_GET['page'] ?? 1) ?: 1
+			]
 		]);
 
-		//exit(print_arr($this->data));
+		$this->pages = $this->model->getPagination();
 	}
 }

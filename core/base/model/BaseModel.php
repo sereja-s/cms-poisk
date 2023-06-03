@@ -229,8 +229,9 @@ abstract class BaseModel extends BaseModelMethods
 		return $res;
 	}
 
-
-	// Выпуск №135 | Пользовательская часть постраничная навигация | часть 1
+	/** 
+	 * Выпуск №135 | Пользовательская часть постраничная навигация | часть 1
+	 */
 	protected function createPagination($set, $table, $where, &$limit)
 	{
 		if (!empty($set['pagination'])) {

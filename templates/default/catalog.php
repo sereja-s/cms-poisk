@@ -126,17 +126,23 @@
 
 									</div>
 
-									<div class="category-filter__num-list">
-										<div class="category-items__view-num" href="#">Показывать: <b>10</b></div>
+									<?php if (!empty($quantities)) : ?>
 
-										<div class="category-num-list">
-											<a class="category-num__item" href="#">10</a>
-											<a class="category-num__item" href="#">20</a>
-											<a class="category-num__item" href="#">30</a>
+										<div class="category-filter__num-list">
+											<div class="category-items__view-num" href="#">Показывать: <span><?= $_SESSION['quantities'] ?? '' ?></span></div>
+
+											<div class="category-num-list">
+
+												<?php foreach ($quantities as $item) : ?>
+
+													<a class="category-num__item" href="#"><?= $item ?></a>
+
+												<?php endforeach; ?>
+
+											</div>
 										</div>
-									</div>
 
-
+									<?php endif; ?>
 
 
 
@@ -156,16 +162,15 @@
 
 							</div>
 
-							<div class="page-nav">
-								<a class="page-nav__prev-page" href="#"></a>
-								<span class="page-nav__current-page">1</span>
-								<a href="#">2</a>
-								<a href="#">3</a>
-								<a href="#">4</a>
-								<span>...</span>
-								<a href="#">17</a>
-								<a class="page-nav__next-page" href="#"></a>
-							</div>
+							<?php if (!empty($pages)) : ?>
+
+								<div class="catalog-section-pagination">
+
+									<?php $this->pagination($pages) ?>
+
+								</div>
+
+							<?php endif; ?>
 
 						</div>
 					</div>

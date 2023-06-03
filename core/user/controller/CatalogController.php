@@ -16,15 +16,9 @@ class CatalogController extends BaseUser
 	{
 		parent::inputData();
 
-		// (-Выпуск №131)
-		/* $order = [
-			'price' => 'цене',
-			'name' => 'названию'
-		]; */
-
 		// +Выпуск №134
 		// количество товаров для отображения на странице каталога
-		$quantities = [10, 20, 30];
+		$quantities = [12, 15, 21];
 
 		// Сформируем название для страницы каталог, взависимости от того в какой категории находимся
 		$data = [];
@@ -73,7 +67,6 @@ class CatalogController extends BaseUser
 
 		if (!$data) {
 			$data['name'] = 'Каталог';
-			/* unset($where['id']); */
 		}
 
 		// +Выпуск №131
@@ -102,11 +95,11 @@ class CatalogController extends BaseUser
 			'order' => $orderDb['order'],
 			'order_direction' => $orderDb['order_direction'],
 			// Выпуск №135
-			/* 'pagination' => [
+			'pagination' => [
 				'qty' => $_SESSION['quantities'] ?? QTY,
 
 				'page' => $this->clearNum($_GET['page'] ?? 1) ?: 1
-			] */
+			]
 		], $catalogFilters, $catalogPrices);
 
 		//$a = 1;
