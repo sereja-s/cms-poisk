@@ -32,7 +32,7 @@
 				<span class="short-item__add-compare"></span>
 			</div>
 
-			<a href="<?= $this->alias(['product' => $data['alias']]) ?>">
+			<a href="<?= $this->alias(['product' => $data['alias']]) ?>" data-productContainer>
 				<img class="short-item__img" src="<?= $this->img($data['img']) ?>" alt="<?= $data['name'] ?>">
 			</a>
 		</div>
