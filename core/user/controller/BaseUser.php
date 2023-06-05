@@ -490,7 +490,7 @@ abstract class BaseUser extends \core\base\controller\BaseController
 		}
 
 		// получим товар (подтверждение, что такой товар существует)
-		$data = $this->model->get('goods', [
+		$data = $this->model->get('goodsnew', [
 			'where' => ['id' => $id, 'visible' => 1],
 			'limit' => 1
 		]);
@@ -501,10 +501,8 @@ abstract class BaseUser extends \core\base\controller\BaseController
 		}
 
 		// заберём корзину в переменную, чтобы дальше с ней работать (в одной единой переменной):
+		// (при этом обращаемся к методу по ссылке)
 		$cart = &$this->getCart();
-
-		//$cart['total_qty'] = 1;
-		//$a = 1;
 
 		// в корзине хранится идентификатор товара и количество
 		$cart[$id] = $qty;
@@ -516,7 +514,7 @@ abstract class BaseUser extends \core\base\controller\BaseController
 		// на вход метода подаём флаг: $cartChanged = true, т.к. в корзине произошли изменения и их необходимо пересчитать
 		$res = $this->getCartData(true);
 
-		// сформируем по условию: $res['current'] т.е. текущий элемент
+		// сформируем по условию: $res['current'] - текущий элемент (для удобства работы в JS)
 		if ($res && !empty($res['goods'][$id])) {
 
 			$res['current'] = $res['goods'][$id];
@@ -527,10 +525,12 @@ abstract class BaseUser extends \core\base\controller\BaseController
 
 	/** 
 	 * Метод формирует полноценные данные о нашей корзине (Выпуск №140)
+	 * 
+	 * на вход: флаг по умолчанию $cartChanged = false т.е. изменений в корзине не произошло
 	 */
 	protected function getCartData($cartChanged = false)
 	{
-		// если корзина получена
+		// если корзина получена(сормировано свойство: $this->cart)
 		if (!empty($this->cart) && !$cartChanged) {
 
 			// вернём корзину
@@ -562,8 +562,9 @@ abstract class BaseUser extends \core\base\controller\BaseController
 			return false;
 		}
 
-		// если в корзине ($cart) есть такие идентификаторы которых нет в $goods, то какой-то товар уже отключен и надо переUPDATE корзину, иначе оставляем как есть
 
+		// если в корзине($cart) есть такие идентификаторы которых нет в $goods, то какой-то товар уже отключен и надо 
+		// переUPDATE корзину, иначе оставляем как есть По умолчанию установим флаг:
 		$cartChanged = false;
 
 		foreach ($cart as $id => $qty) {
@@ -648,7 +649,7 @@ abstract class BaseUser extends \core\base\controller\BaseController
 
 		if (defined('CART') && strtolower(CART) === 'cookie') {
 
-			// поставим куку пользователю и изменим значение его корзины
+			// поставим новую куку пользователю изменив при этом значение его корзины
 			setcookie('cart', json_encode($cart), time() + 3600 * 24 * 4, PATH);
 		}
 
@@ -704,7 +705,9 @@ abstract class BaseUser extends \core\base\controller\BaseController
 	{
 		if (!defined('CART') || strtolower(CART) !== 'cookie') {
 
-			// то значит работаем с сессией:
+			// то значит работаем с сессией
+
+			// сделаем дополнительную проверку:
 			if (!isset($_SESSION['cart'])) {
 
 				$_SESSION['cart'] = [];
@@ -716,6 +719,9 @@ abstract class BaseUser extends \core\base\controller\BaseController
 			if (!isset($_COOKIE['cart'])) {
 
 				$_COOKIE['cart'] = [];
+
+				// если есть $_COOKIE['cart'], то в ней может быть или массив, или строка
+				// сделаем соответствующую проверку
 			} else {
 
 				$_COOKIE['cart'] = is_string($_COOKIE['cart']) ? json_decode($_COOKIE['cart'], true) : $_COOKIE['cart'];

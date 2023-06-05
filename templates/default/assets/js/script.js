@@ -50,7 +50,7 @@ $(function () {
 		fade: true,
 		infinite: true,
 		responsive: [{
-			breakpoint: 768,
+			breakpoint: 769,
 			settings: {
 				slidesToShow: 1,
 				slidesToScroll: 1,
@@ -269,7 +269,7 @@ $(function () {
 		$(this).children('.category-num-list').slideToggle('fast');
 	})
 
-	//=============== Обработчик кнопи выбора количества отображаемых товаров каталога (Выпуск №134) ===================//
+	//=========== Обработчик кнопи выбора количества отображаемых товаров каталога (Выпуск №134) ===============//
 
 	$('.category-num-list a').on('click', function (e) {
 
@@ -431,24 +431,21 @@ $(function () {
 		infinite: false,
 		variableWidth: true,
 		autoplay: true,
+		mobileFirst: true,
+		slidesToShow: 2,
 		autoplaySpeed: 10000,
 		speed: 5000,
-		responsive: [{
-			breakpoint: 768,
-			settings: {
-				slidesToShow: 1,
-			}
-		},
-		{
-			breakpoint: 991,
-			settings: {
-				slidesToShow: 2,
-			}
-		},
-		{
-			breakpoint: 10000,
-			settings: "unslick",
-		},
+		responsive: [
+			{
+				breakpoint: 768,
+				settings: {
+					slidesToShow: 3,
+				}
+			},
+			{
+				breakpoint: 991,
+				settings: "unslick",
+			},
 		]
 	});
 

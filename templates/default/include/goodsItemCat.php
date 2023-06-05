@@ -46,7 +46,7 @@
 			<a class="short-item__item-link" href="<?= $this->alias(['product' => $data['alias']]) ?>"><?= $data['name'] ?></a>
 		</div>
 
-		<a class="short-item__add-cart" href="#">В корзину</a>
+		<a class="short-item__add-cart" data-addToCart="<?= $data['id'] ?>" href="#">В корзину</a>
 
 	</div>
 

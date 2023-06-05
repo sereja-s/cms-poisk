@@ -129,7 +129,7 @@
 					<?php endif; ?>
 
 					<!-- price -->
-					<div class="full-item__price">
+					<div class="full-item__price" data-productContainer>
 						<div class="full-item__price-wrapper">
 							<div class="full-item__cost">
 
@@ -160,14 +160,14 @@
 									</label>
 								</div>
 
-								<div class="full-item__payment-method" style="margin: 25px;">
+								<div class="full-item__payment-method" style="margin: 10px;">
 									Нааличие товара и способ оплаты:<br>
 									<b>Уточняйте у менеджера по указанным телефонам</b>
 								</div>
 
 							</div>
 
-							<!-- buy block -->
+
 							<div class="full-item__buy">
 								<a data-addToCart="<?= $data['id'] ?>" data-onClick href="#popup-buy-one-click" class="full-item__buy-click popup-open-modal">
 									Купить в 1 клик
@@ -179,8 +179,8 @@
 							</div>
 						</div>
 
-						<!-- info item delivery-->
-						<div class="full-item__delivery-info" style="margin-top: 37px;">
+
+						<div class="full-item__delivery-info">
 							<div class="full-item__di-item">
 								<h4 class="full-item__di-title full-item__di-title-garanty">Гарантия</h4>
 
@@ -213,13 +213,8 @@
 					</div>
 
 				</div>
-				<!-- основная инфо end-->
 
 			</div>
-
-
-
-
 
 			<div id="full-item__tabs" class="full-item__tabs">
 				<ul class="full-item__tabs-menu">
@@ -258,14 +253,13 @@
 
 			</div>
 
-			<div class="full-item__recommendation">
+			<!-- <div class="full-item__recommendation">
 				<h3 class="h3-title full-item__recommendation-title">C этим товаром покупают</h3>
 
 				<div class="full-item__recommendation-wrapper">
-					<!-- 1 catalog item start -->
+
 					<div class="short-item__item">
 
-						<!-- catalog img start -->
 						<a class="short-item__img-link" href="#">
 							<div class="short-item__lt-info">
 								<span class="short-item__new">Новинка</span>
@@ -278,22 +272,18 @@
 
 							<img src="img/catalog-img-1.png" alt="" class="short-item__img">
 						</a>
-						<!-- catalog img end -->
+						
 
-						<!-- catalog price start -->
+						
 						<div class="short-item__price">
 							<p class="short-item__price-num">12 199 грн</p>
 							<s class="short-item__price-s-num">15 199 грн</s>
 						</div>
-						<!-- catalog price end -->
-
-						<!-- catalog item title start-->
+						
 						<div class="short-item__item-title">
 							<a class="short-item__item-link" href="#">Водонагреватель Electrolux EWH 80 Formax</a>
 						</div>
-						<!-- catalog item title end-->
-
-						<!-- catalog item info start -->
+						
 						<div class="short-item__item-info">
 							<div class="short-item__item-rating">
 								<img src="img/icons/star-activ.jpg" alt="1">
@@ -307,174 +297,13 @@
 								<a class="short-item__comment-link" href="#">17</a>
 							</div>
 						</div>
-						<!-- catalog item info end -->
-
-						<!-- button cart start-->
+						
 						<a class="short-item__add-cart" href="#">В корзину</a>
-						<!-- button cart end-->
+						
 					</div>
-					<!-- catalog item end -->
 
-					<!-- 2 catalog item start -->
-					<div class="short-item__item">
-
-						<!-- catalog img start -->
-						<a class="short-item__img-link" href="#">
-							<div class="short-item__lt-info">
-								<span class="short-item__new">Новинка</span>
-								<span class="short-item__present">Подарок</span>
-							</div>
-
-							<div class="short-item__lb-info">
-								<span class="short-item__discount">-20%</span>
-							</div>
-
-							<img src="img/catalog-img-2.png" alt="" class="short-item__img">
-						</a>
-						<!-- catalog img end -->
-
-						<!-- catalog price start -->
-						<div class="short-item__price">
-							<p class="short-item__price-num">8 500 грн</p>
-							<s class="short-item__price-s-num">10 000 грн</s>
-						</div>
-						<!-- catalog price end -->
-
-						<!-- catalog item title start-->
-						<div class="short-item__item-title">
-							<a class="short-item__item-link" href="#">Стиральная машина LG F-1096TD3</a>
-						</div>
-						<!-- catalog item title end-->
-
-						<!-- catalog item info start -->
-						<div class="short-item__item-info">
-							<div class="short-item__item-rating">
-								<img src="img/icons/star-activ.jpg" alt="1">
-								<img src="img/icons/star-activ.jpg" alt="2">
-								<img src="img/icons/star-activ.jpg" alt="3">
-								<img src="img/icons/star-activ.jpg" alt="4">
-								<img src="img/icons/star-pasiv.svg" alt="5">
-							</div>
-
-							<div class="short-item__item-comment">
-								<a class="short-item__comment-link" href="#">2</a>
-							</div>
-						</div>
-						<!-- catalog item info end -->
-
-						<!-- button cart start-->
-						<!-- button cart end-->
-						<a class="short-item__add-cart" href="#">В корзину</a>
-					</div>
-					<!-- catalog item end -->
-
-					<!-- 3 catalog item start -->
-					<div class="short-item__item">
-
-						<!-- catalog img start -->
-						<a class="short-item__img-link" href="#">
-							<div class="short-item__lt-info">
-								<span class="short-item__new">Новинка</span>
-								<span class="short-item__present">Подарок</span>
-							</div>
-
-							<div class="short-item__lb-info">
-								<span class="short-item__discount">-20%</span>
-							</div>
-
-							<img src="img/catalog-img-3.png" alt="" class="short-item__img">
-						</a>
-						<!-- catalog img end -->
-
-						<!-- catalog price start -->
-						<div class="short-item__price">
-							<p class="short-item__price-num">8 500 грн</p>
-							<s class="short-item__price-s-num">10 000 грн</s>
-						</div>
-						<!-- catalog price end -->
-
-						<!-- catalog item title start-->
-						<div class="short-item__item-title">
-							<a class="short-item__item-link" href="#">Микроволновая печь WHIRLPOOL AMW 730 IX</a>
-						</div>
-						<!-- catalog item title end-->
-
-						<!-- catalog item info start -->
-						<div class="short-item__item-info">
-							<div class="short-item__item-rating">
-								<img src="img/icons/star-activ.jpg" alt="1">
-								<img src="img/icons/star-activ.jpg" alt="2">
-								<img src="img/icons/star-activ.jpg" alt="3">
-								<img src="img/icons/star-activ.jpg" alt="4">
-								<img src="img/icons/star-pasiv.svg" alt="5">
-							</div>
-
-							<div class="short-item__item-comment">
-								<a class="short-item__comment-link" href="#">2</a>
-							</div>
-						</div>
-						<!-- catalog item info end -->
-
-						<!-- button cart start-->
-						<span class="short-item__add-cart-disabled">Нет в наличии</span>
-						<!-- button cart end-->
-					</div>
-					<!-- catalog item end -->
-
-					<!-- 4 catalog item start -->
-					<div class="short-item__item">
-
-						<!-- catalog img start -->
-						<a class="short-item__img-link" href="#">
-							<div class="short-item__lt-info">
-								<span class="short-item__new">Новинка</span>
-								<span class="short-item__present">Подарок</span>
-							</div>
-
-							<div class="short-item__lb-info">
-								<span class="short-item__discount">-20%</span>
-							</div>
-
-							<img src="img/catalog-img-4.png" alt="" class="short-item__img">
-						</a>
-						<!-- catalog img end -->
-
-						<!-- catalog price start -->
-						<div class="short-item__price">
-							<p class="short-item__price-num">16 280 грн</p>
-							<s class="short-item__price-s-num">12 500 грн</s>
-						</div>
-						<!-- catalog price end -->
-
-						<!-- catalog item title start-->
-						<div class="short-item__item-title">
-							<a class="short-item__item-link" href="#">Телефизор BLACKTON 2402B</a>
-						</div>
-						<!-- catalog item title end-->
-
-						<!-- catalog item info start -->
-						<div class="short-item__item-info">
-							<div class="short-item__item-rating">
-								<img src="img/icons/star-activ.jpg" alt="1">
-								<img src="img/icons/star-activ.jpg" alt="2">
-								<img src="img/icons/star-activ.jpg" alt="3">
-								<img src="img/icons/star-activ.jpg" alt="4">
-								<img src="img/icons/star-pasiv.svg" alt="5">
-							</div>
-
-							<div class="short-item__item-comment">
-								<a class="short-item__comment-link" href="#">18</a>
-							</div>
-						</div>
-						<!-- catalog item info end -->
-
-						<!-- button cart start-->
-						<a class="short-item__add-cart" href="#">В корзину</a>
-						<!-- button cart end-->
-					</div>
-					<!-- catalog item end -->
 				</div>
-			</div>
+			</div> -->
 		</div>
 	</section>
 	<!-- full-item end -->

@@ -188,7 +188,7 @@
 						<!-- cart start-->
 						<div class="header__cart">
 							<a class="header__cart-link" href="#">
-								<span class="header__cart-num">3</span>
+								<span data-totalQty class="header__cart-num"><?= $this->cart['total_qty'] ?? 0 ?></span>
 								<div class="header__cart-name">Корзина</div>
 								<div class="header__cart-money">19700 грн</div>
 							</a>
@@ -261,7 +261,7 @@
 
 						<a class="header__user-profile-link" href="#"></a>
 						<a class="header__user-cart-link" href="#">
-							<span class="header__cart-num">3</span>
+							<span data-totalQty class="header__cart-num"><?= $this->cart['total_qty'] ?? 0 ?></span>
 						</a>
 
 						<a class="header__mobile-main-menu-link" href="#">
