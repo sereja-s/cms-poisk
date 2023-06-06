@@ -193,7 +193,7 @@ function addToCart() {
 
 							item.setAttribute('data-toCartAdded', true);
 
-							['data-totalQty', 'data-totalSum', 'data-totalOldSum'].forEach(attr => {
+							['data-totalQty', 'data-totalSum', 'data-totalOldSum', 'data-totalDiscount'].forEach(attr => {
 
 								let cartAttr = attr.replace(/data-/, '').replace(/([^A-Z])([A-Z])/g, '$1_$2').toLowerCase()
 

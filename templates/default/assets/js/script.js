@@ -317,9 +317,9 @@ $(function () {
 
 
 	// ===================== modal poput HEADER CART ==================
-	$('.header__cart-link').click(function (event) {
+	/* $('.header__cart-link').click(function (event) {
 		event.preventDefault()
-	})
+	}) */
 
 	// ===================== modal poput HEADER navi-category ==================
 	$('.header__all-category-link').click(function (event) {

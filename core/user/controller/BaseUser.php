@@ -625,6 +625,8 @@ abstract class BaseUser extends \core\base\controller\BaseController
 			} */
 		}
 
+		$this->cart['total_discount'] = ($this->cart['total_old_sum'] - $this->cart['total_sum']);;
+
 		// Выпуск №143
 		if ($this->cart['total_sum'] === $this->cart['total_old_sum']) {
 

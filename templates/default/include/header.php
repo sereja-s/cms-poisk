@@ -187,80 +187,17 @@
 
 						<!-- cart start-->
 						<div class="header__cart">
-							<a class="header__cart-link" href="#">
+							<a class="header__cart-link" href="<?= $this->alias('cart') ?>">
 								<span data-totalQty class="header__cart-num"><?= $this->cart['total_qty'] ?? 0 ?></span>
 								<div class="header__cart-name">Корзина</div>
 								<div class="header__cart-money">19700 грн</div>
 							</a>
-							<!-- выпадающий список корзины -->
-							<div class="header-cart">
-								<div class="header__cart__item">
-									<div class="header__cart__image">
-										<a href="#">
-											<img class="header__cart__img" src="<?= PATH . TEMPLATE ?>assets/img/hol-1.png" alt="">
-										</a>
-									</div>
 
-									<div class="header__cart__title">
-										<a class="header__cart__link" href="#">Холодильник Electrolux EWH 80 Formax</a>
-										<span class="header__cart__code">Код товара: 519868.0</span>
-									</div>
-
-									<div class="header__cart__price">
-										<p class="header__cart__price-num">11 000 грн</p>
-										<s class="header__cart__price-s-num">15 199 грн</s>
-									</div>
-								</div>
-
-								<div class="header__cart__item">
-									<div class="header__cart__image">
-										<a href="#">
-											<img class="header__cart__img" src="<?= PATH . TEMPLATE ?>assets/img/hol-1.png" alt="">
-										</a>
-									</div>
-
-									<div class="header__cart__title">
-										<a class="header__cart__link" href="#">Холодильник Electrolux EWH 80 Formax</a>
-										<span class="header__cart__code">Код товара: 519868.0</span>
-									</div>
-
-									<div class="header__cart__price">
-										<p class="header__cart__price-num">11 000 грн</p>
-										<s class="header__cart__price-s-num">15 199 грн</s>
-									</div>
-								</div>
-
-								<div class="header__cart__item">
-									<div class="header__cart__image">
-										<a href="#">
-											<img class="header__cart__img" src="<?= PATH . TEMPLATE ?>assets/img/hol-1.png" alt="">
-										</a>
-									</div>
-
-									<div class="header__cart__title">
-										<a class="header__cart__link" href="#">Холодильник Electrolux EWH 80 Formax</a>
-										<span class="header__cart__code">Код товара: 519868.0</span>
-									</div>
-
-									<div class="header__cart__price">
-										<p class="header__cart__price-num">11 000 грн</p>
-										<s class="header__cart__price-s-num">15 199 грн</s>
-									</div>
-								</div>
-
-								<div class="header-cart__total">
-									<div class="header-cart__total-name">Итого:</div>
-
-									<div class="header-cart__total-sum">11 000 грн</div>
-								</div>
-
-								<a href="cart.html" class="header-cart__go-to-cart-link">Перейти в корзину</a>
-							</div>
 						</div>
-						<!-- cart end-->
+
 
 						<a class="header__user-profile-link" href="#"></a>
-						<a class="header__user-cart-link" href="#">
+						<a class="header__user-cart-link" href="<?= $this->alias('cart') ?>">
 							<span data-totalQty class="header__cart-num"><?= $this->cart['total_qty'] ?? 0 ?></span>
 						</a>
 

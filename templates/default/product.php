@@ -16,7 +16,7 @@
 
 						<?php if (!empty($data['article'])) : ?>
 
-							<span class="full-item__code-item"><?= $data['article'] ?></span>
+							<span class="full-item__code-item">арт. <?= $data['article'] ?></span>
 
 						<?php endif; ?>
 
@@ -146,9 +146,8 @@
 								<?php endif; ?>
 
 								<div class="card-main-info-size">
-									<label class="card-main-info-size__item js-sizeCounter" data-max="10">
-										<input type="radio" name="size[]" class="visually-hidden">
-										<input type="number" class="visually-hidden js-counterValue" name="size" value="1">
+									<label class="card-main-info-size__item js-sizeCounter">
+
 										<span class="card-main-info-size__head">
 											Количество:
 										</span>
@@ -157,12 +156,13 @@
 											<span class="card-main-info-size__count js-counterShow" data-quantity><?= $this->cart['goods'][$data['id']]['qty'] ?? 1 ?></span>
 											<span class="card-main-info-size__control button card-main-info-size__control_plus js-counterIncrement" data-quantityPlus></span>
 										</span>
+
 									</label>
 								</div>
 
 								<div class="full-item__payment-method" style="margin: 10px;">
-									Нааличие товара и способ оплаты:<br>
-									<b>Уточняйте у менеджера по указанным телефонам</b>
+									Наличие товара и способ оплаты:<br>
+									<b>уточняйте у менеджера по указанным телефонам</b>
 								</div>
 
 							</div>
