@@ -169,7 +169,7 @@
 
 
 							<div class="full-item__buy">
-								<a data-addToCart="<?= $data['id'] ?>" data-onClick href="#popup-buy-one-click" class="full-item__buy-click popup-open-modal">
+								<a data-onClick href="#popup-buy-one-click" class="full-item__buy-click popup-open-modal">
 									Купить в 1 клик
 								</a>
 

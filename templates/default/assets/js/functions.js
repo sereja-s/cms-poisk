@@ -186,8 +186,6 @@ function addToCart() {
 
 							res = JSON.parse(res)
 
-							//console.log(res)
-
 							if (typeof res.current === 'undefined') {
 
 								throw new Error('')
@@ -207,6 +205,8 @@ function addToCart() {
 
 										// Выпуск №144
 										el.innerHTML = res[cartAttr] + (attr === 'data-totalQty' ? '' : ' руб.');
+
+										//debugger
 
 									}
 
@@ -249,6 +249,8 @@ function changeQty() {
 				let qty = +qtyEl.innerHTML || 1
 
 				//console.log(qty)
+
+				//debugger
 
 				if (item.hasAttribute('data-quantityPlus')) {
 
