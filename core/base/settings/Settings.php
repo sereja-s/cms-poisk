@@ -80,15 +80,15 @@ class Settings
 	private $projectTables = [
 		'sales' => ['name' => 'Акции'],
 		'category' => ['name' => 'Категории'],
-		'catalog' => ['name' => 'Каталог (меню)'],
 		'filters' => ['name' => 'Фильтры'],
 		'goodsnew' => ['name' => 'Товары по категориям'],
-		'goods' => ['name' => 'Товары'],
 		'news' => ['name' => 'Новости'],
 		'information' => ['name' => 'Информация (меню)'],
 		'settings' => ['name' => 'Настройки (о сайте)'],
 		'advantages' => ['name' => 'Преимущества'],
 		'socials' => ['name' => 'Соц.сети'],
+		'delivery' => ['name' => 'Доставка'],
+		'payments' => ['name' => 'Виды оплаты'],
 	];
 
 	// свойство: массив шаблонов

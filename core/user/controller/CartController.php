@@ -18,16 +18,8 @@ class CartController extends BaseUser
 	{
 		parent::inputData();
 
-		/* $_SESSION['res']['phone'] = '9999999999999';
-
-		$this->userData = [
-			'name' => 'Masha',
-			'phone' => '78965411223',
-			'email' => 'mail@mail.ru'
-		]; */
-
-		$this->delivery = $this->model->get('delivery');
-		$this->payments = $this->model->get('payments');
+		$this->delivery = $this->model->get('delivery', ['where' => ['visible' => 1]]);
+		$this->payments = $this->model->get('payments', ['where' => ['visible' => 1]]);
 
 		if (!empty($this->parameters['alias']) && $this->parameters['alias'] === 'remove') {
 
@@ -41,7 +33,5 @@ class CartController extends BaseUser
 
 			$this->redirect($this->alias('cart'));
 		}
-
-		//$a = 1;
 	}
 }

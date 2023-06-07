@@ -8,7 +8,7 @@
 
 			<p>Ваша корзина пуста</p>
 
-			<a href="<?= $this->alias('catalog') ?>" class="cart-page__delivery-button-link" style="text-align: center; max-width: max-content; margin-top: 20px">Перейти в каталог</a>
+			<a href="<?= $this->alias('catalog') ?>" class="cart-page__delivery-button-link" style="text-align: center; max-width: max-content; margin-top: 50px">Перейти в каталог</a>
 
 		<?php else : ?>
 
@@ -71,7 +71,7 @@
 									<?php endif; ?>
 
 
-									<a class="cart-page__delete-link" href="#">Удалить</a>
+									<a class="cart-page__delete-link" href="<?= $this->alias(['cart' => 'remove', 'id' => $item['id']]) ?>">Удалить</a>
 								</div>
 							</div>
 						</div>
@@ -124,110 +124,108 @@
 			</div>
 
 			<div id="cart-contacts" class="cart-page__get-delivery">
-				<h3 class="h3-title cart-page__get-delivery-title">Способ доставки</h3>
 
-				<div class="cart-page__gd-item">
-					<label class="cart-page__gd-item-label"> <input type="radio" name="d">
-						<span>Доставка курьером</span>
-						<div class="cart-page__gd-calendar">04.05.2022</div>
-					</label>
-				</div>
+				<?php if (!empty($this->delivery)) : ?>
 
-				<div class="cart-page__gd-item">
-					<label class="cart-page__gd-item-label"> <input type="radio" name="d">
-						<span>Самовывоз</span>
-						<div class="cart-page__gd-calendar">04.05.2022</div>
-					</label>
-				</div>
+					<h3 class="h3-title cart-page__get-delivery-title">Способ доставки</h3>
 
-				<div class="cart-page__pickup">
-					<label class="cart-page__pickup-item"> <input type="radio" name="s">
-						<span>г. Киев, ул. Запорожская 28, дом 54</span>
-					</label>
+					<div class="cart-page__gd-item">
 
-					<label class="cart-page__pickup-item"> <input type="radio" name="s">
-						<span>г. Киев, ул. Запорожская 28, дом 54</span>
-					</label>
-				</div>
-			</div>
+						<?php foreach ($this->delivery as $key => $item) : ?>
 
-			<div class="cart-page__get-pay">
-				<h3 class="h3-title cart-page__get-pay-title">Способ оплаты</h3>
+							<label class="cart-page__gd-item-label"><input type="radio" value="<?= $item['id'] ?>" name="delivery_id" <?= !$key ? 'checked' : '' ?>>
+								<span><?= $item['name'] ?></span>
+							</label>
 
-				<div class="cart-page__gp-wrapper">
-					<label class="cart-page__gp-lable">
-						<input type="radio" name="pay"> Оплата онлайн
-					</label>
-
-					<label class="cart-page__gp-lable">
-						<input type="radio" name="pay"> Оплата при получении наличными
-					</label>
-
-					<label class="cart-page__gp-lable">
-						<input type="radio" name="pay"> Оплата при получении картой
-					</label>
-				</div>
-			</div>
-
-			<div class="cart-page__get-contacts">
-				<h3 class="h3-title cart-page__get-contacts-title">Контактные данные</h3>
-
-				<div class="cart-page__gс-form">
-					<div class="cart-page__gc-input-block">
-						<div class="cart-page__gc-item-input">
-							<label class="cart-page__gc--label">Телефон</label>
-							<input class="cart-page__gc--input" type="tel">
-						</div>
-
-						<div class="cart-page__gc-item-input">
-							<label class="cart-page__gc--label">Email</label>
-							<input class="cart-page__gc--input" type="email">
-						</div>
-
-						<div class="cart-page__gc-item-input">
-							<label class="cart-page__gc--label">Имя</label>
-							<input class="cart-page__gc--input" type="text">
-						</div>
-
-						<div class="cart-page__gc-item-input">
-							<label class="cart-page__gc--label">Фамилия</label>
-							<input class="cart-page__gc--input" type="text">
-						</div>
-
-						<div class="cart-page__gc-item-input">
-							<label class="cart-page__gc--label">Город</label>
-							<input class="cart-page__gc--input" type="text">
-						</div>
-
-						<div class="cart-page__gc-item-input">
-							<label class="cart-page__gc--label">Адрес</label>
-							<input class="cart-page__gc--input" type="text">
-						</div>
+						<?php endforeach; ?>
 
 					</div>
-				</div>
-
-				<div class="cart-page__gс-form">
-					<div class="cart-page__gc-item-textarea">
-						<label class="cart-page__gc--label">Комментарий</label>
-						<textarea></textarea>
-					</div>
-				</div>
-
-				<div class="cart-page__gс-form">
-					<div class="cart-page__gc-item-check">
-						<label><input type="checkbox"> Согласен на обработку персональных данных</label>
-						<a class="footer__nav-link" href="#" style="text-decoration: underline;">Политика конфиденциальности</a>
-					</div>
-				</div>
-
-				<div class="cart-page__delivery-button">
-					<a href="#" class="cart-page__delivery-button-link scroll-to" style="text-align: center;">Оформить заказ</a>
-				</div>
 
 			</div>
 
 		<?php endif; ?>
+
+		<div class="cart-page__get-pay">
+
+			<?php if (!empty($this->payments)) : ?>
+
+				<h3 class="h3-title cart-page__get-pay-title">Способ оплаты</h3>
+
+				<div class="cart-page__gp-wrapper">
+
+					<?php foreach ($this->payments as $key => $item) : ?>
+
+						<label class="cart-page__gp-lable">
+							<input type="radio" value="<?= $item['id'] ?>" name="payments_id" <?= !$key ? 'checked' : '' ?>>
+							<span style="padding-left: 5px;"><?= $item['name'] ?></span>
+						</label>
+
+					<?php endforeach; ?>
+
+				</div>
+		</div>
+
+	<?php endif; ?>
+
+	<div class="cart-page__get-contacts">
+		<h3 class="h3-title cart-page__get-contacts-title">Контактные данные</h3>
+
+		<div class="cart-page__gс-form">
+			<div class="cart-page__gc-input-block">
+				<div class="cart-page__gc-item-input">
+					<label class="cart-page__gc--label">Телефон</label>
+					<input class="cart-page__gc--input" type="tel">
+				</div>
+
+				<div class="cart-page__gc-item-input">
+					<label class="cart-page__gc--label">Email</label>
+					<input class="cart-page__gc--input" type="email">
+				</div>
+
+				<div class="cart-page__gc-item-input">
+					<label class="cart-page__gc--label">Имя</label>
+					<input class="cart-page__gc--input" type="text">
+				</div>
+
+				<div class="cart-page__gc-item-input">
+					<label class="cart-page__gc--label">Фамилия</label>
+					<input class="cart-page__gc--input" type="text">
+				</div>
+
+				<div class="cart-page__gc-item-input">
+					<label class="cart-page__gc--label">Город</label>
+					<input class="cart-page__gc--input" type="text">
+				</div>
+
+				<div class="cart-page__gc-item-input">
+					<label class="cart-page__gc--label">Адрес</label>
+					<input class="cart-page__gc--input" type="text">
+				</div>
+
+			</div>
+		</div>
+
+		<div class="cart-page__gс-form">
+			<div class="cart-page__gc-item-textarea">
+				<label class="cart-page__gc--label">Комментарий</label>
+				<textarea></textarea>
+			</div>
+		</div>
+
+		<div class="cart-page__gс-form">
+			<div class="cart-page__gc-item-check">
+				<label><input type="checkbox"> Согласен на обработку персональных данных</label>
+				<a class="footer__nav-link" href="#" style="text-decoration: underline;">Политика конфиденциальности</a>
+			</div>
+		</div>
+
+		<div class="cart-page__delivery-button">
+			<a href="#" class="cart-page__delivery-button-link scroll-to" style="text-align: center;">Оформить заказ</a>
+		</div>
+
+	</div>
+
+<?php endif; ?>
 
 	</div>
 </section>

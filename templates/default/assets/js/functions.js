@@ -203,10 +203,8 @@ function addToCart() {
 
 									if (typeof res[cartAttr] !== 'undefined') {
 
-										// Выпуск №144
+										// +Выпуск №144
 										el.innerHTML = res[cartAttr] + (attr === 'data-totalQty' ? '' : ' руб.');
-
-										//debugger
 
 									}
 
