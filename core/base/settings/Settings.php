@@ -163,8 +163,8 @@ class Settings
 	private $manyToMany = [
 		// массив содержит название таблиц, которые связаны в БД
 		'goodsnew_category' => ['goodsnew', 'category'],
-		'goodsnew_filters' => ['goodsnew', 'filters'],
-		'goods_filters' => ['goods', 'filters'/* , 'type' => 'root' */], // 'type' => 'child' || 'root' - необязательный 
+		'goodsnew_filters' => ['goodsnew', 'filters'/* , 'type' => 'root' */],
+		// 'type' => 'child' || 'root' - необязательный 
 		// 3-ий элемент массива: показывает (здесь- в товарах) только дочерние элементы или только родительские категории. 
 		// Без него (по умолчанию) будет показано всё (т.е и название фильтра и его значения)
 	];

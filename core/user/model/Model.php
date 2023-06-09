@@ -42,7 +42,7 @@ class Model extends \core\base\model\BaseModel
 
 			$set['order'] = [];
 
-			// если не пусто в таблице: goods в ячейке: parent_id
+			// если не пусто в таблице: goodsnew в ячейке: parent_id
 			if (!empty($this->showColumns('goodsnew')['parent_id'])) {
 
 				// то в начале будем сортировать по ней
@@ -56,12 +56,8 @@ class Model extends \core\base\model\BaseModel
 			}
 		}
 
-
-		// получим товары (при этом подаём уже обработанный $set)
-		//$goods = $this->get('goods', $set);
+		// получим товары (при этом подаём уже обработанный $set)		
 		$goodsnew = $this->get('goodsnew', $set);
-
-		//$a = 1;
 
 		// все дальнейшие действия выполняем если пришли товары
 		if ($goodsnew) {
@@ -85,7 +81,7 @@ class Model extends \core\base\model\BaseModel
 				// MIN() и MAX()- функции SQL
 				$set['fields'] = ['MIN(price) as min_price', 'MAX(price) as max_price'];
 
-				// получим в переменную: массив с min_price(мин.цена) и max_price(макс.цена) товара из таблицы БД: goods
+				// получим в переменную: массив с min_price(мин.цена) и max_price(макс.цена) товара из таблицы БД: goodsnew
 				$catalogPrices = $this->get('goodsnew', $set);
 
 				if (!empty($catalogPrices[0])) {
@@ -159,7 +155,7 @@ class Model extends \core\base\model\BaseModel
 							],
 							'where' => [
 								// строим подзапрос (вложенный запрос), так блок с фильтрами нужно получить для всех товаров в 
-								// разделе Буем искать: goods_id (т.е. полуим идентификаторы всех товаров (т.к. блок с фмльтрами 
+								// разделе Буем искать: goodsnew_id (т.е. полуим идентификаторы всех товаров (т.к. блок с фмльтрами 
 								// нам надо получить для всех товаров), имеющихся в разделе, согласно условию: where)
 								'goodsnew_id' => $this->get('goodsnew', [
 									'fields' => [$this->showColumns('goodsnew')['id_row']],
@@ -176,16 +172,6 @@ class Model extends \core\base\model\BaseModel
 
 					// 'return_query' => true
 				]);
-
-				//$a = 1;
-
-				// Этот код перенесли выше (-Выпуск №141)
-				/* if (!empty($this->showColumns('goods')['discount'])) {
-					foreach ($goods as $key => $item) {
-						$this->applyDiscount($goods[$key], $item['discount']);
-					}
-				} */
-
 
 				// Сделаем подсчёт количества товаров в конкретном фильтре (относительно категории в которой находимся) отдельным запросом:
 
@@ -285,7 +271,7 @@ class Model extends \core\base\model\BaseModel
 
 			// сформируем категории с вложенностями (подкатегориями)
 
-			if ($catalogCat !== false && in_array('category', $this->showTables())) {
+			/* if ($catalogCat !== false && in_array('category', $this->showTables())) {
 
 				// родительские названия фильтров
 				$parentCategoryFields = [];
@@ -454,12 +440,12 @@ class Model extends \core\base\model\BaseModel
 								$goodsnew[$item['goodsnew_id']]['category'][$parent['id']]['values'] = [];
 							}
 
-							// в ячейку: values будут собраны все дочерних категории(подкатегории) которым принадлежит данный товар (с указанием кол-ва)
+							// в ячейку: values будут собраны все дочерние категории(подкатегории) которым принадлежит данный товар (с указанием кол-ва)
 							$goodsnew[$item['goodsnew_id']]['category'][$parent['id']]['values'][$item['id']] = $child;
 						}
 					}
 				}
-			}
+			} */
 		}
 
 		return $goodsnew ?? null;
@@ -471,7 +457,7 @@ class Model extends \core\base\model\BaseModel
 	public function applyDiscount(&$data, $discount)
 	{
 		// Выпуск №150 | Пользовательская часть | сохранение товаров заказа
-		if (!empty($this->showColumns('goods')['discount'])) {
+		if (!empty($this->showColumns('goodsnew')['discount'])) {
 
 			$data['old_price'] = null;
 		}
@@ -642,13 +628,13 @@ class Model extends \core\base\model\BaseModel
 
 			if ($where) {
 
-				if ($table === 'goods') {
+				if ($table === 'goodsnew') {
 
 					$this->buildUnion($table, [
 						'fields' => $fields,
 						'where' => $where,
 						'join' => [
-							'catalog' => [
+							'category' => [
 								'fields' => ['name as category_name'],
 								'on' => ['parent_id', 'id']
 							]
@@ -710,7 +696,7 @@ class Model extends \core\base\model\BaseModel
 					'where' => ['id' => $item['id']],
 				]);
 
-				if ($item['table_name'] === 'goods') {
+				if ($item['table_name'] === 'goodsnew') {
 
 					$result[$index]['alias'] = PATH . 'product' . '/' . $alias[0]['alias'];
 				} else {

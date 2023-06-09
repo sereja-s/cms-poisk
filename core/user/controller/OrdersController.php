@@ -37,29 +37,23 @@ class OrdersController extends BaseUser
 
 		// валидационный массив:
 		$validation = [
-
 			'name' => [
-
 				'translate' => 'Ваше имя', // перевод поля формы
 				'methods' => ['emptyField'] // методы ожидаемые от валидатора для обработки поля
 			],
 			'phone' => [
-
 				'translate' => 'Телефон',
 				'methods' => ['emptyField', 'phoneField', 'numericField']
 			],
 			'email' => [
-
 				'translate' => 'E-mail',
 				'methods' => ['emptyField', 'emailField']
 			],
 			'delivery_id' => [
-
 				'translate' => 'Способ доставки',
 				'methods' => ['emptyField', 'numericField']
 			],
 			'payments_id' => [
-
 				'translate' => 'Способ оплаты',
 				'methods' => ['emptyField', 'numericField']
 			]
@@ -136,17 +130,18 @@ class OrdersController extends BaseUser
 			$resVisitor = $resVisitor[0];
 
 			$order['visitors_id'] = $resVisitor['id'];
+
+			// иначе пользователя необходимо создать(зарегистрировать) и записать его в заказ
 		} else {
 
 			$order['visitors_id'] = $this->model->add('visitors', [
 				'fields' => $visitor,
-				'return_id' // указали ключ, чтобы вернулся
+				'return_id' => true // указали ключ, чтобы вернулся id
 			]);
 		}
 
 
 		// после того как зарегистрировали пользователя, формируем оставшиеся данные о заказе:
-
 		$order['total_sum'] = $this->cart['total_sum'];
 
 		$order['total_old_sum'] = $this->cart['total_old_sum'];
@@ -176,7 +171,7 @@ class OrdersController extends BaseUser
 		}
 
 
-		// если у нас не было такого пользователя и мы его добавляли
+		// если у нас не было такого пользователя
 		if (!$resVisitor) {
 
 			UserModel::instance()->checkUser($order['visitors_id']);
@@ -220,7 +215,7 @@ class OrdersController extends BaseUser
 	protected function setOrdersGoods(array $order): ?array
 	{
 		// проверим есть ли таблица с товарами заказов
-		if (in_array('orders_goods', $this->model->showTables())) {
+		if (in_array('orders_goodsnew', $this->model->showTables())) {
 
 			$ordersGoods = [];
 
@@ -238,15 +233,15 @@ class OrdersController extends BaseUser
 
 				foreach ($item as $field => $value) {
 
-					// проверим есть ли такое поле в соответствующей таблице (здесь- orders_goods)
-					if (!empty($this->model->showColumns('orders_goods')[$field])) {
+					// проверим есть ли такое поле в соответствующей таблице (здесь- orders_goodsnew)
+					if (!empty($this->model->showColumns('orders_goodsnew')[$field])) {
 
 						// проверим является ли поле, которое пришло идентификатором: id
-						if ($this->model->showColumns('orders_goods')['id_row'] === $field) {
+						if ($this->model->showColumns('orders_goodsnew')['id_row'] === $field) {
 
-							if ($this->model->showColumns('orders_goods')['goods_id']) {
+							if ($this->model->showColumns('orders_goodsnew')['goodsnew_id']) {
 
-								$ordersGoods[$key]['goods_id'] = $value;
+								$ordersGoods[$key]['goodsnew_id'] = $value;
 							}
 						} else {
 
@@ -257,7 +252,7 @@ class OrdersController extends BaseUser
 			}
 
 			// Интернет магазин с нуля на php Выпуск №151 | Пользовательская часть | подготовка почтовых шаблонов
-			if ($this->model->add('orders_goods', [
+			if ($this->model->add('orders_goodsnew', [
 
 				'fields' => $ordersGoods
 			])) {
@@ -280,19 +275,24 @@ class OrdersController extends BaseUser
 
 		if (is_dir($dir)) {
 
+			// scandir — Получает список файлов и каталогов(массив), расположенных по указанному пути
 			$list = scandir($dir);
 
 			foreach ($orderData as $name => $item) {
 
 				// используем поиск в массиве по регулярному выражению
+				// preg_grep- возвращает массив, состоящий из элементов входящего массива: array(на вход 2-ой), которые 
+				// соответствуют заданному шаблону: pattern(на вход 1-ый)
 				if ($file = preg_grep('/^' . $name . '\./', $list)) {
 
+					// array_shift — Извлекает первый элемент массива
 					$file = array_shift($file);
 
-
+					// file_get_contents — Читает содержимое файла в строку
 					$template = file_get_contents($dir . $file);
 
-
+					// is_numeric — Проверяет, является ли переменная числом или строкой, содержащей число
+					// key() возвращает индекс текущего элемента массива
 					if (!is_numeric(key($item))) {
 
 						$templatesArr[] = $this->renderOrderMailTemplate($template, $item);

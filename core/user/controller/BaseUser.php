@@ -87,17 +87,17 @@ abstract class BaseUser extends \core\base\controller\BaseController
 
 
 		// Выпуск №142
-		// получим данные для корзины (+Выпуск №147)
-		if (!$this->isAjax()/*  && !$this->isPost() */) {
+		// получим данные для корзины (-Выпуск №147)
+		if (!$this->isAjax()/* && !$this->isPost() */) {
 
 			$this->getCartData();
 		}
 
 		// получим в св-во: $this->menu, в ячейку: ['catalog'], то что хранится в соответствующей таблице БД
-		$this->menu['catalog'] = $this->model->get('catalog', [
+		/* $this->menu['catalog'] = $this->model->get('catalog', [
 			'where' => ['visible' => 1, 'parent_id' => null],
 			'order' => ['menu_position']
-		]);
+		]); */
 
 		// получим в св-во: $this->menu, в ячейку: ['information'], то что хранится в соответствующей таблице БД
 		$this->menu['information'] = $this->model->get('information', [

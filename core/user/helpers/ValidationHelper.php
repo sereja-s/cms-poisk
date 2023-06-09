@@ -7,6 +7,8 @@ trait ValidationHelper
 {
 	/** 
 	 * Метод валидации формы на пустое поле
+	 * 
+	 * на вход: 1- какое-то значение, 2- какой-то ответ
 	 */
 	protected function emptyField($value, $answer)
 	{
@@ -21,7 +23,7 @@ trait ValidationHelper
 	}
 
 	/** 
-	 * Метод подготавливает числовые значения при регистрации (авторизации) пользователя
+	 * Метод подготавливает числовые значения при регистрации (авторизации) пользователя и т.д.
 	 */
 	protected function numericField($value, $answer)
 	{
@@ -41,6 +43,7 @@ trait ValidationHelper
 	{
 		$value = preg_replace('/\D/', '', $value);
 
+		// проверка на кол-во цифр в тел.номере Если стандартное(11), то произведём замену 8-ки в начале на 7 (для удобства дальнейшего использоания тел.номера)
 		if (strlen($value) === 11) {
 
 			$value = preg_replace('/^8/', '7', $value);
@@ -49,9 +52,11 @@ trait ValidationHelper
 		return $value;
 	}
 
+	/** 
+	 * Метод подготавливает email и проверяет на корректность формата
+	 */
 	protected function emailField($value, $answer)
 	{
-
 		$value = $this->clearStr($value);
 
 		// ^ - начало строки;  \w - любая цифра, буква или знак подчеркивания

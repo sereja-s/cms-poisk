@@ -3,16 +3,16 @@
 <table>
 	<tbody>
 		<tr>
-			<td>Имя:</td>
-			<td>#name#</td>
+			<td style='padding: 5px; border: 1px solid #fe7f2d;'>Имя</td>
+			<td style='padding: 5px; border: 1px solid #fe7f2d;'>#name#</td>
 		</tr>
 		<tr>
-			<td>Телефон</td>
-			<td>#phone#</td>
+			<td style='padding: 5px; border: 1px solid #fe7f2d;'>Телефон</td>
+			<td style='padding: 5px; border: 1px solid #fe7f2d;'>#phone#</td>
 		</tr>
 		<tr>
-			<td>E-mail</td>
-			<td>#email#</td>
+			<td style='padding: 5px; border: 1px solid #fe7f2d;'>E-mail</td>
+			<td style='padding: 5px; border: 1px solid #fe7f2d;'>#email#</td>
 		</tr>
 	</tbody>
 </table>
