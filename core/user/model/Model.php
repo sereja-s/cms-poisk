@@ -456,7 +456,7 @@ class Model extends \core\base\model\BaseModel
 	 */
 	public function applyDiscount(&$data, $discount)
 	{
-		// Выпуск №150 | Пользовательская часть | сохранение товаров заказа
+		// +Выпуск №150 | Пользовательская часть | сохранение товаров заказа
 		if (!empty($this->showColumns('goodsnew')['discount'])) {
 
 			$data['old_price'] = null;

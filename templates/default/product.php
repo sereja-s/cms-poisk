@@ -23,7 +23,6 @@
 					</div>
 				</div>
 
-				<!-- блок с интерактивными елементами -->
 				<div class="full-item__info">
 
 					<div class="full-item__info-a">
@@ -37,12 +36,10 @@
 							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="3">
 							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
 							<img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-activ.jpg" alt="4">
-							<!-- <img src="<?= PATH . TEMPLATE ?>assets/img/icons/star-pasiv.svg" alt="5"> -->
 						</div>
 					</div>
 
 				</div>
-				<!-- блок с интерактивными елементами end -->
 
 				<!-- основная инфо в 3х блоках-->
 				<div class="full-item__content">
@@ -169,9 +166,9 @@
 
 
 							<div class="full-item__buy">
-								<a data-onClick href="#popup-buy-one-click" class="full-item__buy-click popup-open-modal">
+								<!-- <a data-onClick href="#popup-buy-one-click" class="full-item__buy-click popup-open-modal">
 									Купить в 1 клик
-								</a>
+								</a> -->
 
 								<a data-addToCart="<?= $data['id'] ?>" <?= !empty($this->cart['goods'][$data['id']]) ? 'data-toCartAdded' : '' ?> href="#" class="full-item__add-to-cart-button">
 									Добавить в корзину

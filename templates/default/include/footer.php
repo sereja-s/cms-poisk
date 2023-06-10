@@ -4,77 +4,65 @@
 <footer class="footer">
 	<div class="container">
 		<div class="footer__wrapper">
-			<!-- left col start-->
+
 			<div class="footer__info">
-				<!-- logo -->
+
 				<a href="#" class="footer__logo-link">
 					<img class="footer__logo-img" src="<?= PATH . TEMPLATE ?>assets/img/строй_контакт.png" alt="СТРОЙ КОНТАКТ">
 				</a>
 
-				<!-- footer phone -->
-				<div class="footer__phone">
-					<a href="tel:+3809715095655">+7(949)123-456-78</a>
-				</div>
+			</div>
 
-				<?php if (!empty($this->socials)) : ?>
+			<ul class="footer__nav">
 
-					<div class="footer__social">
+				<li class="footer__nav-item"><a class="footer__nav-link" href="<?= $this->alias('catalog') ?>">Все товары</a></li>
+				<li class="footer__nav-item"><a class="footer__nav-link" href="<?= $this->alias('news') ?>">Новости</a></li>
+				<li class="footer__nav-item"><a class="footer__nav-link" href="<?= $this->alias('contacts') ?>">Контакты</a></li>
 
-						<?php foreach ($this->socials as $item) : ?>
+			</ul>
 
-							<!-- social link -->
+			<ul class="footer__nav">
 
-							<a class="footer__social-link" href="<?= $this->alias($item['external_alias']) ?>"><img src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>"></a>
+				<?php if (!empty($this->menu['information'])) : ?>
 
+					<?php foreach ($this->menu['information'] as $item) : ?>
 
-						<?php endforeach; ?>
+						<li class="footer__nav-item"><a class="footer__nav-link" href="<?= $this->alias(['information' => $item['alias']]) ?>"><?= $item['name'] ?></a></li>
 
-					</div>
+					<?php endforeach; ?>
 
 				<?php endif; ?>
 
-				<!-- footer props -->
-				<div class="footer__props">
-					СТРОЙ КОНТАКТ г. Донецк
-				</div>
-			</div>
-			<!-- left col end -->
-
-			<!-- footer cols start-->
-			<ul class="footer__nav">
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Как оформить заказ</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Доставка</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Оплата</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Прием товара</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Почему покупать у нас</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Подключение техники</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Отзывы о нас</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Пользовательское соглашение</a></li>
 			</ul>
 
-			<ul class="footer__nav">
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Контакты</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">О компании</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Юридическая информация</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Для поставщиков</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Для оптовых клиентов</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Оставить обращение</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Политика конфиденциальности</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Новости и обзоры</a></li>
-			</ul>
 
-			<ul class="footer__nav">
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Вопрос-ответ</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Дополнительный сервис</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Проверка на битые пиксели</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Утилизация техники</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Гарантийное обслуживание</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Сервисные центры</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Наши гарантии</a></li>
-				<li class="footer__nav-item"><a class="footer__nav-link" href="#">Обмен и возврат товара</a></li>
-			</ul>
-			<!-- footer cols end -->
 		</div>
+	</div>
+
+	<div class="footer__info-footer">
+
+		<!-- footer phone -->
+		<div class="footer__phone">
+			<a href="tel:+3809715095655">+7(949)123-456-78</a>
+		</div>
+
+		<?php if (!empty($this->socials)) : ?>
+
+			<div class="footer__social">
+
+				<?php foreach ($this->socials as $item) : ?>
+
+					<!-- social link -->
+
+					<a class="footer__social-link" href="<?= $this->alias($item['external_alias']) ?>"><img src="<?= $this->img($item['img']) ?>" alt="<?= $item['name'] ?>"></a>
+
+
+				<?php endforeach; ?>
+
+			</div>
+
+		<?php endif; ?>
+
 	</div>
 
 	<!-- footer copyright start -->
@@ -85,8 +73,12 @@
 				и&nbsp;цены,
 				размещенные на&nbsp;сайте, не&nbsp;являются публичной офертой, определяемой положениями
 				Гражданского кодекса&nbsp;
-				<br>строй контакт &copy;&nbsp;2023
 			</p>
+			<div class="footer__props" style="text-align: center;">
+				<span style="padding-right: 5px;">сделано в</span>
+				<a href="<?= $this->set['external_alias'] ?>">САЙТ ПОСТРОЕН</a>
+				<span style="padding-left: 5px;"><?= $this->set['number_of_years'] ?></span>
+			</div>
 		</div>
 	</div>
 	<!-- footer copyright end -->

@@ -84,8 +84,6 @@
 
 					</form>
 
-
-
 					<!-- content-->
 					<div class="category-page__content">
 
@@ -144,10 +142,9 @@
 
 									<?php endif; ?>
 
-
-
 									<a href="#" class="category-items__mobile-filter-link">Фильтр
 										<span>1</span>
+
 									</a>
 								</div>
 							</div>

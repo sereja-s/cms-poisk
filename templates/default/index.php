@@ -49,7 +49,7 @@
 
 							<?php foreach ($goods[$key] as $item) {
 
-								$this->showGoods($item, ['icon' => $value['icon']]);
+								$this->showGoods($item, [/* 'icon' => $value['icon'] */], 'goodsItemCat');
 							} ?>
 
 						</div>
@@ -67,7 +67,7 @@
 
 							<?php foreach ($goods[$key] as $item) : ?>
 
-								<a class="index-catalog__banner-link" href="#">
+								<a class="index-catalog__banner-link" href="<?= $this->alias(['product' => $item['alias']]) ?>">
 
 									<!-- baner content start-->
 									<div class="index-catalog__banner-content">
@@ -107,7 +107,7 @@
 
 							<?php foreach ($goods[$key] as $item) {
 
-								$this->showGoods($item, ['icon' => $value['icon']]);
+								$this->showGoods($item, [/* 'icon' => $value['icon'] */], 'goodsItemCat');
 							} ?>
 
 						</div>

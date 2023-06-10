@@ -214,6 +214,7 @@
 					</div>
 
 					<div class="cart-page__total-price">
+
 						<p>сумма к оплате:</p>
 
 						<p data-totalSum><?= $this->cart['total_sum'] ?> руб.</p>

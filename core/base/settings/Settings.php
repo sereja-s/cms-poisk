@@ -94,7 +94,7 @@ class Settings
 	// свойство: массив шаблонов
 	private $templateArr = [
 		// массив вида: 'название шаблона' => массив с полями для которых должен быть подключен соответствующий шаблон
-		'text' => ['name', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password', 'sb_text', 'sb_title', 'sb_alias'],
+		'text' => ['name', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password', 'sb_text', 'sb_title', 'sb_alias', 'working_time'],
 		'textarea' => ['content', 'keywords', 'address', 'description', 'short_content'],
 		'radio' => ['visible', 'show_top_menu', 'hit', 'sale', 'new', 'hot'],
 		'select' => ['menu_position', 'parent_id'],
@@ -129,7 +129,7 @@ class Settings
 		'sub_title' => ['Подзаголовок'],
 		'short_content' => ['Краткое описание'],
 		'img_years' => ['Изображение количества лет на рынке'],
-		'number_of_years' => ['Количество лет на рынке'],
+		'number_of_years' => ['Текущий год'],
 		'hit' => ['Хит продаж'],
 		'sale' => ['Акция'],
 		'new' => ['Новинка'],
@@ -173,7 +173,7 @@ class Settings
 	// (по умолчанию содержимое разделов адмики занимает левый блок: vg-rows) 
 	private $blockNeedle = [
 		'vg-rows' => [],
-		'vg-img' => ['img', 'gallery_img', 'img_years', 'number_of_years', 'promo_img', 'category', 'filters'],
+		'vg-img' => ['img', 'gallery_img', 'promo_img', 'address', 'number_of_years', 'category', 'filters'],
 		'vg-content' => ['content']
 	];
 

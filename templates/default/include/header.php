@@ -190,7 +190,7 @@
 							<a class="header__cart-link" href="<?= $this->alias('cart') ?>">
 								<span data-totalQty class="header__cart-num"><?= $this->cart['total_qty'] ?? 0 ?></span>
 								<div class="header__cart-name">Корзина</div>
-								<div class="header__cart-money">19700 грн</div>
+								<div class="header__cart-money" data-totalSum><?= $this->cart['total_sum'] ?? 0 ?> руб.</div>
 							</a>
 
 						</div>
