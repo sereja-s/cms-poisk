@@ -147,7 +147,7 @@
 								<?php foreach ($item['sub'] as $sub) : ?>
 
 									<li class="catalog-list__category-item"><a class="catalog-list__category-link" href="<?= $this->alias(['catalog' => $sub['alias']]) ?>"><?= $sub['name'] ?>
-											(135)</a></li>
+										</a></li>
 
 								<?php endforeach; ?>
 

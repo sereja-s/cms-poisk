@@ -142,8 +142,8 @@
 
 									<?php endif; ?>
 
-									<a href="#" class="category-items__mobile-filter-link">Фильтр
-										<span>1</span>
+									<a href="#" class="category-items__mobile-filter-link">ФИЛЬТР
+										<!-- <span>1</span> -->
 
 									</a>
 								</div>

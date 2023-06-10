@@ -492,14 +492,14 @@ $(function () {
 		$(this).parent('.navi-category__list-content').hide('fast');
 	})
 
-	$('.navi-category__category-title').click(function (event) {
+	/* $('.navi-category__category-title').click(function (event) {
 		windowsWidth = $(window).width();
 		if (windowsWidth <= 768) {
 			event.preventDefault()
 			$(this).next('.navi-category-subcategory-menu').slideToggle('fast');
 			$(this).toggleClass('navi-category__category-title-active')
 		}
-	})
+	}) */
 
 	// ===================== beadcrumbs fo last child ==================
 	let breadCrumbsMobile = $('.breadcrumbps__wrapper a')

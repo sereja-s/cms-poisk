@@ -268,7 +268,7 @@
 																			<?php foreach ($sub['sub'] as $subsub) : ?>
 
 																				<li class="navi-category-subcategory-item">
-																					<a class="navi-category-subcategory__link" href="<?= $this->alias(['catalog' => $subsub['alias']]) ?>"><?= $subsub['name'] ?></a> (2)
+																					<a class="navi-category-subcategory__link" href="<?= $this->alias(['catalog' => $subsub['alias']]) ?>"><?= $subsub['name'] ?></a>
 																				</li>
 
 																			<?php endforeach; ?>

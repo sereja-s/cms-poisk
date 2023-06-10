@@ -11,6 +11,7 @@
 					<h1 class="full-item__main-title"><?= $data['name'] ?></h1>
 
 					<div class="full-item__compare">
+
 						<span class="short-item__add-link"></span>
 						<span class="short-item__add-compare"></span>
 
@@ -26,7 +27,20 @@
 				<div class="full-item__info">
 
 					<div class="full-item__info-a">
-						<span class="short-item__discount">-20%</span><span class="short-item__new">Новинка</span><span class="short-item__present">Подарок</span>
+						<?php if (!empty($data['discount'])) : ?>
+							<span class="short-item__discount">-<?= $data['discount'] ?>%</span>
+						<?php endif; ?>
+						<?php if (!empty($data['new'])) : ?>
+							<span class="short-item__new">Новинка</span>
+						<?php endif; ?>
+
+						<?php if (!empty($data['hit'])) : ?>
+							<span class="short-item__present">Хит</span>
+						<?php endif; ?>
+
+						<?php if (!empty($data['hot'])) : ?>
+							<span class="short-item__hot">Акция</span>
+						<?php endif; ?>
 					</div>
 
 					<div class="full-item__info-b">
