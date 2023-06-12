@@ -1014,7 +1014,7 @@ screen and (max-height: 300px) {
 	line-height: 17px;
 	color: #1e1e1e;
 	display: inline-block;
-	padding-left: 26px;
+	padding: 8px 10px;
 }
 
 .header__profile-link:hover {
@@ -1028,8 +1028,8 @@ screen and (max-height: 300px) {
 	left: 0;
 	top: 0;
 	z-index: 1;
-	width: 18px;
-	height: 18px;
+	width: 22px;
+	height: 22px;
 	background-image: url("../img/icons/user.svg");
 	background-position: center;
 	background-repeat: no-repeat;
@@ -9614,4 +9614,61 @@ input[type=number] {
 	bottom: 0;
 	background: blue;
 	left: calc(50% - 2px);
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------- */
+
+.order-popup,
+.login-popup {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 10000;
+	display: none;
+	justify-content: center;
+	align-items: center;
+}
+
+.order-popup.open,
+.login-popup.open {
+	display: flex;
+}
+
+.login-popup h3 {
+	display: flex;
+	justify-content: space-between;
+	padding-bottom: 15px;
+}
+
+.login-popup h3 span {
+	cursor: pointer;
+}
+
+.order-popup__inner {
+	margin: 20px;
+	flex-basis: 600px;
+	padding: 30px 20px;
+	background: white;
+	max-height: 100vh;
+	overflow-y: auto;
+}
+
+.order-popup__inner input,
+.order-popup__inner textarea {
+	width: 100%;
+	padding: 5px 10px;
+	border: 1px solid black;
+	margin-bottom: 15px;
+}
+
+.order-popup__inner .send-order {
+	display: flex;
+	justify-content: center;
+}
+
+.execute-order_btn {
+	border: none;
 }

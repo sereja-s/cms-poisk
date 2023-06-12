@@ -8,7 +8,6 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
 // Выпуск №152 | Пользовательская часть | отправка уведомлений на email
-
 class SendMailController extends BaseUser
 {
 

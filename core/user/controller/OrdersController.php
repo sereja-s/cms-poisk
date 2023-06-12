@@ -19,6 +19,8 @@ class OrdersController extends BaseUser
 
 		if ($this->isPost()) {
 
+			// +Выпуск №151 | Пользовательская часть | подготовка почтовых шаблонов
+			// (на вход: 2- подаём: 'join_structure' => true, чтобы реструктурировались массивы и ключами стали: id)
 			$this->delivery = $this->model->get('delivery', ['join_structure' => true]);
 			$this->payments = $this->model->get('payments', ['join_structure' => true]);
 
@@ -198,6 +200,8 @@ class OrdersController extends BaseUser
 
 	/** 
 	 * метод сохранения товаров заказа (Выпуск №150)
+	 * 
+	 * здесь- возвращаем null или array (+Выпуск №151)
 	 */
 	protected function setOrdersGoods(array $order): ?array
 	{
@@ -241,6 +245,7 @@ class OrdersController extends BaseUser
 				}
 			}
 
+			// если товары заказа добавились в БД
 			if ($this->model->add('orders_goodsnew', [
 
 				'fields' => $ordersGoods
@@ -255,12 +260,18 @@ class OrdersController extends BaseUser
 		return null;
 	}
 
+	/** 
+	 * Метод отправки заказа по Email
+	 * 
+	 * Выпуск №151 | Пользовательская часть | подготовка почтовых шаблонов
+	 */
 	protected function sendOrderEmail(array $orderData)
 	{
 
 		// Интернет магазин с нуля на php Выпуск №151 | Пользовательская часть | подготовка почтовых шаблонов
 		$dir = TEMPLATE . 'include/orderTemplates/';
 
+		// в переменную собираем шаблоны заказа
 		$templatesArr = [];
 
 		if (is_dir($dir)) {
@@ -295,7 +306,7 @@ class OrdersController extends BaseUser
 							$templatesArr[] = $this->renderOrderMailTemplate(file_get_contents($dir . $common), []);
 						}
 
-
+						// запустим цикл по товарам заказа
 						foreach ($item as $value) {
 
 							$templatesArr[] = $this->renderOrderMailTemplate($template, $value);
@@ -319,6 +330,8 @@ class OrdersController extends BaseUser
 	}
 
 	/** 
+	 * Метод для отбражение данных в шаблонах письма заказа
+	 * 
 	 * Выпуск №151 | Пользовательская часть | подготовка почтовых шаблонов
 	 */
 	protected function renderOrderMailTemplate(string $template, array $data): string

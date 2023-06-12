@@ -39,6 +39,8 @@ abstract class BaseController
 	protected $scripts;
 
 	protected $userId;
+	protected $userData;
+	protected $userModel;
 
 	// свойство, в котором будут находиться данные, которые пришли из БД (если будет подключаться шаблон редактирования)
 	protected $data;
@@ -317,7 +319,7 @@ abstract class BaseController
 		}
 
 
-		// Интернет магазин с нуля на php Выпуск №151 | Пользовательская часть | подготовка почтовых шаблонов
+		// +Выпуск №151 | Пользовательская часть | подготовка почтовых шаблонов
 		$this->userData = $this->userId;
 
 

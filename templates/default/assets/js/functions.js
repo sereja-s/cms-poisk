@@ -135,7 +135,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	changeQty()
 
-	// Выпуск №148 | Пользовательская часть | показ уведомлений пользователю
+	/* ====================================== order-popup при оформлении заказа ====================================== */
+
+	document.querySelectorAll('[data-popup]').forEach(item => {
+
+		if (item.getAttribute('data-popup')) {
+
+			let popupElement = document.querySelector(`.${item.getAttribute('data-popup')}`);
+
+			if (popupElement) {
+
+				// +Выпуск №154 | Пользовательская часть | регистрация пользователя
+				item.addEventListener('click', e => {
+
+					e.preventDefault()
+
+					popupElement.classList.add('open')
+				});
+
+				popupElement.addEventListener('click', e => {
+
+					if (e.target === popupElement) {
+
+						popupElement.classList.remove('open')
+					}
+
+				});
+
+			}
+		}
+	})
+
+	// Выпуск №154 | Пользовательская часть | регистрация пользователя (переключатель межлу формами регистрации и входа)
+	let loginP = document.querySelector('.login-popup p')
+	let loginVariants = document.querySelectorAll('.login-popup h3 span')
+	let loginFormVariants = document.querySelectorAll('.login-popup form')
+
+	loginVariants.forEach(item => {
+
+		item.addEventListener('click', () => {
+
+			// получим порядковый номер элемента(индекс)
+			let index = [...loginVariants].indexOf(item)
+
+			loginVariants[index].style.display = 'block'
+			loginVariants[+!index].style.display = 'none'
+			loginFormVariants[index].style.display = 'block'
+			loginFormVariants[+!index].style.display = 'none'
+
+			loginP.style.display = 'none'
+		})
+
+	})
+
+	//========================= Выпуск №148 | Пользовательская часть | показ уведомлений пользователю ====================//
 	let messageWrap = document.querySelector('.wq-message__wrap');
 
 	if (messageWrap) {

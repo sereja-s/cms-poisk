@@ -114,18 +114,19 @@
 							</div>
 						</div>
 
-						<!-- profile acc -->
 						<div class="header__user-profile">
-							<a class="header__profile-link" href="#">Личный кабинет</a>
 
-							<div class="header-user-menu">
-								<a href="#" class="header-user-menu__item header-user-menu__item-active">Личный кабинет</a>
-								<a href="#" class="header-user-menu__item">Настройки</a>
-								<a href="#" class="header-user-menu__item">Сообщения <span class="header-user-menu__num">3</span></a>
-								<a href="#" class="header-user-menu__item">Избранное</a>
-								<a href="#" class="header-user-menu__item">Мои заказы</a>
-								<a href="#" class="header-user-menu__item header-user-menu__exit">Выйти</a>
-							</div>
+							<a class="header__profile-link" href="<?= $this->userData ? $this->alias('lk') : '#' ?>" <?= !$this->userData ? 'data-popup = "login-popup"' : '' ?> title="личный кабинет"></a>
+
+							<!-- <div class="header-user-menu">
+									<a href="#" class="header-user-menu__item header-user-menu__item-active">Личный кабинет</a>
+									<a href="#" class="header-user-menu__item">Настройки</a>
+									<a href="#" class="header-user-menu__item">Сообщения <span class="header-user-menu__num">3</span></a>
+									<a href="#" class="header-user-menu__item">Избранное</a>
+									<a href="#" class="header-user-menu__item">Мои заказы</a>
+									<a href="#" class="header-user-menu__item header-user-menu__exit">Выйти</a>
+								</div> -->
+
 						</div>
 					</div>
 
@@ -196,7 +197,8 @@
 						</div>
 
 
-						<a class="header__user-profile-link" href="#"></a>
+						<a class="header__user-profile-link" href="<?= $this->userData ? $this->alias('lk') : '#' ?>" <?= !$this->userData ? 'data-popup = "login-popup"' : '' ?> title="личный кабинет"></a>
+
 						<a class="header__user-cart-link" href="<?= $this->alias('cart') ?>">
 							<span data-totalQty class="header__cart-num"><?= $this->cart['total_qty'] ?? 0 ?></span>
 						</a>
