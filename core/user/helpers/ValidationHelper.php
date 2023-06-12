@@ -80,6 +80,9 @@ trait ValidationHelper
 			// все данные добавим в сессию (метод описан в trait BaseMethods)
 			$this->addSessionData();
 		}
+
+		// Выпуск №154 | Пользовательская часть | регистрация
+		//$this->redirect();
 	}
 
 	/** 

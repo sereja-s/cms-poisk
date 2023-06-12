@@ -408,7 +408,7 @@
 			</form>
 			<form action="<?= $this->alias(['login' => 'login']) ?>" method="post" style='display: none'>
 
-				<input type="text" name="login" required placeholder="E-mail" value="<?= $this->setFormValues('email') ?>">
+				<input type="text" name="name" required placeholder="Ваше имя" value="<?= $this->setFormValues('name') ?>">
 				<input type="password" name="password" required placeholder="Пароль">
 
 				<div class="send-order">

@@ -116,7 +116,7 @@
 
 						<div class="header__user-profile">
 
-							<a class="header__profile-link" href="<?= $this->userData ? $this->alias('lk') : '#' ?>" <?= !$this->userData ? 'data-popup = "login-popup"' : '' ?> title="личный кабинет"></a>
+							<a class="header__profile-link" href="<?= $this->userData ? $this->alias('login') : '#' ?>" <?= !$this->userData ? 'data-popup = "login-popup"' : '' ?> title="личный кабинет"></a>
 
 							<!-- <div class="header-user-menu">
 									<a href="#" class="header-user-menu__item header-user-menu__item-active">Личный кабинет</a>
@@ -197,7 +197,7 @@
 						</div>
 
 
-						<a class="header__user-profile-link" href="<?= $this->userData ? $this->alias('lk') : '#' ?>" <?= !$this->userData ? 'data-popup = "login-popup"' : '' ?> title="личный кабинет"></a>
+						<a class="header__user-profile-link" href="<?= $this->userData ? $this->alias('login') : '#' ?>" <?= !$this->userData ? 'data-popup = "login-popup"' : '' ?> title="личный кабинет"></a>
 
 						<a class="header__user-cart-link" href="<?= $this->alias('cart') ?>">
 							<span data-totalQty class="header__cart-num"><?= $this->cart['total_qty'] ?? 0 ?></span>

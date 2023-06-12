@@ -310,11 +310,11 @@ $(function () {
 
 
 	// ===================== modal poput HEADER USER ==================
-	$('.header__profile-link').click(function (event) {
+	/* $('.header__profile-link').click(function (event) {
 		event.preventDefault()
 		$(this).next('.header-user-menu').slideToggle('fast');
 	})
-
+ */
 
 	// ===================== modal poput HEADER CART ==================
 	/* $('.header__cart-link').click(function (event) {

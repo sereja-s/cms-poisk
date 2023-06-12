@@ -13,7 +13,7 @@
 								<div class="index-slider__item__content">
 									<h3 class="index-slider__item-title"><?= $item['name'] ?></h3>
 									<p class="index-slider__item-text"><?= $item['sub_title'] ?></p>
-									<a class="index-slider__item-link" href="<?= $this->alias($item['external_alias']) ?>">Подробнее</a>
+									<a class="index-slider__item-link" href="#">Подробнее</a>
 								</div>
 
 								<div class="index-slider__item-picture">
@@ -164,7 +164,6 @@
 	</section>
 
 <?php endif; ?>
-
 
 <?php if (!empty($news)) : ?>
 

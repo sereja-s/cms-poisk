@@ -209,7 +209,21 @@
 					<div class="cart-page__gс-form">
 						<div class="cart-page__gc-item-check">
 							<label><input type="checkbox" required> Согласен на обработку персональных данных</label>
-							<a class="footer__nav-link" href="#" style="text-decoration: underline;">Политика конфиденциальности</a>
+
+							<?php if (!empty($this->menu['information'])) : ?>
+
+								<?php foreach ($this->menu['information'] as $item) : ?>
+
+									<?php if ($item['alias'] === 'politika-konfidentsialnosti') : ?>
+
+										<a class="footer__nav-link" href="<?= $this->alias(['information' => $item['alias']]) ?>" style="text-decoration: underline;"><?= $item['name'] ?></a>
+
+									<?php endif; ?>
+
+								<?php endforeach; ?>
+
+							<?php endif; ?>
+
 						</div>
 					</div>
 
