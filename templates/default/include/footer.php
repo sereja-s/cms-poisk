@@ -200,32 +200,23 @@
 
 <div id="popup-search" class="search-popup-bg  mfp-hide">
 	<div class="search-popup__form">
-		<input class="search-popup__input" type="text" placeholder="Найти ...">
+		<input class="search-popup__input" type="search" name="search" placeholder="поиск">
+		<input type="hidden" name="search_table" value="goodsnew">
 	</div>
 
 	<ul class="search-popup__category-list">
-		<li class="search-popup__category-item">
-			<a href="" class="search-popup__category-link">Холодильники</a>
-			<span class="search-popup__category-num">(375)</span>
-		</li>
-
-		<li class="search-popup__category-item">
-			<a href="" class="search-popup__category-link">Холодильники промышленные</a>
-			<span class="search-popup__category-num">(23)</span>
-		</li>
-
-		<li class="search-popup__category-item">
-			<a href="" class="search-popup__category-link">Автохолодильники</a>
-			<span class="search-popup__category-num">(57)</span>
-		</li>
-
-		<li class="search-popup__category-item">
-			<a href="" class="search-popup__category-link">Винные шкафы</a>
-			<span class="search-popup__category-num">(57)</span>
+		<li class="search-popup__category-item search_res">
+			<!-- <a href="#" class="search-popup__category-link"></a> -->
 		</li>
 	</ul>
+	<style>
+		/* Изменить цвет выпадающих ссылок при наведении */
+		.search-popup__category-item a.search_act {
+			background-color: #e5e5e5
+		}
+	</style>
 
-	<div class="search-popup__product-list">
+	<!-- <div class="search-popup__product-list">
 		<div class="search-popup__product-item">
 			<div class="search-popup__product-left">
 				<div class="search-popup__product-image">
@@ -366,7 +357,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 </div>
 <!-- popup modal end -->
 

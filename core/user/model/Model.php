@@ -524,13 +524,14 @@ class Model extends \core\base\model\BaseModel
 
 		// получим свойство с таблицами проекта, в которых будет проходить поиск (связующие и т.д. исключаются) Св-во
 		// применяется для проверки: существует ли указанная в нём таблица в БД 
-		$projectTables = Settings::get('projectTables');
+		//$projectTables = Settings::get('projectTables');
+		$searchProjectTables = Settings::get('searchProjectTables');
 
-		if (!$projectTables) {
+		if (!$searchProjectTables) {
 			throw new RouteException('Ничего не найдено по вашему запросу');
 		}
 
-		foreach ($projectTables as $table => $item) {
+		foreach ($searchProjectTables as $table => $item) {
 
 			// проверка на существование таблицы в БД
 			if (!in_array($table, $dbTables)) {
@@ -684,13 +685,12 @@ class Model extends \core\base\model\BaseModel
 			foreach ($result as $index => $item) {
 
 				// корректно сформируем name вида: название (название соответствующей таблицы) для вывода подсказок
-				$result[$index]['name'] .=  ' ' . '(' .	(isset($projectTables[$item['table_name']]['name'])
-					? $projectTables[$item['table_name']]['name']
+				$result[$index]['name'] .=  ' ' . '(' .	(isset($searchProjectTables[$item['table_name']]['name'])
+					? $searchProjectTables[$item['table_name']]['name']
 					: $item['table_name']) . ')';
 
+
 				// сформируем готовый алиас на редактирование
-
-
 
 				$alias = $this->get($item['table_name'], [
 					'where' => ['id' => $item['id']],
@@ -699,8 +699,10 @@ class Model extends \core\base\model\BaseModel
 				if ($item['table_name'] === 'goodsnew') {
 
 					$result[$index]['alias'] = PATH . 'product' . '/' . $alias[0]['alias'];
+				} elseif ($item['table_name'] === 'category') {
+					$result[$index]['alias'] = PATH . 'catalog' . '/' . ($alias[0]['alias'] ? $alias[0]['alias'] : '');
 				} else {
-					$result[$index]['alias'] = PATH . $item['table_name'] . '/' . ($alias[0]['alias'] ? $alias[0]['alias'] : '');
+					$result[$index]['alias'] = PATH . $item['table_name'] . '/' . $alias[0]['alias'];
 				}
 			}
 		}

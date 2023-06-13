@@ -25,7 +25,7 @@
 
 					<!-- location -->
 					<div class="header__location">
-						<a class="header__location-link popup-open-modal" href="#change-city-popup">Донецк</a>
+						<a class="header__location-link" href="#">Донецк</a>
 					</div>
 
 					<a class="header__all-category-link3" href="#">
