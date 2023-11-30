@@ -82,7 +82,7 @@ trait ValidationHelper
 		}
 
 		// Выпуск №154 | Пользовательская часть | регистрация
-		//$this->redirect();
+		$this->redirect();
 	}
 
 	/** 

@@ -25,10 +25,48 @@ class LoginController extends BaseUser
 
 					$this->registration();
 					break;
+
+				case 'login':
+
+					$this->login();
+					break;
 			}
 		}
 
 		throw new RouteException('Такой страницы не существует');
+	}
+
+	// Выпуск №155 | Пользовательская часть | авторизация
+	protected function login()
+	{
+		$email = $this->clearStr($_POST['email'] ?? '');
+		$password = $this->clearStr($_POST['password'] ?? '');
+
+		if (!$email || !$password) {
+
+			$this->sendError('Заполните поля для авторизации');
+		}
+
+		$password = md5($password);
+
+		$res = $this->model->get('visitors', [
+
+			'where' => ['email' => $email, 'password' => $password],
+			'limit' => 1
+		]);
+
+		if (!$res) {
+
+			$this->sendError('Не корректные данные для входа');
+		}
+
+		// если пользовательская модель зарегистрировала пользователя с полученным id
+		if (UserModel::instance()->checkUser($res[0]['id'])) {
+
+			$this->sendSuccess('Добро пожаловать, ' . $res[0]['name']);
+		}
+
+		$this->sendError('Произошла внутренняя ошибка Свяжитесь с администрацией сайта');
 	}
 
 	protected function registration(): void
@@ -46,7 +84,12 @@ class LoginController extends BaseUser
 		if ($this->userData && !$_POST['password']) {
 
 			unset($_POST['password']);
+		} elseif (!$this->userData && !trim($_POST['password'])) {
+
+			// Выпуск №155 | Пользовательская часть | авторизация
+			$this->sendError('Заполните поле пароль');
 		}
+
 		if (isset($_POST['password']) && $_POST['password'] !== $_POST['confirm_password']) {
 
 			$this->sendError('Пароли не совпадают');
@@ -71,7 +114,6 @@ class LoginController extends BaseUser
 				'translate' => 'E-mail',
 				'methods' => ['emptyField', 'emailField']
 			],
-
 
 		];
 
@@ -103,7 +145,6 @@ class LoginController extends BaseUser
 			'limit' => 1
 		]);
 
-
 		if ($res) {
 
 			$res = $res[0];
@@ -111,6 +152,12 @@ class LoginController extends BaseUser
 			$field = $res['phone'] === $_POST['phone'] ? 'телефон' : 'email';
 
 			$this->sendError('Такой ' . $field . '  уже зарегистрирован');
+		}
+
+		// Выпуск №155 | Пользовательская часть | авторизация
+		if (!empty($_POST['password'])) {
+
+			$_POST['password'] = md5($_POST['password']);
 		}
 
 		// добавляем посетителя в БД (т.к. все проверки прошёл)

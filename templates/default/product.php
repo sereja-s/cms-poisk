@@ -12,9 +12,6 @@
 
 					<div class="full-item__compare">
 
-						<span class="short-item__add-link"></span>
-						<span class="short-item__add-compare"></span>
-
 						<?php if (!empty($data['article'])) : ?>
 
 							<span class="full-item__code-item">арт. <?= $data['article'] ?></span>
@@ -180,13 +177,7 @@
 
 
 							<div class="full-item__buy">
-								<!-- <a data-onClick href="#popup-buy-one-click" class="full-item__buy-click popup-open-modal">
-									Купить в 1 клик
-								</a> -->
-
-								<a data-addToCart="<?= $data['id'] ?>" <?= !empty($this->cart['goods'][$data['id']]) ? 'data-toCartAdded' : '' ?> href="#" class="full-item__add-to-cart-button">
-									Добавить в корзину
-								</a>
+								<a data-addToCart="<?= $data['id'] ?>" <?= !empty($this->cart['goods'][$data['id']]) ? 'data-toCartAdded' : '' ?> href="#" class="full-item__add-to-cart-button">Добавить в корзину</a>
 							</div>
 						</div>
 

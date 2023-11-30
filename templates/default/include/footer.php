@@ -199,10 +199,10 @@
 </div>
 
 <div id="popup-search" class="search-popup-bg  mfp-hide">
-	<div class="search-popup__form">
+	<form class="search-popup__form" action="<?= $this->alias('search') ?>">
 		<input class="search-popup__input" type="search" name="search" placeholder="поиск">
 		<input type="hidden" name="search_table" value="goodsnew">
-	</div>
+	</form>
 
 	<ul class="search-popup__category-list">
 		<li class="search-popup__category-item search_res">
@@ -215,6 +215,27 @@
 			background-color: #e5e5e5
 		}
 	</style>
+
+	<!-- Выпуск №156 | Пользовательская часть | поиск по каталогу -->
+	<script>
+		document.querySelector('[name="search').addEventListener('input', function() {
+
+			let value = this.value.trim()
+
+			$.ajax({
+
+				data: {
+
+					ajax: 'search',
+					search: value
+				},
+				success: res => {
+
+					console.log(res)
+				}
+			})
+		})
+	</script>
 
 	<!-- <div class="search-popup__product-list">
 		<div class="search-popup__product-item">
@@ -399,7 +420,8 @@
 			</form>
 			<form action="<?= $this->alias(['login' => 'login']) ?>" method="post" style='display: none'>
 
-				<input type="text" name="name" required placeholder="Ваше имя" value="<?= $this->setFormValues('name') ?>">
+				<!-- <input type="text" name="name" required placeholder="Ваше имя" value="<?= $this->setFormValues('name') ?>"> -->
+				<input type="email" name="email" required placeholder="E-mail" value="<?= $this->setFormValues('email') ?>">
 				<input type="password" name="password" required placeholder="Пароль">
 
 				<div class="send-order">

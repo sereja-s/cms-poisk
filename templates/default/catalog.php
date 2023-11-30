@@ -15,74 +15,78 @@
 
 				<?php else : ?>
 
-					<!-- filter -->
-					<form action="<?= $this->alias('catalog' . (!empty($this->parameters['alias']) ? '/' . 					$this->parameters['alias'] : '')) ?>" class="category-page__filter">
+					<?php if (empty($dontShowAside)) : ?>
 
-						<?php if (!empty($catalogFilters) || !empty($catalogPrices)) : ?>
+						<!-- filter -->
+						<form action="<?= $this->alias('catalog' . (!empty($this->parameters['alias']) ? '/' . 					$this->parameters['alias'] : '')) ?>" class="category-page__filter">
 
-							<!-- КНОПКА НА МАЛЫХ ЭКРАНАХ -->
-							<a href="" class="category-filter__close-link">Фильтр</a>
+							<?php if (!empty($catalogFilters) || !empty($catalogPrices)) : ?>
 
-							<div class="category-filter category-filter__small-height _spollers">
+								<!-- КНОПКА НА МАЛЫХ ЭКРАНАХ -->
+								<a href="" class="category-filter__close-link">Фильтр</a>
 
-								<?php if (!empty($catalogPrices)) : ?>
+								<div class="category-filter category-filter__small-height _spollers">
 
-									<h4 class="category-filter__title category-filter__title" style="padding-bottom: 50px;">Цена</h4>
-									<div class="section-filter__body" style="padding-bottom: 35px;">
-										<div class="filters-price__slider" id="range-slider" style="margin-left: 5px;"></div>
-										<div class="filters-price__inputs">
-											<label class="filters-price__label">
-												<span class="filters-price__text">от</span>
-												<input type="text" name="min_price" value="<?= $catalogPrices['min_price'] ?>" class="filters-price__input" id="input-0">
-												<span class="filters-price__text">₽</span>
-											</label>
-											<label class="filters-price__label">
-												<span class="filters-price__text">до</span>
-												<input type="text" name="max_price" value="<?= $catalogPrices['max_price'] ?>" class="filters-price__input" id="input-1">
-												<span class="filters-price__text">₽</span>
-											</label>
+									<?php if (!empty($catalogPrices)) : ?>
+
+										<h4 class="category-filter__title category-filter__title" style="padding-bottom: 50px;">Цена</h4>
+										<div class="section-filter__body" style="padding-bottom: 35px;">
+											<div class="filters-price__slider" id="range-slider" style="margin-left: 5px;"></div>
+											<div class="filters-price__inputs">
+												<label class="filters-price__label">
+													<span class="filters-price__text">от</span>
+													<input type="text" name="min_price" value="<?= $catalogPrices['min_price'] ?>" class="filters-price__input" id="input-0">
+													<span class="filters-price__text">₽</span>
+												</label>
+												<label class="filters-price__label">
+													<span class="filters-price__text">до</span>
+													<input type="text" name="max_price" value="<?= $catalogPrices['max_price'] ?>" class="filters-price__input" id="input-1">
+													<span class="filters-price__text">₽</span>
+												</label>
+											</div>
+										</div>
+
+									<?php endif; ?>
+
+									<?php if (!empty($catalogFilters)) : ?>
+
+										<?php foreach ($catalogFilters as $item) : ?>
+
+											<h4 class="category-filter__title category-filter__title-open _spoller _active"><?= $item['name'] ?></h4>
+
+											<div class="category-filter__block">
+
+												<?php foreach ($item['values'] as $value) : ?>
+
+													<input type="checkbox" name="filters[]" value="<?= $value['id'] ?>" <?= !empty($_GET['filters']) && in_array($value['id'], $_GET['filters']) ? 'checked' : '' ?>> <?= $value['name'] ?> (<?= $value['count'] ?? 0 ?>)<br>
+
+												<?php endforeach; ?>
+
+											</div>
+
+										<?php endforeach; ?>
+
+									<?php endif; ?>
+
+									<div class="category-filter__more">
+										<div class="category-filter__find">
+											<button class="category-filter__find-button">Применить</button>
 										</div>
 									</div>
 
-								<?php endif; ?>
-
-								<?php if (!empty($catalogFilters)) : ?>
-
-									<?php foreach ($catalogFilters as $item) : ?>
-
-										<h4 class="category-filter__title category-filter__title-open _spoller _active"><?= $item['name'] ?></h4>
-
-										<div class="category-filter__block">
-
-											<?php foreach ($item['values'] as $value) : ?>
-
-												<input type="checkbox" name="filters[]" value="<?= $value['id'] ?>" <?= !empty($_GET['filters']) && in_array($value['id'], $_GET['filters']) ? 'checked' : '' ?>> <?= $value['name'] ?> (<?= $value['count'] ?? 0 ?>)<br>
-
-											<?php endforeach; ?>
-
-										</div>
-
-									<?php endforeach; ?>
-
-								<?php endif; ?>
-
-								<div class="category-filter__more">
-									<div class="category-filter__find">
-										<button class="category-filter__find-button">Применить</button>
+									<div class="category-filter__result">
+										<div class="category-filter__result-name" onclick="location.href = location.pathname">Очистить фильтр</div>
+										<div class="category-filter__result-clear"></div>
 									</div>
 								</div>
 
-								<div class="category-filter__result">
-									<div class="category-filter__result-name" onclick="location.href = location.pathname">Очистить фильтр</div>
-									<div class="category-filter__result-clear"></div>
-								</div>
-							</div>
 
 
+							<?php endif; ?>
 
-						<?php endif; ?>
+						</form>
 
-					</form>
+					<?php endif; ?>
 
 					<!-- content-->
 					<div class="category-page__content">

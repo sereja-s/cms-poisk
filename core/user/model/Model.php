@@ -547,7 +547,7 @@ class Model extends \core\base\model\BaseModel
 			// массив полей по которым будем искать
 			$fields = [];
 
-			// поля, которые есть в БД (в таблице поднанной на вход)
+			// поля, которые есть в БД (в таблице поданной на вход)
 			$columns = $this->showColumns($table);
 
 			// поля, которые понадобятся для поиска (поле с первичным ключом)
@@ -768,5 +768,22 @@ class Model extends \core\base\model\BaseModel
 		}
 
 		return compact('where', 'order');
+	}
+
+	/** 
+	 * Метод собирает id товаров подходящих под поисковый запрос
+	 * (Выпуск №156 | Пользовательская часть | поиск по каталогу)
+	 */
+	public function searchGoodsIds($search): array
+	{
+		$sql = "SELECT DISTINCT goodsnew.id FROM goodsnew
+		 WHERE name LIKE '%$search%' OR short_content LIKE '%$search%' OR content LIKE '%$search%' OR goodsnew.id IN ( 
+			SELECT goodsnew_id FROM goodsnew_filters
+			 INNER JOIN filters ON goodsnew_filters.filters_id = filters.id AND filters.name LIKE '%$search%' 
+			 )";
+
+		$data = $this->query($sql);
+
+		return $data ? array_column($data, 'id') : [];
 	}
 }

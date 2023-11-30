@@ -54,15 +54,17 @@ class AjaxController extends BaseUser
 	 */
 	protected function search()
 	{
+		return (new SearchController())->search();
+
 		// получили то что введено в поисковую строку
-		$data = $this->clearStr($this->ajaxData['data']);
+		/* $data = $this->clearStr($this->ajaxData['data']);
 
 		// получили то где ищем (приоритет поиска)
 		$table = $this->clearStr($this->ajaxData['table']);
 
 		// вызовем метод модели
 		// здесь 3-ий параметр это кол-во подсказок (ссылок) показываемых при работе с поисковой строкой
-		return $this->model->search($data, $table, 20);
+		return $this->model->search($data, $table, 20); */
 	}
 
 	/** 
