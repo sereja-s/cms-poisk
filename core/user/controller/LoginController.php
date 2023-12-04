@@ -30,6 +30,13 @@ class LoginController extends BaseUser
 
 					$this->login();
 					break;
+
+				case 'logout':
+
+					UserModel::instance()->logout();
+
+					$this->redirect(PATH);
+					break;
 			}
 		}
 
@@ -149,9 +156,13 @@ class LoginController extends BaseUser
 
 			$res = $res[0];
 
-			$field = $res['phone'] === $_POST['phone'] ? 'телефон' : 'email';
+			// +Выпуск №158 | Пользовательская часть | Изменение данных пользователя
+			if (empty($this->userData) || $this->userData['id'] !== $res['id']) {
 
-			$this->sendError('Такой ' . $field . '  уже зарегистрирован');
+				$field = $res['phone'] === $_POST['phone'] ? 'телефон' : 'email';
+
+				$this->sendError('Такой ' . $field . '  уже зарегистрирован');
+			}
 		}
 
 		// Выпуск №155 | Пользовательская часть | авторизация
@@ -160,19 +171,34 @@ class LoginController extends BaseUser
 			$_POST['password'] = md5($_POST['password']);
 		}
 
-		// добавляем посетителя в БД (т.к. все проверки прошёл)
-		$id = $this->model->add('visitors', [
+		// +Выпуск №158 | Пользовательская часть | Изменение данных пользователя
+		if ($this->userData) {
 
-			// нам нужен идентификатор пользователя(посетителя)
-			'return_id' => true
-		]);
+			$this->model->edit('visitors', [
+
+				'where' => ['id' => $this->userData['id']]
+			]);
+
+			$id = $this->userData['id'];
+		} else {
+
+			// добавляем посетителя в БД (т.к. все проверки прошёл)
+			$id = $this->model->add('visitors', [
+
+				// нам нужен идентификатор пользователя(посетителя)
+				'return_id' => true
+			]);
+		}
 
 		// зарегистрируем пользователя
 		if (!empty($id)) {
 
 			if (UserModel::instance()->checkUser($id)) {
 
-				$this->sendSuccess('Спасибо за регистрацию, ' . $_POST['name']);
+				// +Выпуск №158 | Пользовательская часть | Изменение данных пользователя
+				$message = !$this->userData ? 'Спасибо за регистрацию, ' . $_POST['name'] : 'Ваши данные изменены успешно';
+
+				$this->sendSuccess($message);
 			}
 		}
 

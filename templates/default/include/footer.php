@@ -392,51 +392,52 @@
 
 
 <!-- Выпуск №153 | Пользовательская часть | форма регистрации пользователя -->
+<!-- -Выпуск №158 | Пользовательская часть | Изменение данных пользователя(здесь удалили условие: if (!$this->userData)) -->
 
-<?php if (!$this->userData) : ?>
+<div class="login-popup">
 
-	<div class="login-popup">
+	<div class="order-popup__inner">
 
-		<div class="order-popup__inner">
+		<p style="text-align: center; padding-bottom: 15px;">Выберите необходимую форму для заполнения</p>
 
-			<p style="text-align: center; padding-bottom: 15px;">Выберите необходимую форму для заполнения</p>
+		<h3><span>Регистрация</span> <span>Вход</span></h3>
 
-			<h3><span>Регистрация</span> <span>Вход</span></h3>
+		<form action="<?= $this->alias(['login' => 'registration']) ?>" method="post">
 
-			<form action="<?= $this->alias(['login' => 'registration']) ?>" method="post">
+			<!-- +Выпуск №158 | Пользовательская часть | Изменение данных пользователя -->
 
-				<input type="text" name="name" required placeholder="Ваше имя" value="<?= $this->setFormValues('name') ?>">
-				<input type="tel" name="phone" required placeholder="Телефон" value="<?= $this->setFormValues('phone') ?>">
-				<input type="email" name="email" required placeholder="E-mail" value="<?= $this->setFormValues('email') ?>">
+			<input type="text" name="name" required placeholder="Ваше имя" value="<?= $this->setFormValues('name', 'userData') ?>">
+			<input type="tel" name="phone" required placeholder="Телефон" value="<?= $this->setFormValues('phone', 'userData') ?>">
+			<input type="email" name="email" required placeholder="E-mail" value="<?= $this->setFormValues('email', 'userData') ?>">
 
-				<input type="password" name="password" required placeholder="Пароль">
-				<input type="password" name="confirm_password" required placeholder="Подтверждение пароля">
-
-
-				<div class="send-order">
-					<button class="execute-order_btn short-item__add-cart" type="submit"><span>Регистрация</span></button>
-				</div>
-
-			</form>
-			<form action="<?= $this->alias(['login' => 'login']) ?>" method="post" style='display: none'>
-
-				<!-- <input type="text" name="name" required placeholder="Ваше имя" value="<?= $this->setFormValues('name') ?>"> -->
-				<input type="email" name="email" required placeholder="E-mail" value="<?= $this->setFormValues('email') ?>">
-				<input type="password" name="password" required placeholder="Пароль">
-
-				<div class="send-order">
-					<button class="execute-order_btn short-item__add-cart" type="submit"><span>Вход</span></button>
-				</div>
-
-			</form>
+			<input type="password" name="password" required placeholder="Пароль">
+			<input type="password" name="confirm_password" required placeholder="Подтверждение пароля">
 
 
+			<div class="send-order">
+				<button class="execute-order_btn short-item__add-cart" type="submit"><span>Регистрация</span></button>
+			</div>
 
-		</div>
+		</form>
+		<form action="<?= $this->alias(['login' => 'login']) ?>" method="post" style='display: none'>
+
+			<!-- <input type="text" name="name" required placeholder="Ваше имя" value="<?= $this->setFormValues('name') ?>"> -->
+			<input type="email" name="email" required placeholder="E-mail" value="<?= $this->setFormValues('email') ?>">
+			<input type="password" name="password" required placeholder="Пароль">
+
+			<div class="send-order">
+				<button class="execute-order_btn short-item__add-cart" type="submit"><span>Вход</span></button>
+			</div>
+
+		</form>
+
+
 
 	</div>
 
-<?php endif; ?>
+</div>
+
+
 
 <?php $this->getScripts() ?>
 

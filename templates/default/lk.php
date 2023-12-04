@@ -11,12 +11,43 @@
 			<div class="wrapper_internal wrapper_lk">
 				<aside class="internal-aside internal-aside_lk">
 					<div class="internal-aside-items">
-						<a href="/personal/" class="internal-aside-item internal-aside-item_active">
+						<a href="#" data-popup="login-popup" data-user-info class="internal-aside-item internal-aside-item_active">
 							Мой аккаунт </a>
-						<a href="/personal/orders/" class="internal-aside-item ">
+						<a href="<?= $this->alias('lk') ?>" class="internal-aside-item ">
 							Мои заказы </a>
-						<a href="/about/contacts/" class="internal-aside-item ">
+						<a href="<?= $this->alias(['login' => 'logout']) ?>" class="internal-aside-item ">
 							Выход </a>
+
+						<!-- Выпуск №158 | Пользовательская часть | Изменение данных пользователя -->
+						<script>
+							document.addEventListener('DOMContentLoaded', () => {
+								/* здесь true значит сменили фазу(сработаем на фазе спуска) */
+								document.querySelector('[data-user-info]').addEventListener('click', () => {
+
+									let popup = document.querySelector('.login-popup')
+
+									if (popup) {
+
+										let forms = popup.querySelectorAll('form')
+
+										if (typeof forms[1] !== 'undefined') {
+
+											forms[1].remove()
+										}
+
+										forms[0].querySelector('button[type="submit"]').innerHTML = 'Изменить данные'
+
+										/* используем нулевую последовательность для удаления заголовка(если он есть) если форма в состоянии редактирования данных пользователя */
+										popup.querySelector('h3')?.remove()
+										popup.querySelector('p')?.remove()
+
+										/* при редактировании разрешим оставлять поле с паролем незаполненные, т.е. неизменнными */
+										popup.querySelectorAll('[type="password"]').forEach(item => item.removeAttribute('required'))
+									}
+								}, true)
+							})
+						</script>
+
 					</div>
 				</aside>
 
