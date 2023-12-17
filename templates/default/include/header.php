@@ -6,6 +6,23 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	<meta name="description" content="Широкий ассортимент товаров для ремонта по доступной цене с доставкой">
+	<meta name="keywords" content="СтройКонтакт — строительные материалы в Донецке и ДНР">
+
+	<meta property="og:title" content="СТРОЙКОНТАКТ" />
+	<meta property="og:description" content="Широкий ассортимент товаров для ремонта по доступной цене с доставкой" />
+	<meta property="og:image" content="/userfiles/settings/ellipse-19.png" />
+
+	<link rel="icon" href="https://stroykontakt-don.ru/favicon.ico" type="image/x-icon">
+
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
+	<link rel="manifest" href="/favicon/site.webmanifest">
+	<link rel="mask-icon" href="/favicon/safari-pinned-tab.svg" color="#ff5400">
+	<meta name="msapplication-TileColor" content="#ff5400">
+	<meta name="theme-color" content="#ffffff">
+
 	<title><?= $this->set['name'] ?></title>
 
 	<?php $this->getStyles() ?>
@@ -116,7 +133,7 @@
 
 						<div class="header__user-profile">
 
-							<a class="header__profile-link" href="<?= $this->userData ? $this->alias('lk') : '#' ?>" <?= !$this->userData ? 'data-popup = "login-popup"' : '' ?> title="личный кабинет"></a>
+							<a class="header__profile-link" href="<?= $this->userData ? $this->alias('login') : '#' ?>" <?= !$this->userData ? 'data-popup = "login-popup"' : '' ?> title="личный кабинет"></a>
 
 							<!-- <div class="header-user-menu">
 									<a href="#" class="header-user-menu__item header-user-menu__item-active">Личный кабинет</a>
