@@ -2,7 +2,7 @@
 
 defined('VG_ACCESS') or die('Access denied');
 
-const SITE_URL = 'http://cms-poisk';
+const SITE_URL = 'https://stroykontakt-don.ru';
 const PATH = '/';
 
 const HOST = 'localhost';
