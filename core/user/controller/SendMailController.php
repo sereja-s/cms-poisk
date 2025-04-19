@@ -35,7 +35,7 @@ class SendMailController extends BaseUser
 		return $this;
 	}
 
-
+	// на вход 1-почта пользователя
 	public function send($email = null, $subject = null)
 	{
 		!$this->model && $this->model = Model::instance();
@@ -49,6 +49,7 @@ class SendMailController extends BaseUser
 				'limit' => 1
 			]);
 
+			// получили почту из настроек сйта
 			$this->set && $to[] = $this->set[0]['email'];
 		}
 
@@ -63,27 +64,31 @@ class SendMailController extends BaseUser
 		try {
 			//Server settings
 			//$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
-			$mail->isSMTP();                                            // Отправка с помощью SMTP
-			$mail->Host       = 'smtp.yandex.ru';                     // Установите SMTP-сервер для отправки
+			$mail->isSMTP();                              						// Отправка с помощью SMTP 
+			$mail->Host       = 'smtp.yandex.ru'; // Установите SMTP-сервер для отправки(адрес почтового сервера-Исходящая почта)
 			$mail->SMTPAuth   = true;                                   // Включить аутентификацию SMTP
-			$mail->Username   = 'SaitPostroen';                     //SMTP username
-			$mail->Password   = 'lvhmhnkqorkwcimp';                               //SMTP password
+			$mail->Username   = 'stroykontakt-don';                     //SMTP username (с аккаунта почты)
+			$mail->Password   = 'mwraoihetvpevewg';                               //SMTP password
 			$mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            // Включить неявное шифрование TLS
 			$mail->Port       = 465;                                    // TCP порт для подключения; используйте 587, 
 			// если вы установили `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
 			//Recipients - Получатели
-			$mail->setFrom('SaitPostroen@yandex.ru', 'Заявка с интернет-магазина ' . $_SERVER['HTTP_HOST']); // от кого и текст (заголовок письма)
+
+			// указали от кого письма и текст (заголовок письма)
+			$mail->setFrom('stroykontakt-don@yandex.ru', 'Заявка с интернет-магазина ' . $_SERVER['HTTP_HOST']);
 
 			//$mail->addAddress('joe@example.net', 'Joe User');     // Добавить получателя
 
+			// Кому письмо
 			foreach ($to as $adress) {
 
-				$mail->addAddress($adress);               // Кому письмо
+				$mail->addAddress($adress);
 			}
 
 
-			$mail->addReplyTo('SaitPostroen@yandex.ru'/* , 'Information' */); // добавить ответ на
+			// добавить ответ на
+			$mail->addReplyTo('stroykontakt-don@yandex.ru');
 			//$mail->addCC('cc@example.com');
 			//$mail->addBCC('bcc@example.com');
 

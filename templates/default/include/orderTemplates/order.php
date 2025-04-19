@@ -15,6 +15,10 @@
 			<td style='padding: 5px; border: 1px solid #fe7f2d;'>#payments#</td>
 		</tr>
 		<tr>
+			<td style='padding: 5px; border: 1px solid #fe7f2d;'>Разгрузка:</td>
+			<td style='padding: 5px; border: 1px solid #fe7f2d;'>#payments#</td>
+		</tr>
+		<tr>
 			<td style='padding: 5px; border: 1px solid #fe7f2d;'>Сумма заказа:</td>
 			<td style='padding: 5px; border: 1px solid #fe7f2d;'>#total_sum#, ₽</td>
 		</tr>

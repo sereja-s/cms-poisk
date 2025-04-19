@@ -174,28 +174,92 @@
 </div>
 
 <div id="popup-buy-one-click" class="white-popup mfp-hide">
-	<div class="popup-form">
-		<h4 class="popup-form__title">Купить в 1 клик</h4>
+	<form class="popup-form" method="post" action="<?= $this->alias('contactform') ?>">
+		<h4 class="popup-form__title">Оставьте сообщение и мы вам перезвоним</h4>
 
 		<div class="popup-form__item">
 			<label class="popup-form__lable">Имя</label>
-			<input class="popup-form__input" type="text">
+			<input type="text" name="name" class="popup-form__input" value="<?= $this->setFormValues('name', 'userData') ?>">
 		</div>
 		<div class="popup-form__item">
 			<label class="popup-form__lable">Телефон</label>
-			<input class="popup-form__input popup-form__mask-phone-number" type="text" placeholder="(093)-00-00-000">
+			<input type="tel" name="phone" class="popup-form__input" value="<?= $this->setFormValues('phone', 'userData') ?>">
+		</div>
+		<div class="popup-form__item">
+			<label class="popup-form__lable">Эл. почта</label>
+			<input type="email" name="email" class="popup-form__input" value="<?= $this->setFormValues('email', 'userData') ?>">
+		</div>
+		<div class="popup-form__item">
+			<label class="popup-form__lable">Сообщение</label>
+			<textarea class="popup-form__input" name="info" rows="5" placeholder="Укажите интересуемый товар и количество"><?= $this->setFormValues('info', 'userData') ?></textarea>
 		</div>
 
 		<div class="popup-form__text">
-			Укажите Ваше имя и свой номер телефона для оформления заказа. Оператор перезвонит Вам, чтобы подтвердить
-			заказ и
-			согласовать детали доставки.
+			Укажите Ваше имя, свой номер телефона, почту и мы ответим на ваши вопросы.
 		</div>
 
-		<div class="popup-form__text-center">
-			<button class="popup-form__submit" type="submit">Купить</button>
+		<div class="header__callback_privacy" style="margin-top: 20px;">
+			<label class="checkbox">
+				<input type="checkbox" required>
+				<div class="checkbox__text">Соглашаюсь с правилами обработки персональных данных</div>
+			</label>
 		</div>
-	</div>
+
+		<style>
+			.checkbox {
+				display: flex;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+				align-items: center;
+				cursor: pointer
+			}
+
+			/* .checkbox input {
+				position: absolute;
+				z-index: -1;
+				opacity: 0;
+				margin: 10px 0 0 20px
+			} */
+
+			/* .checkbox input:checked+.checkbox__text:after {
+				background: url("../img/Checked.svg") no-repeat
+			}
+ */
+			.checkbox__text {
+				position: relative;
+				font-size: 14px;
+				color: #2D3033;
+				padding: 0 0 0 18px;
+				cursor: pointer
+			}
+
+			.checkbox__text::before {
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background: #fff
+			}
+
+			.checkbox__text::after {
+				content: '';
+				position: absolute;
+				top: -5px;
+				left: -1px;
+				width: 25px;
+				height: 25px
+			}
+		</style>
+
+		<div class="popup-form__text-center">
+			<button class="popup-form__submit" type="submit">ОТПРАВИТЬ</button>
+		</div>
+	</form>
 </div>
 
 <div id="popup-search" class="search-popup-bg  mfp-hide">

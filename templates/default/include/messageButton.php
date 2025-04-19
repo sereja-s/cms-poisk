@@ -1,0 +1,1 @@
+<div><a href="#popup-buy-one-click" class="catalog-filter-wrap__remove but-tel popup-open-modal">Получить консультацию</a></div>

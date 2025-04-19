@@ -4,7 +4,7 @@
 		<div class="container">
 			<div class="index-slider__wrapper">
 				<!-- wrapper bg slider-wrapper -->
-				<div class="index-slider__wrapper-bg" style='background: url("<?= PATH . TEMPLATE ?>assets/img/Строй_Контакт_фон.jpg") center center/cover no-repeat fixed;'>
+				<div class="index-slider__wrapper-bg" style='background: url("<?= PATH . TEMPLATE ?>assets/img/фон-5.jpg") center center/cover no-repeat fixed;'>
 
 					<?php foreach ($sales as $item) : ?>
 
@@ -30,6 +30,12 @@
 	</section>
 
 <?php endif; ?>
+
+<?= $this->messageButton ?>
+
+<!-- <div><a href="#popup-buy-one-click" class="catalog-filter-wrap__remove but-tel popup-open-modal">Получить консультацию</a></div> -->
+
+
 
 
 <?php if (!empty($goods) && !empty($arrHits)) : ?>

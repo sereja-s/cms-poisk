@@ -8599,17 +8599,18 @@ screen and (max-height: 300px) {
 
 .popup-form .popup-form__title {
 	font-weight: 400;
-	font-size: 30px;
-	line-height: 35px;
+	font-size: 22px;
+	line-height: 25px;
 	color: #1e1e1e;
 	display: block;
 	text-align: center;
 	margin-bottom: 25px;
+	margin-top: 15px;
 }
 
 .popup-form .popup-form__text {
 	font-size: 15px;
-	line-height: 20px;
+	line-height: 25px;
 	color: #1e1e1e;
 }
 
@@ -8628,6 +8629,7 @@ screen and (max-height: 300px) {
 	line-height: 15px;
 	color: #999;
 	padding-left: 15px;
+	padding-bottom: 5px;
 }
 
 .popup-form .popup-form__input {
@@ -8637,7 +8639,7 @@ screen and (max-height: 300px) {
 	width: 100%;
 	padding: 10px;
 	font-size: 16px;
-	line-height: 25px;
+	line-height: 20px;
 	margin-bottom: 15px;
 	color: #000;
 	outline: none;
@@ -9669,4 +9671,56 @@ input[type=number] {
 
 .execute-order_btn {
 	border: none;
+}
+/* ===================================================================================================================== */
+
+.catalog-filter-wrap__remove {
+	display: block;
+	font-family: Impact, sans-serif;
+	font-size: 17px;
+	font-weight: 500;
+	line-height: 100%;
+	color: #0869db;
+	width: max-content;	
+	text-shadow: 1px 1px #fff;
+	text-decoration: none;
+	cursor: pointer;
+	letter-spacing: .07em;
+	transition: .3s;
+	padding: .3em .5em;
+	outline: none;
+	background: #d6dbbf no-repeat;
+	background-image: linear-gradient(to left, #aaa, #aaa), linear-gradient(to left, #feffe8, #feffe8), linear-gradient(#feffe8, #d6dbbf);
+	background-size: 1px 100%, 1px 100%, auto auto;
+	overflow: hidden;
+}
+
+.catalog-filter-wrap__remove:hover {
+	background-color: #fdfd9f;
+	color: #ff3f00;
+	background-image:
+		linear-gradient(to left, #aaa, #aaa),
+		linear-gradient(to left, #feffe8, #feffe8),
+		linear-gradient(#fffce7, #fdfd9f);
+}
+
+.but-tel {
+	font-size: 30px;	
+	margin-top: 55px;
+	margin-left: auto;
+	margin-bottom: 90px;
+	margin-right: auto;
+}
+
+@media (max-width: 510px) {
+	.but-tel {		
+		max-width: 75vw;
+		text-align: center;
+	}
+}
+
+@media (max-width: 425px) {
+	.but-tel {
+		font-size: 25px;
+	}
 }

@@ -149,6 +149,28 @@
 
 				<div class="cart-page__get-pay">
 
+					<?php if (!empty($this->loaders)) : ?>
+
+						<h3 class="h3-title cart-page__get-pay-title">Способ разгрузки</h3>
+
+						<div class="cart-page__gp-wrapper">
+
+							<?php foreach ($this->loaders as $key => $item) : ?>
+
+								<label class="cart-page__gp-lable">
+									<input type="radio" value="<?= $item['id'] ?>" name="loaders_id" <?= !$key ? 'checked' : '' ?>>
+									<span style="padding-left: 5px;"><?= $item['name'] ?></span>
+								</label>
+
+							<?php endforeach; ?>
+
+						</div>
+
+					<?php endif; ?>
+
+				</div>
+				<div class="cart-page__get-pay">
+
 					<?php if (!empty($this->payments)) : ?>
 
 						<h3 class="h3-title cart-page__get-pay-title">Способ оплаты</h3>
@@ -202,13 +224,13 @@
 					<div class="cart-page__gс-form">
 						<div class="cart-page__gc-item-textarea">
 							<label class="cart-page__gc--label">Дополнительная информация</label>
-							<textarea name="info"><?= $this->setFormValues('info', 'userData') ?></textarea>
+							<textarea name="info" placeholder="Укажите если нужна услуга грузчиков и т.д."><?= $this->setFormValues('info', 'userData') ?></textarea>
 						</div>
 					</div>
 
 					<div class="cart-page__gс-form">
 						<div class="cart-page__gc-item-check">
-							<label><input type="checkbox" required> Согласен на обработку персональных данных</label>
+							<label><input type="checkbox" required> Соглашаюсь с правилами обработки персональных данных</label>
 
 							<?php if (!empty($this->menu['information'])) : ?>
 

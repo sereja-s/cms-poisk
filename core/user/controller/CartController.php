@@ -12,6 +12,7 @@ class CartController extends BaseUser
 	// получим оплату и доставку (объявим свойства)
 	protected $delivery;
 	protected $payments;
+	protected $loaders;
 
 	// Выпуск №143 | Пользовательская часть | Корзина товаров | ч 1
 	protected function inputData()
@@ -31,8 +32,18 @@ class CartController extends BaseUser
 			'info' => 'цвет: белый',
 		]; */
 
-		$this->delivery = $this->model->get('delivery', ['where' => ['visible' => 1]]);
-		$this->payments = $this->model->get('payments', ['where' => ['visible' => 1]]);
+		$this->delivery = $this->model->get('delivery', [
+			'where' => ['visible' => 1],
+			'order' => ['menu_position']
+		]);
+		$this->payments = $this->model->get('payments', [
+			'where' => ['visible' => 1],
+			'order' => ['menu_position']
+		]);
+		$this->loaders = $this->model->get('loaders', [
+			'where' => ['visible' => 1],
+			'order' => ['menu_position']
+		]);
 
 		if (!empty($this->parameters['alias']) && $this->parameters['alias'] === 'remove') {
 

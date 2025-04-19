@@ -12,6 +12,7 @@ class OrdersController extends BaseUser
 
 	protected $delivery = [];
 	protected $payments = [];
+	protected $loaders = [];
 
 	protected function inputData()
 	{
@@ -23,6 +24,7 @@ class OrdersController extends BaseUser
 			// (на вход: 2- подаём: 'join_structure' => true, чтобы реструктурировались массивы и ключами стали: id)
 			$this->delivery = $this->model->get('delivery', ['join_structure' => true]);
 			$this->payments = $this->model->get('payments', ['join_structure' => true]);
+			$this->loaders = $this->model->get('loaders', ['join_structure' => true]);
 
 			$this->order();
 		}
@@ -58,7 +60,11 @@ class OrdersController extends BaseUser
 			'payments_id' => [
 				'translate' => 'Способ оплаты',
 				'methods' => ['emptyField', 'numericField']
-			]
+			],
+			'loaders_id' => [
+				'translate' => 'Способ разгрузки',
+				'methods' => ['emptyField', 'numericField']
+			],
 
 		];
 
@@ -184,12 +190,13 @@ class OrdersController extends BaseUser
 		}
 
 		// -Выпуск №157 | Пользовательская часть | Личный кабинет список заказов
-		//$this->sendSuccess('Спасибо за заказ! В ближайшее время наш специалист свяжется с Вами для уточнения деталей');
+		$this->sendSuccess('Спасибо за заказ! В ближайшее время наш специалист свяжется с Вами для уточнения деталей');
 
 
 		// +Выпуск №151 | Пользовательская часть | подготовка почтовых шаблонов
 		$order['delivery'] = $this->delivery[$order['delivery_id']]['name'] ?? '';
 		$order['payments'] = $this->payments[$order['payments_id']]['name'] ?? '';
+		$order['loaders'] = $this->payments[$order['loaders_id']]['name'] ?? '';
 
 		// +Выпуск №151 | Пользовательская часть | подготовка почтовых шаблонов
 		$this->sendOrderEmail(['order' => $order, 'visitor' => $visitor, 'goods' => $goods]);
@@ -197,9 +204,9 @@ class OrdersController extends BaseUser
 		$this->clearCart();
 
 		// -Выпуск №157 | Пользовательская часть | Личный кабинет список заказов
-		//$this->redirect();
+		$this->redirect();
 		// +Выпуск №157 | Пользовательская часть | Личный кабинет список заказов
-		$this->sendSuccess('Спасибо за заказ! В ближайшее время наш специалист свяжется с Вами для уточнения деталей');
+		//$this->sendSuccess('Спасибо за заказ! В ближайшее время наш специалист свяжется с Вами для уточнения деталей');
 	}
 
 	/** 

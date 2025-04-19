@@ -100,41 +100,28 @@
 					</div>
 
 
-					<?php if (!empty($data['filters'])) : ?>
 
-						<!-- description -->
-						<div class="full-item__description">
 
-							<?php $counter = 0; ?>
 
-							<?php foreach ($data['filters'] as $item) : ?>
+					<div class="full-item__description">
 
-								<?php
+						<div class="full-item__table">
 
-								if (++$counter > 3) break;
-
-								?>
-
-								<div class="full-item__table">
-
-									<div class="full-item__table-name"><span><?= $item['name'] ?></span></div>
-									<div class="full-item__table-param"><?= implode(', ', array_column($item['values'], 'name')) ?></div>
-
-								</div>
-
-							<?php endforeach; ?>
-
-							<?php if (count($data['filters']) > 3) : ?>
-
-								<div class="full-item__all-char">
-									<a class="full-item__all-char-link scroll-to" href="#full-item__tabs" style="text-decoration: underline;">Все характеристики</a>
-								</div>
-
-							<?php endif; ?>
+							<div class="tech-content"><?= $data['short_content'] ?></div>
 
 						</div>
 
-					<?php endif; ?>
+						<?php if (!empty($data['filters'])) : ?>
+
+							<div class="full-item__all-char">
+								<a class="full-item__all-char-link scroll-to" href="#full-item__tabs" style="text-decoration: underline;">Характеристики в фильтре</a>
+							</div>
+
+						<?php endif; ?>
+
+					</div>
+
+
 
 					<!-- price -->
 					<div class="full-item__price" data-productContainer>

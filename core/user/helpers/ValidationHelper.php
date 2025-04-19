@@ -22,6 +22,18 @@ trait ValidationHelper
 		return $value;
 	}
 
+	protected function russianField($value, $answer)
+	{
+		$value = $this->clearStr($value);
+
+		if (preg_match('/^[^a-zA-Z]+$/', $value)) {
+
+			return $value;
+		}
+
+		$this->sendError('Позвоните нам или заполните поле: ' . $answer);
+	}
+
 	/** 
 	 * Метод подготавливает числовые значения при регистрации (авторизации) пользователя и т.д.
 	 */
@@ -39,7 +51,25 @@ trait ValidationHelper
 	/** 
 	 * Метод подготавливает телефонные номера и приводит к одному формату
 	 */
+
 	protected function phoneField($value, $answer = null)
+	{
+		$value = preg_replace('/\D/', '', $value);
+
+		if (strlen($value) === 11) {
+
+			$value = preg_replace('/^8/', '7', $value);
+		}
+
+		if (substr($value, 0, 1) !== '7') {
+
+			$this->sendError('Некорректный ' . $answer);
+		}
+
+		return $value;
+	}
+
+	/* 	protected function phoneField($value, $answer = null)
 	{
 		$value = preg_replace('/\D/', '', $value);
 
@@ -51,7 +81,7 @@ trait ValidationHelper
 
 		return $value;
 	}
-
+ */
 	/** 
 	 * Метод подготавливает email и проверяет на корректность формата
 	 */
@@ -82,7 +112,7 @@ trait ValidationHelper
 		}
 
 		// Выпуск №154 | Пользовательская часть | регистрация
-		$this->redirect();
+		//$this->redirect();
 	}
 
 	/** 
