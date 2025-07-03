@@ -2237,6 +2237,7 @@ screen and (max-height: 300px) {
 @media (max-width: 375px) {
 	.category-page__title {
 		font-size: 23px;
+		line-height: 27px;
 	}
 }
 
@@ -5664,11 +5665,11 @@ screen and (max-height: 300px) {
 	flex: 1 1 auto;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
 	.news-page__content {
 		margin-bottom: 30px;
 	}
-}
+} */
 
 .news-page__main-title {
 	font-weight: 400;
@@ -9722,5 +9723,88 @@ input[type=number] {
 @media (max-width: 425px) {
 	.but-tel {
 		font-size: 25px;
+	}
+}
+
+/* ========================================== AMK ===================================================================== */
+
+.seven__items {
+	display: grid;
+	gap: 2.5rem;
+	grid-template-columns: repeat(auto-fill, minmax(20.5rem, 1fr));
+}
+
+@media (max-width: 768px) {
+	.seven__items {
+		 grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+		 gap: 1.3rem;
+	}
+}
+
+
+.seven__item {
+	display: grid;
+	gap: 1rem;
+	padding-top: 15px;
+}
+
+.seven__image {
+	overflow: hidden;
+}
+
+.seven__image img {
+	transition: all 0.3s ease 0s;
+	width: 100%;
+}
+
+.seven__image img:hover {
+	transform: scale(1.05);
+}
+
+.seven__date {
+	color: #545971;
+}
+
+.amk-title {
+	font-size: 1.8rem;
+	text-align: center;
+	font-weight:700;
+	margin: 25px 0 15px 0;
+}
+
+.eight-leftside__question {
+	padding-bottom: 15px;
+}
+
+.seven__subtitle {
+	font-weight: 700;	
+	transition: all 0.3s ease 0s;
+	font-size: 1.7rem;
+}
+.seven__text,
+.eight-leftside__question {
+	font-size: 1.5rem;
+	line-height: 1.3;
+}
+
+/* @media (min-width: 93.75em) {
+	.seven__subtitle {
+		 font-size: 2rem;
+	}
+	.seven__text {
+		font-size: 1.5rem;
+	}
+} */
+
+@media (min-width: 20em) and (max-width: 93.75em) {
+	.amk-title {
+		 font-size: calc(1.3rem + 0.75 * (100vw - 20rem) / 73.75);
+	}
+	.seven__subtitle {
+		 font-size: calc(1.2rem + 0.75 * (100vw - 20rem) / 73.75);
+	}
+	.seven__text,
+	.eight-leftside__question {
+		font-size: calc(1.07rem + 0.3 * (100vw - 20rem) / 73.75);
 	}
 }

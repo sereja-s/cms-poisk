@@ -433,8 +433,8 @@ $(function () {
 		autoplay: true,
 		mobileFirst: true,
 		slidesToShow: 2,
-		autoplaySpeed: 10000,
-		speed: 5000,
+		autoplaySpeed: 5000,
+		speed: 3000,
 		responsive: [
 			{
 				breakpoint: 768,

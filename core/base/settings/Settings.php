@@ -90,6 +90,9 @@ class Settings
 		'delivery' => ['name' => 'Доставка'],
 		'payments' => ['name' => 'Виды оплаты'],
 		'loaders' => ['name' => 'Разгрузка'],
+		'section_top' => ['name' => 'АМК (главное)'],
+		'services' => ['name' => 'Виды АМК'],
+		'amk_colors' => ['name' => 'Цвета АМК']
 	];
 
 	// свойство с таблицами в которых будет происходить поиск
@@ -103,8 +106,8 @@ class Settings
 	// свойство: массив шаблонов
 	private $templateArr = [
 		// массив вида: 'название шаблона' => массив с полями для которых должен быть подключен соответствующий шаблон
-		'text' => ['name', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password', 'sb_text', 'sb_title', 'sb_alias', 'working_time'],
-		'textarea' => ['content', 'keywords', 'address', 'description', 'short_content'],
+		'text' => ['name', 'phone', 'email', 'alias', 'external_alias', 'sub_title', 'number_of_years', 'discount', 'price', 'login', 'password', 'sb_title', 'sb_alias', 'working_time'],
+		'textarea' => ['content', 'sb_text', 'keywords', 'address', 'description', 'short_content', 'title'],
 		'radio' => ['visible', 'show_top_menu', 'hit', 'sale', 'new', 'hot'],
 		'select' => ['menu_position', 'parent_id'],
 		'img' => ['img', 'sb_img', 'promo_img'],
@@ -193,8 +196,8 @@ class Settings
 		'discount' => ['int' => true],
 		'login' => ['empty' => true, 'trim' => true],
 		'password' => ['crypt' => true, 'empty' => true],
-		'keywords' => ['count' => 70, 'trim' => true],
-		'description' => ['count' => 160, 'trim' => true]
+		'keywords' => ['count' => 700, 'trim' => true],
+		'description' => ['count' => 1600, 'trim' => true]
 	];
 
 	// Объявим метод, который будет возвращать указанные выше свойства

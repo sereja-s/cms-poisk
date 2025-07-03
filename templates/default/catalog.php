@@ -6,14 +6,32 @@
 		<div class="container">
 			<h1 class="category-page__title"><?= $data['name'] ?></h1>
 
+			<?php if (!empty($data['sb_text']) || !empty($data['img']) || !empty($data['content'])) : ?>
+
+				<div class="news-page__wrapper" style="margin-bottom: 25px">
+					<div class="news-page__content">
+						<div class="news-page__text">
+
+							<?= $data['sb_text'] ?>
+
+							<?php if (!empty($data['img'])) :  ?>
+
+								<img src="<?= $this->img($data['img']) ?>" alt="<?= $data['name'] ?>" style="display: block; margin: 20px auto;">
+
+							<?php endif; ?>
+
+							<?= $data['content'] ?>
+
+						</div>
+					</div>
+
+				</div>
+
+			<?php endif; ?>
 
 			<div class="category-page__wrapper">
 
-				<?php if (empty($goods)) : ?>
-
-					<h3>по Вашему запросу ничего не найдено</h3>
-
-				<?php else : ?>
+				<?php if (!empty($goods)) : ?>
 
 					<?php if (empty($dontShowAside)) : ?>
 
@@ -79,8 +97,6 @@
 										<div class="category-filter__result-clear"></div>
 									</div>
 								</div>
-
-
 
 							<?php endif; ?>
 
@@ -179,6 +195,9 @@
 				<?php endif; ?>
 
 			</div>
+
+			<?= $this->messageButton ?>
+
 		</div>
 	</section>
 

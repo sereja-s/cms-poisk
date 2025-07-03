@@ -38,7 +38,9 @@ class CatalogController extends BaseUser
 
 			if (!$data) {
 
-				throw new RouteException('Не найдены записи в таблице catalog по ссылке ', $this->parameters['alias']);
+				$this->redirect($this->alias());
+
+				/* throw new RouteException('Не найдены записи в таблице catalog по ссылке ', $this->parameters['alias']); */
 			}
 		}
 
@@ -53,13 +55,15 @@ class CatalogController extends BaseUser
 
 					$where['id'][] = $this->clearNum($item['goodsnew_id']);
 				}
-				$data['name'] = $data[0]['name'];
+				/* $data['name'] = $data[0]['name']; */
+				$data = $data[0];
+				/* $data['name'] = $data['name']; */
 				$where['id'] = implode(',', $where['id']);
 				$goodsOperand = 'IN';
 			} else {
 
 				$data = $data[0];
-				$data['name'] = $data['name'];
+				/* $data['name'] = $data['name']; */
 				$where['id'] = $data['goodsnew_id'];
 				$goodsOperand = '=';
 			}

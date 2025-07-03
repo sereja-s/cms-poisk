@@ -53,6 +53,7 @@ class Model extends \core\base\model\BaseModel
 			if (!empty($this->showColumns('goodsnew')['price'])) {
 
 				$set['order'][] = 'price';
+				$set['order_direction'][] = 'DESC';
 			}
 		}
 

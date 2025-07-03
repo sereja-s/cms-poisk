@@ -13,7 +13,7 @@
 								<div class="index-slider__item__content">
 									<h3 class="index-slider__item-title"><?= $item['name'] ?></h3>
 									<p class="index-slider__item-text"><?= $item['sub_title'] ?></p>
-									<a class="index-slider__item-link" href="#">Подробнее</a>
+									<a class="index-slider__item-link" href="tel:<?= preg_replace('/[^+\d]/', '', $this->set['phone']) ?>" style="font-size: 18px;"><?= $this->set['phone'] ?></a>
 								</div>
 
 								<div class="index-slider__item-picture">
@@ -31,9 +31,13 @@
 
 <?php endif; ?>
 
-<?= $this->messageButton ?>
+<div>
+	<a href="https://t.me/Stoykontakt_rabochiy" class="catalog-filter-wrap__remove but-tel">Связаться через Telegram</a>
+</div>
 
-<!-- <div><a href="#popup-buy-one-click" class="catalog-filter-wrap__remove but-tel popup-open-modal">Получить консультацию</a></div> -->
+
+
+<?= $this->messageButton ?>
 
 
 

@@ -307,7 +307,7 @@
 												<?php endif; ?>
 
 												<div class="navi-category__submenu-banner">
-													<a class="navi-category__sb-link" style="background-color:#F3F8FF;" href="<?= $this->alias(['catalog' => $item['sb_alias']]) ?>">
+													<div class="navi-category__sb-link" style="background-color:#F3F8FF;">
 														<div class="navi-category__sb-title"><?= $item['sb_title'] ?></div>
 
 														<div class="navi-category__sb-text"><?= $item['sb_text'] ?></div>
@@ -319,7 +319,7 @@
 														<!-- <div class="navi-category__sb-buy">
 															Купить
 														</div> -->
-													</a>
+													</div>
 												</div>
 											</div>
 
