@@ -38,9 +38,9 @@ class CatalogController extends BaseUser
 
 			if (!$data) {
 
-				$this->redirect($this->alias());
+				//$this->redirect($this->alias());
 
-				/* throw new RouteException('Не найдены записи в таблице catalog по ссылке ', $this->parameters['alias']); */
+				throw new RouteException('Не найдены записи в таблице catalog по ссылке ' . $this->parameters['alias']);
 			}
 		}
 

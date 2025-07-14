@@ -4,6 +4,8 @@
 	<div class="container">
 		<h1 class="category-page__title"><?= $section_top['name'] ?></h1>
 
+		<?= $this->fileAmk ?>
+
 		<div class="page-seven seven">
 
 			<?php if (!empty($services)) : ?>
@@ -41,6 +43,8 @@
 			<?php endif; ?>
 
 		</div>
+
+		<?= $this->messageButtonTel ?>
 
 		<div class="page-seven seven">
 
