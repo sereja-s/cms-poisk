@@ -13,5 +13,11 @@ class ContactsController extends BaseUser
 	{
 
 		parent::inputData();
+
+		$data = [];
+
+		$data['name'] = 'Контакты';
+
+		return compact('data');
 	}
 }

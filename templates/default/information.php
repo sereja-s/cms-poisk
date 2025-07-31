@@ -2,23 +2,12 @@
 
 		<?= $this->breadcrumbs ?>
 
-		<?php if (!empty($this->menu['information'])) : ?>
+		<h1 class="category-page__title"><?= $data['name'] ?></h1>
 
-			<?php foreach ($this->menu['information'] as $item) : ?>
+		<section class="catalog-internal">
 
-				<?php if ($item['alias'] === ($this->parameters['alias'])) : ?>
+			<?= $data['content'] ?>
 
-					<h1 class="category-page__title"><?= $item['name'] ?></h1>
+		</section>
 
-					<section class="catalog-internal">
-
-						<?= $item['content'] ?>
-
-					</section>
-
-				<?php endif; ?>
-
-			<?php endforeach; ?>
-
-		<?php endif; ?>
 	</div>

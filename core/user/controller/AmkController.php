@@ -27,6 +27,10 @@ class AmkController extends BaseUser
 			'order' => ['menu_position']
 		]);
 
-		return compact('section_top', 'services', 'amkColors');
+		$data = [];
+
+		$data['name'] = 'АМК декоративное покрытие для фасадов и интерьеров';
+
+		return compact('section_top', 'services', 'amkColors', 'data');
 	}
 }

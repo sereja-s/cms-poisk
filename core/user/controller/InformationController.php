@@ -13,5 +13,21 @@ class InformationController extends BaseUser
 	{
 
 		parent::inputData();
+
+		$data = [];
+
+		if (!empty($this->menu['information'])) {
+
+			foreach ($this->menu['information'] as $item) {
+
+				if ($item['alias'] === ($this->parameters['alias'])) {
+
+					$data['name'] = $item['name'];
+					$data['content'] = $item['content'];
+				}
+			}
+		}
+
+		return compact('data');
 	}
 }

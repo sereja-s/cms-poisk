@@ -6,12 +6,12 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<meta name="description" content="Широкий ассортимент товаров для ремонта по доступной цене с доставкой">
-	<meta name="keywords" content="СтройКонтакт — строительные материалы в Донецке и ДНР">
+	<meta name="description" content="<?= $data['name'] ? $data['name'] . ' Купить в Донецке, Макеевке, ДНР по выгодной цене с доставкой или самовывозом, тел. ' . $this->set['phone'] . ($page ? ' - текущая страница каталога № ' . $page : '') : $this->set['description'] . ' , тел. ' . $this->set['phone'] ?>">
+	<meta name="keywords" content="<?= $data['name'] ? $data['name'] . ', ' : '' ?><?= $this->set['keywords'] ?>">
 
-	<meta property="og:title" content="СТРОЙКОНТАКТ" />
-	<meta property="og:description" content="Широкий ассортимент товаров для ремонта по доступной цене с доставкой" />
-	<meta property="og:image" content="/userfiles/settings/ellipse-19.png" />
+	<meta property="og:title" content="<?= $this->set['name'] ?><?= $data['name'] ? ' | ' . $data['name'] : '' ?>" />
+	<meta property="og:description" content="Сделать заказ по тел.<?= $this->set['phone'] ?> <?= $this->set['description'] ?>" />
+	<meta property="og:image" content="<?= $this->img($this->set['img']) ?>" />
 
 	<link rel="icon" href="https://stroykontakt-don.ru/favicon.ico" type="image/x-icon">
 
@@ -23,7 +23,7 @@
 	<meta name="msapplication-TileColor" content="#ff5400">
 	<meta name="theme-color" content="#ffffff">
 
-	<title><?= $this->set['name'] ?></title>
+	<title><?= $this->set['name'] ?><?= $data['name'] ? ' | ' . $data['name'] . ($page ? ' - страница ' . $page : '') : '' ?></title>
 
 	<?php $this->getStyles() ?>
 

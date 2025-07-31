@@ -22,5 +22,11 @@ class NewsController extends BaseUser
 			'order_direction' => ['DESC'],
 			'limit' => 5
 		]);
+
+		$data = [];
+
+		$data['name'] = 'Новости';
+
+		return compact('data');
 	}
 }

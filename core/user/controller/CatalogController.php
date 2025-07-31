@@ -108,10 +108,12 @@ class CatalogController extends BaseUser
 
 		//$a = 1;
 
+		$page = $_GET['page'] ?? '';
+
 		// Выпуск №136
 		$pages = $this->model->getPagination();
 
-		return compact('data', 'catalogFilters', 'catalogPrices', 'goods', 'order', 'quantities', 'pages');
+		return compact('data', 'catalogFilters', 'catalogPrices', 'goods', 'order', 'quantities', 'pages', 'page');
 	}
 
 
