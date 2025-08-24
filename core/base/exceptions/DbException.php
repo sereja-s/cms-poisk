@@ -26,4 +26,13 @@ class DbException extends \Exception
 		//        }
 		$this->writeLog($error, 'db_log.txt');
 	}
+
+	public function showMessage()
+	{
+
+		header("HTTP/1.1 404 Not Found", true, 404);
+		header('Status: 404 Not Found');
+
+		return new \core\base\controller\ErrorController($this->message);
+	}
 }
